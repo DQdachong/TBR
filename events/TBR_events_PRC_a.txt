@@ -1,0 +1,564 @@
+add_namespace = china
+
+#@event china.701 关于北美的夜谈
+country_event = {
+    id = china.701
+    title = china.701.t
+    desc = china.701.d
+    picture = GFX_event_china_701
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.701.a
+	}
+}
+
+#@event china.702 东方日出，再顾当下
+country_event = {
+    id = china.702
+    title = china.702.t
+    desc = china.702.d
+    picture = GFX_event_china_702
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.702.a
+	}
+}
+
+#@event china.703 明年必是早春
+country_event = {
+    id = china.703
+    title = china.703.t
+    desc = china.703.d
+    picture = GFX_event_china_703
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.703.a
+	}
+}
+
+#@event china.704 打破岛链围困
+country_event = {
+    id = china.704
+    title = china.704.t
+    desc = china.704.d
+    picture = GFX_event_china_704
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.704.a
+	}
+}
+
+#@event china.705 解决台湾问题
+country_event = {
+    id = china.705
+    title = china.705.t
+    desc = china.705.d
+    picture = GFX_event_china_705
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.705.a
+	}
+}
+
+#@event china.706 联合国宣布日本在琉球主权非法
+country_event = {
+    id = china.706
+    title = china.706.t
+    desc = china.706.d
+    picture = GFX_event_china_706
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.706.a
+	}
+}
+
+#@event china.707 考虑武统
+country_event = {
+    id = china.707
+    title = china.707.t
+    desc = china.707.d
+    picture = GFX_event_china_707
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.707.a
+        complete_national_focus = PRC_finish_what_mao_wanted
+	}
+}
+
+#@event china.708 中日韩三方会议
+country_event = {
+    id = china.708
+    title = china.708.t
+    desc = china.708.d
+    picture = GFX_event_china_708
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.708.a
+	}
+}
+
+#@event china.709 他们的回答
+country_event = {
+    id = china.709
+    title = china.709.t
+    desc = china.709.d
+    picture = GFX_event_china_709
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.709.a
+        focus_unlock = yes
+        complete_national_focus = PRC_cut_off_the_ring
+        mark_focus_tree_layout_dirty = yes
+	}
+}
+
+#@event china.710 关于日本军队近期可疑行为的情况汇报
+country_event = {
+    id = china.710
+    title = china.710.t
+    desc = china.710.d
+    picture = GFX_event_china_710
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.710.a
+	}
+}
+
+#@event china.711 日本军舰“凉月”号挑衅 中国海军依法扣押
+country_event = {
+    id = china.711
+    title = china.711.t
+    desc = china.711.d
+    picture = GFX_event_china_711
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.711.a
+	}
+}
+
+#@event china.712 对日作战计划
+country_event = {
+    id = china.712
+    title = china.712.t
+    desc = china.712.d
+    picture = GFX_event_china_712
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.712.a
+	}
+}
+
+#@event china.713 中华人民共和国对日本国宣战书
+country_event = {
+    id = china.713
+    title = china.713.t
+    desc = china.713.d
+    picture = GFX_event_china_713
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.713.a
+	}
+}
+
+#@event china.714 琉球爆发大规模独立抗议，临时政府成立
+country_event = {
+    id = china.714
+    title = china.714.t
+    desc = china.714.d
+    picture = GFX_event_china_714
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.714.a
+	}
+}
+
+#@event china.715 中国代表接见琉球独立政府
+country_event = {
+    id = china.715
+    title = china.715.t
+    desc = china.715.d
+    picture = GFX_event_china_715
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.715.a
+	}
+}
+
+#@event china.716 外交博弈
+country_event = {
+    id = china.716
+    title = china.716.t
+    desc = china.716.d
+    picture = GFX_event_china_716
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.716.a
+	}
+}
+
+#@event china.717 士兵日记：谢宝林
+country_event = {
+    id = china.717
+    title = china.717.t
+    desc = china.717.d
+    picture = GFX_event_china_717
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.717.a
+	}
+}
+
+#@event china.718 士兵日记：谢宝林
+country_event = {
+    id = china.718
+    title = china.718.t
+    desc = china.718.d
+    picture = GFX_event_china_718
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.718.a
+	}
+}
+
+#@event china.719 石油危机紧急方案
+country_event = {
+    id = china.719
+    title = china.719.t
+    desc = china.719.d
+    picture = GFX_event_china_719
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.719.a
+	}
+}
+
+#@event china.720 加深国际合作
+country_event = {
+    id = china.720
+    title = china.720.t
+    desc = china.720.d
+    picture = GFX_event_china_720
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.720.a
+	}
+}
+
+#@event china.721 政治稳定
+country_event = {
+    id = china.721
+    title = china.721.t
+    desc = china.721.d
+    picture = GFX_event_china_721
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.721.a
+	}
+}
+
+#@event china.722 国内能源发展
+country_event = {
+    id = china.722
+    title = china.722.t
+    desc = china.722.d
+    picture = GFX_event_china_722
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.722.a
+	}
+}
+
+#@event china.723 石油人民币体系
+country_event = {
+    id = china.723
+    title = china.723.t
+    desc = china.723.d
+    picture = GFX_event_china_723
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.723.a
+	}
+}
+
+#@event china.724 沙特内战维和计划
+country_event = {
+    id = china.724
+    title = china.724.t
+    desc = china.724.d
+    picture = GFX_event_china_724
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.724.a
+	}
+}
+
+#@event china.725 中俄加深能源合作
+country_event = {
+    id = china.725
+    title = china.725.t
+    desc = china.725.d
+    picture = GFX_event_china_725
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.725.a
+	}
+}
+
+#@event china.726 中国新能源发展
+country_event = {
+    id = china.726
+    title = china.726.t
+    desc = china.726.d
+    picture = GFX_event_china_726
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.726.a
+	}
+}
+
+#@event china.727 中核规划2020-2021
+country_event = {
+    id = china.727
+    title = china.727.t
+    desc = china.727.d
+    picture = GFX_event_china_727
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.727.a
+	}
+}
+
+#@event china.728 合作共赢
+country_event = {
+    id = china.728
+    title = china.728.t
+    desc = china.728.d
+    picture = GFX_event_china_728
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.728.a
+	}
+}
+
+#@event china.729 中国未来能源发展
+country_event = {
+    id = china.729
+    title = china.729.t
+    desc = china.729.d
+    picture = GFX_event_china_729
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.729.a
+	}
+}
+
+#@event china.730 2020金融危机
+country_event = {
+    id = china.730
+    title = china.730.t
+    desc = china.730.d
+    picture = GFX_event_china_730
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.730.a
+	}
+}
+
+#@event china.731 投资企业
+country_event = {
+    id = china.731
+    title = china.731.t
+    desc = china.731.d
+    picture = GFX_event_china_731
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.731.a
+	}
+}
+
+#@event china.732 美国表达不满
+country_event = {
+    id = china.732
+    title = china.732.t
+    desc = china.732.d
+    picture = GFX_event_china_732
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.732.a
+	}
+}
+
+#@event china.733 六保六稳
+country_event = {
+    id = china.733
+    title = china.733.t
+    desc = china.733.d
+    picture = GFX_event_china_733
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.733.a
+	}
+}
+
+#@event china.734 金融危机下的中小企业
+country_event = {
+    id = china.734
+    title = china.734.t
+    desc = china.734.d
+    picture = GFX_event_china_734
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.734.a
+	}
+}
+
+#@event china.735 海南自贸港
+country_event = {
+    id = china.735
+    title = china.735.t
+    desc = china.735.d
+    picture = GFX_event_china_735
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.735.a
+	}
+}
+
+#@event china.736 消费升级
+country_event = {
+    id = china.736
+    title = china.736.t
+    desc = china.736.d
+    picture = GFX_event_china_736
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.736.a
+	}
+}
+
+#@event china.737 危机下的双循环
+country_event = {
+    id = china.737
+    title = china.737.t
+    desc = china.737.d
+    picture = GFX_event_china_737
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.737.a
+	}
+}
+
+#@event china.738 中日韩自贸区会议
+country_event = {
+    id = china.738
+    title = china.738.t
+    desc = china.738.d
+    picture = GFX_event_china_738
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.738.a
+	}
+}
+
+#@event china.739 结构改革阶段性成果
+country_event = {
+    id = china.739
+    title = china.739.t
+    desc = china.739.d
+    picture = GFX_event_china_739
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.739.a
+	}
+}
+
+#@event china.740 一带一路
+country_event = {
+    id = china.740
+    title = china.740.t
+    desc = china.740.d
+    picture = GFX_event_china_740
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.740.a
+	}
+}
+
+#@event china.741 经济稳定
+country_event = {
+    id = china.741
+    title = china.741.t
+    desc = china.741.d
+    picture = GFX_event_china_741
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.741.a
+	}
+}
+
+#@event china.742 利亚德谈判
+country_event = {
+    id = china.742
+    title = china.742.t
+    desc = china.742.d
+    picture = GFX_event_china_742
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.742.a
+	}
+}
+
+#@event china.743 金融危机结束
+country_event = {
+    id = china.743
+    title = china.743.t
+    desc = china.743.d
+    picture = GFX_event_china_743
+    is_triggered_only = yes
+    
+	option = {
+	    name = china.743.a
+	}
+}

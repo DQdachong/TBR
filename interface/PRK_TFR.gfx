@@ -1,0 +1,121 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_focus_focus1"
+        texturefile = "gfx/interface/goals/PRK/focus1.png"
+    }
+    spriteType = {
+        name = "GFX_focus_focus2"
+        texturefile = "gfx/interface/goals/PRK/corona.png"
+    }
+    spriteType = {
+        name = "GFX_focus_focus3"
+        texturefile = "gfx/interface/goals/PRK/yaopin.png"
+    }
+    spriteType = {
+        name = "GFX_focus_focus4"
+        texturefile = "gfx/interface/goals/PRK/vac.png"
+    }
+    spriteType = {
+        name = "GFX_event.nk.1"
+        texturefile = "gfx/event_pictures/626.png"
+    }
+    spriteType = {
+        name = "GFX_event.nk.2"
+        texturefile = "gfx/event_pictures/112.png"
+    }
+    spriteType = {
+        name = "GFX_focus_pol1"
+        texturefile = "gfx/interface/goals/PRK/shibing.png"
+    }
+    spriteType = {
+        name = "GFX_event.nk.3"
+        texturefile = "gfx/event_pictures/113.png"
+    }
+    spriteType = {
+        name = "GFX_idea_prk_yiqing_icon"
+        texturefile = "gfx/interface/ideas/yiqing.png"
+    }
+    spriteType = {
+        name = "GFX_event.tem.1"
+        texturefile = "gfx/event_pictures/tem1.png"
+    }
+    spriteType = {
+        name = "GFX_event.tem.2"
+        texturefile = "gfx/event_pictures/tem1.png"
+    }
+    spriteType = {
+        name = "GFX_focus_prk_tem_focus_2"
+        texturefile = "gfx/interface/goals/PRK/GFX_focus_prk_tem_focus_2.png"
+    }
+    spriteType = {
+        name = "GFX_event.tem.3"
+        texturefile = "gfx/event_pictures/tem3.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_sifang"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_sifang.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_unionplan"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_unionplan.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_wartarget"
+        texturefile = "gfx/interface/goals/PRK/wartarget.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_historyexprience"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_historyexprience.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_makesureplan"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_makesureplan.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_pearloperation"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_pearloperation.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_defensedaolian"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_defensedaolian.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_needsoldier"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_needsoldier.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_usaweapon"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_usaweapon.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_assembletroop"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_assembletroop.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_againstdecision"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_againstdecision.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_fuckokinawa"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_fuckokinawa.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_unitecenright"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_unitecenright.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_antiprcmood"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_antiprcmood.png"
+    }
+    spriteType = {
+        name = "GFX_focus_JAP_speicalattack"
+        texturefile = "gfx/interface/goals/PRK/focus_JAP_specialattack.png"
+    }
+
+
+
+
+
+
+
+}

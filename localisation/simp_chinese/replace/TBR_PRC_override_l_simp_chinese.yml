@@ -1,0 +1,12 @@
+﻿l_simp_chinese:
+ PRC_lockdown_wuhan: "武汉封城"
+ PRC_lockdown_wuhan_desc: "随着恐慌的进一步蔓延，事态已经逐渐变得无法收拾。自中央电视台报道“发现一种新型传染性冠状病毒”以来，以武汉市为中心的湖北省全境均出现了人员大量外流的迹象。市民们争先恐后地试图逃出这座城市，高速公路上人满为患，几乎导致交通完全停滞。如果坐视不管，那么不出几天，全国各地的医院就都会发现更多的病毒感染病例。我们必须当机立断，现在就下令对武汉市进行全境封锁。"
+
+ PRC_control_the_oil_crisis: "经济复苏"
+ PRC_control_the_oil_crisis_desc: "经济"
+
+  PRC_control_the_coronavirus_mission: "疫情蔓延"
+  PRC_coronavirus_category_desc: "由于缺乏监管和管理不善，武汉市爆发了新冠病毒疫情。必须立即采取措施，以免事态发展到不可收拾的地步。\n\n当前疫情现状：[get_covid_status]\n当前疫情蔓延速度：[?PRC_covid_control_level|Y0]天\n当前疫情消退速度：[?PRC_covid_cure_level|Y0]天"
+  PRC_deploy_the_pla: "部署解放军医疗队"
+
+  PRC_communist_party_of_china_dynamic_desc: "\n\n\n\n£GFX_chinese_communist_party\n\n\n\n\n\n自1949年以来，中国共产党便一直是中国大陆无可争议的统治者。即使在苏联崩溃后，社会主义中国依然在东亚屹立不倒，并在改革开放后逐渐成为了世界上最强大的国家之一。外界尝试了很多方法来解释共产党为何能取得今天的成绩。有人说是因为中共早已投奔了资本主义，通过承诺经济繁荣以换取支持。也有人认为，这是因为中共成功将其意识形态和组织渗透进了方方面面，并运用旧帝国时代的传统思想让人民畏惧并服从。§Y某些人还在幻想：如果要推翻中共这个巨人，恐怕需要一次世界末日级别的灾难§!。他们没法知道的是，在这片土地上，扎根于人民的共产党将在新时代，以无比的决心和毅力，带领她的子民和世界人民§R走向星辰大海§!"

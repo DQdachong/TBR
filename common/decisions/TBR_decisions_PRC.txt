@@ -1,0 +1,2944 @@
+debug_decisions = {
+	PRC_debug_vaccine_development = {
+		icon = generic_vaccine
+		allowed = {
+			tag = PRC
+		}
+		available = {
+			always = yes
+		}
+		visible = {
+			NOT = { has_country_flag = PRC_vaccine_done }
+		}
+		complete_effect = {
+            set_country_flag = PRC_vaccine_done
+			unlock_decision_tooltip = PRC_distribute_vaccines
+		}
+	}
+}
+PRC_coronavirus_category = { 
+    #疫情蔓延 PRC_control_the_coronavirus_mission
+	PRC_control_the_coronavirus_mission = {
+		icon = generic_coronavirus
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = { 
+			has_country_flag = PRC_vaccine_done
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = PRC_covid_control_level
+		timeout_effect = { 
+			PRC_increase_corona = yes
+            custom_effect_tooltip = PRC_covid_control_level_effect
+			hidden_effect = {
+				activate_mission = PRC_control_the_coronavirus_mission
+			}
+		}
+	}
+
+	#总书记视察武汉 PRC_Xi_in_Wuhan
+	PRC_Xi_in_Wuhan = {
+		icon = generic
+		allowed = {
+			tag = PRC
+		}
+		available = {
+			has_completed_focus = PRC_lockdown_wuhan
+		}
+		cost = 5
+		days_remove = 3
+		fire_only_once = yes
+		remove_effect = {
+			country_event = china.74
+		}
+	}
+
+    #疫情自然衰退 PRC_natural_waning_coronavirus
+	PRC_natural_waning_coronavirus = {
+		icon = generic_vaccine
+		allowed = { tag = PRC }
+		available = { 
+			has_country_flag = PRC_no_coronavirus
+		}
+		activation = {
+			always = no
+		}
+		selectable_mission = no
+		days_mission_timeout = PRC_covid_cure_level
+		timeout_effect = { 
+			PRC_decrease_corona = yes
+			custom_effect_tooltip = PRC_covid_cure_level_effect
+            hidden_effect = {
+                activate_mission = PRC_natural_waning_coronavirus
+            }
+		}
+	}
+
+
+	#建设紧急医院 PRC_construct_emergency_hospitals (Wuhan, Xiangyang, Jingyi)
+	PRC_construct_emergency_hospitals = {
+		icon = GFX_PRC_decision_youth_project
+		available = {
+			has_completed_focus = PRC_covid_centralized_treatment
+			num_of_available_civilian_factories > 1
+		}
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+			NOT = {
+				has_country_flag = PRC_no_coronavirus
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			1211 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_days_mission_timeout = {
+				mission = PRC_natural_waning_coronavirus
+				days = -50
+			}
+			set_country_flag = wuhan_with_hos
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+	PRC_construct_emergency_hospitals1 = {
+		icon = GFX_PRC_decision_youth_project
+		available = {
+			has_completed_focus = PRC_covid_centralized_treatment
+			num_of_available_civilian_factories > 1
+		}
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+			NOT = {
+				has_country_flag = PRC_no_coronavirus
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			1212 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 1
+			}
+			add_debt_with_inflation = yes
+
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+			set_country_flag = xiangyang_with_hos
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+	PRC_construct_emergency_hospitals2 = {
+		icon = GFX_PRC_decision_youth_project
+		available = {
+			has_completed_focus = PRC_covid_centralized_treatment
+			num_of_available_civilian_factories > 1
+		}
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+			NOT = {
+				has_country_flag = PRC_no_coronavirus
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		days_re_enable = 350
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			620 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 1
+			}
+			add_debt_with_inflation = yes
+
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+			set_country_flag = Jiangyi_with_hos
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	#解放军驰援武汉 PRC_deploy_the_pla
+	PRC_deploy_the_pla = {
+		icon = GFX_PRC_soliders
+		available = {
+			has_completed_focus = PRC_lockdown_wuhan
+		}
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+		}
+		fire_only_once = no
+		cost = 5
+		days_remove = 14
+		days_re_enable = 30
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 21
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = PRC_PLA_in_wuhan_flag
+					}
+				}
+				add_stability = 0.05
+				country_event = {
+					id = china.300
+					hours = 6
+				}
+			}
+		}
+		remove_effect = {
+			army_experience = 15
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = PRC_PLA_in_wuhan_flag2
+					}
+				}
+				country_event = {
+					id = china.302
+					hours = 6
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+    #保障物资供应——向基层社区分发生活物资
+	PRC_Ensure_Life_Supply = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+		}
+		available = {
+			has_completed_focus = PRC_covid_focus_on_mask_production
+		}
+		cost = 15
+		days_remove = 5
+		days_re_enable = 30
+		complete_effect = {
+			add_political_power = 5
+			set_temp_variable = {
+				debt_var_temp = 0.009
+			}
+			add_debt_with_inflation = yes
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+		}
+	}
+	#向卫生机构援助医疗物资
+	PRC_Send_Medical_Supplies = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_lockdown_wuhan
+		}
+		available = {
+			has_completed_focus = PRC_covid_focus_on_mask_production
+		}
+		cost = 15
+		days_remove = 5
+		days_re_enable = 60
+		complete_effect = {
+			add_political_power = 5
+			set_temp_variable = {
+				debt_var_temp = 0.001
+			}
+			add_debt_with_inflation = yes
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+		}
+	}
+	#建设方舱医院 PRC_construct_extra_hospitals
+	PRC_construct_extra_hospitals = {
+		icon = GFX_PRC_decision_youth_project
+		available = {
+			has_completed_focus = PRC_covid_centralized_treatment
+		}
+		visible = {
+			has_completed_focus = PRC_covid_centralized_treatment
+			NOT = {
+				has_country_flag = PRC_no_coronavirus
+			}
+		}
+		fire_only_once = no
+		days_remove = 15
+		days_re_enable = 30
+		cost = 50
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = PRC_natural_waning_coronavirus
+				days = -50
+			}
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	PRC_national_lockdown_decision = {
+		icon = GFX_PRC_soliders
+		visible = {
+			has_completed_focus = PRC_covid_nationwide_lockdown
+		}
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			add_stability = -0.05
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 210
+			}
+			add_timed_idea = {
+				idea = PRC_nationwide_lockdown_idea
+				days = 210
+			}
+		}
+		remove_effect = {
+			country_event = tbr.5
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+
+    #基层封控 PRC_covid_grassroots_governance_decision
+	PRC_covid_grassroots_governance_decision = { 
+		icon = generic_mask
+		available = {
+			has_completed_focus = PRC_covid_grassroots_governance
+		}
+		visible = {
+			has_completed_focus = PRC_covid_grassroots_governance
+		}
+		fire_only_once = no
+		cost = 50
+		days_remove = 60
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 40
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+
+    #疫苗研发 PRC_vaccine_development_mission
+	PRC_vaccine_development_mission = {
+		icon = generic_vaccine
+		allowed = {
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		selectable_mission = no
+		days_mission_timeout = 180
+		timeout_effect = {
+            set_country_flag = PRC_vaccine_done
+			unlock_decision_tooltip = PRC_distribute_vaccines
+			unlock_national_focus = PRC_covid_cover_vaccine_cost
+		}
+	}
+
+    #政府分发疫苗 PRC_distribute_vaccines
+	PRC_distribute_vaccines = { 
+		icon = generic_vaccine
+		available = {
+			tag = PRC
+		}
+		visible = {
+			has_country_flag = PRC_vaccine_done
+			has_completed_focus = PRC_covid_cover_vaccine_cost
+			NOT = {
+				has_country_flag = {
+					flag = PRC_Vaccine_Dtr
+					value = 5
+				}
+			}
+		}
+		available = {
+			num_of_available_civilian_factories > 4
+		}
+		fire_only_once = no
+		cost = 50
+		days_remove = 90
+		complete_effect = {
+           add_stability = 0.05
+		}
+		modifier = {
+			civilian_factory_use = 5
+			industrial_capacity_factory = 0.05
+		}
+		remove_effect = {
+			if = {
+				limit = { 
+					NOT = {
+						has_country_flag = PRC_Vaccine_Dtr
+					}
+				}
+				set_country_flag = PRC_Vaccine_Dtr
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = { 
+						flag = PRC_Vaccine_Dtr
+						value = 1
+					}
+				}
+				modify_country_flag = {
+					flag = PRC_Vaccine_Dtr
+					value = 1
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = { 
+						flag = PRC_Vaccine_Dtr
+						value = 2
+					}
+				}
+				modify_country_flag = {
+					flag = PRC_Vaccine_Dtr
+					value = 1
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = { 
+						flag = PRC_Vaccine_Dtr
+						value = 3
+					}
+				}
+				modify_country_flag = {
+					flag = PRC_Vaccine_Dtr
+					value = 1
+				}
+			}
+			else = {
+				modify_country_flag = {
+					flag = PRC_Vaccine_Dtr
+					value = 1
+				}
+				PRC_decrease_corona = yes
+			}
+		}
+		ai_will_do = {
+		    base = 100
+		}
+	}
+
+
+	#COVAX Magic
+	#东亚与东南亚
+	PRC_COVAX_south_and_southeast = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+		}
+		available = {
+			has_completed_focus = PRC_covid_share_WHO
+			num_of_available_civilian_factories > 2
+		}
+		cost = 20
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = PRK
+						tag = KOR
+						tag = JAP
+						tag = PHI
+						tag = VIE
+						tag = SIA
+						tag = CAM	
+						tag = MAY
+						tag = SIG
+						tag = INS
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.025
+			}
+			add_debt_with_inflation = yes
+		}
+		days_remove = 21
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {
+			unlock_decision_tooltip = PRC_COVAX_middle_east_africa
+			set_country_flag = COVAX_south_east
+		}
+	}	
+	#中东欧/非洲
+	PRC_COVAX_middle_east_africa = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+			has_country_flag = COVAX_south_east
+		}
+		available = {
+			has_completed_focus = PRC_covid_share_WHO
+			num_of_available_civilian_factories > 8
+		}
+
+		cost = 60
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						capital_scope = {
+							is_on_continent = africa
+						}
+						tag = SOV
+						tag = POL
+						tag = ROM
+						tag = BUL
+						tag = HUN
+						tag = GER
+						tag = CZE
+						tag = SLO
+						tag = SER
+						tag = LAT
+						tag = EST
+						tag = MOL
+						tag = UKR
+						tag = BLR
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.075
+			}
+		}
+		days_remove = 63
+		modifier = {
+			civilian_factory_use = 9
+		}
+		remove_effect = {
+			set_country_flag = Africa_covax
+			unlock_decision_tooltip = PRC_COVAX_west_europe
+		}
+	}	
+	#西欧
+	PRC_COVAX_west_europe = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+			has_country_flag = Africa_covax
+		}
+		available = {
+			has_completed_focus = PRC_covid_share_WHO
+			num_of_available_civilian_factories > 5
+		}
+		cost = 40
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = FRA
+						tag = SPR
+						tag = POR
+						tag = ENG
+						tag = IRE
+						tag = AUS
+						tag = ITA
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.05
+			}
+		}
+		days_remove = 42
+		modifier = {
+			civilian_factory_use = 6
+		}
+		remove_effect = {
+			set_country_flag = west_europe_COVAX
+		}
+	}
+	#中亚、中东
+	PRC_COVAX_middie_asia_east = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+		}
+		available = {
+			has_completed_focus = PRC_covid_share_WHO
+			num_of_available_civilian_factories > 2 
+		}
+		cost = 20
+		days_remove = 21
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = {
+					tag = KAZ
+					tag = AZR
+					tag = ARM
+					tag = UZB
+					tag = AFG
+					tag = IRA
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.025
+			}
+			add_debt_with_inflation = yes
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {
+			set_country_flag = COVAX_middle_asia
+			unlock_decision_tooltip = PRC_COVAX_oceania_north_america
+		}
+	}
+	#大洋洲+北美洲
+	PRC_COVAX_oceania_north_america = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+			has_country_flag = COVAX_middle_asia
+		}
+		available = { 
+			num_of_available_civilian_factories > 8
+		}
+		cost = 60
+		days_remove = 63
+		modifier = {
+			civilian_factory_use = 9
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						capital_scope = {
+							is_on_continent = north_america
+						}	
+						capital_scope = {
+							is_on_continent = australia
+						}
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.075
+			}
+			add_debt_with_inflation = yes
+		}
+		remove_effect = {
+			set_country_flag = COVAX_oceania
+			unlock_decision_tooltip = PRC_COVAX_latin_america
+		}
+	}
+	#拉美洲
+	PRC_COVAX_latin_america = {
+		icon = generic_covid
+		visible = {
+			has_completed_focus = PRC_covid_share_WHO
+			has_country_flag = COVAX_oceania
+		}
+		available = {
+			has_completed_focus = PRC_covid_share_WHO
+			num_of_available_civilian_factories > 5
+		}
+		cost = 40
+		fire_only_once = yes
+		complete_effect = {
+			every_country = {
+				limit = {
+					capital_scope = {
+						is_on_continent = south_america
+					}
+					tag = MEX
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medical_supplies
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.05
+			}
+		}
+		days_remove = 42
+		modifier = {
+			civilian_factory_use = 6
+		}
+		remove_effect = {
+			set_country_flag = latin_COVAX
+		}
+	}
+	#减负纾困
+	PRC_relief_pressure = {
+		icon = generic
+		visible = {
+			has_completed_focus = PRC_covid_economic_stability_policy
+		}
+		available = {
+			has_completed_focus = PRC_covid_economic_stability_policy
+		}
+		cost = 80
+		days_remove = 14
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			add_offsite_building = {
+				type = industrial_complex
+				level = 5
+			}
+		}
+		modifier = {
+			business_value_factor = 0.1
+		}
+		remove_effect = {
+			unlock_decision_tooltip = PRC_financial_reborn
+			set_country_flag = PRC_relief_pressure_flag
+		}
+	}
+	#金融赋能
+	PRC_financial_reborn = {
+		icon = generic
+		visible = {
+			has_completed_focus = PRC_covid_economic_stability_policy
+			has_country_flag = PRC_relief_pressure_flag
+		}
+		available = {
+			has_completed_focus = PRC_covid_economic_stability_policy
+		}
+		cost = 80
+		days_remove = 14
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			set_temp_variable = {
+				income_var_temp = 20
+			}
+			add_income = yes
+		}
+		modifier = {
+			industrial_factory_donations = 5
+		}
+		remove_effect = {
+			country_event = tbr.9
+		}
+
+	}
+	#稳链保供
+	PRC_stabilify_the_chain = {
+		icon = generic
+		visible = {
+			has_completed_focus = PRC_covid_prevent_oversea_input
+		}
+		available = {
+			has_completed_focus = PRC_covid_prevent_oversea_input
+		}
+		cost = 80
+		days_remove = 14
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			set_temp_variable = {
+				industrial_development_var_temp = 0.05
+			}
+			add_industrial_development = yes
+		}
+		modifier = {
+			industrial_factory_donations = 5
+			industrial_development_monthly = 0.05
+		}
+		remove_effect = {
+			set_country_flag = PRC_stabilify_the_chain_flag
+			unlock_decision_tooltip = PRC_innovation_prevails
+		}
+
+	}
+	#创新驱动
+	PRC_innovation_prevails = {
+		icon = generic
+		visible = {
+			has_completed_focus = PRC_covid_prevent_oversea_input
+			has_country_flag = PRC_stabilify_the_chain_flag
+		}
+		available = {
+			has_completed_focus = PRC_covid_prevent_oversea_input
+		}
+		cost = 80
+		days_remove = 14
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			set_temp_variable = {
+				academic_development_var_temp = 0.05
+			}
+			add_academic_development = yes
+		}
+		modifier = {
+			academic_development_monthly = 0.05
+		}
+		remove_effect = {
+			country_event = tbr.10
+		}
+	}
+}
+
+
+PRC_oil_recovery_cat = {
+	#@decision PRC_decision_oil_crisis_worsening 石油危机正在加重
+	PRC_decision_oil_crisis_worsening = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		is_good = no
+		days_mission_timeout = 7
+		selectable_mission = no
+        priority = 99
+		activation = {
+			always = no
+		}
+		available = {
+			NOT = {
+				has_country_flag = PRC_oil_crisis_ongoing
+			}
+		}
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = PRC_decision_oil_crisis_worsening
+			}
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = 1
+			}
+			add_oil_crisis_var_a = yes
+		}
+	}
+
+    #@decision PRC_decision_oil_crisis_worsening 下一批石油正在入库
+	PRC_decision_oil_bank = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		days_mission_timeout = 7
+		selectable_mission = no
+        priority = 99
+		activation = {
+			always = no
+		}
+		available = {
+			NOT = {
+				has_country_flag = PRC_oil_crisis_ongoing
+			}
+		}
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = PRC_decision_oil_bank
+			}
+			set_temp_variable = {
+				var = oil_b_var_temp
+				value = 1
+			}
+			add_oil_crisis_var_b = yes
+		}
+	}
+
+	PRC_decision_end_oil_crisis = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+		}
+		available = {
+			check_variable = {
+				var = PRC_oil_crisis_a_var
+				value = 0
+				compare = less_than_or_equals
+			}
+		}
+		complete_effect = {
+			clr_country_flag = PRC_oil_crisis_ongoing
+		}
+	}
+
+	#@decision PRC_decision_activate_national_oil 启用国家石油储备
+	PRC_decision_activate_national_oil = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 15
+		days_remove = 21
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+		}
+		complete_effect = {
+			#@-B 3%
+			set_temp_variable = {
+				var = oil_b_var_temp
+				value = -3
+			}
+			add_oil_crisis_var_b = yes
+		}
+		remove_effect = {
+			#@稳定度+3%
+			add_stability = 0.03
+			#@pp+25
+			add_political_power = 25
+			#@-A 5%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -5
+			}
+			add_oil_crisis_var_a = yes
+		}
+	}
+
+	#@decision PRC_decision_subsidize_new_energy 补贴新能源产业
+	PRC_decision_subsidize_new_energy = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 25
+		days_remove = 21
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+		}
+		complete_effect = {
+			#@债务+10B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 10
+			}
+			add_debt_with_inflation = yes
+		}
+		remove_effect = {
+			#@pp+50
+			add_political_power = 50
+			#@+2.5%环境改革进程
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = 0.025
+			}
+			PRC_add_enviromental_progress = yes
+			#@稳定度+3%
+			add_stability = 0.03
+			#@-A 2%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -2
+			}
+			add_oil_crisis_var_a = yes
+			#@+C 3%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = 3
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_expand_coal_power 扩大火力发电规模
+	PRC_decision_expand_coal_power = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 30
+		days_remove = 42
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+		}
+		modifier = {
+			production_speed_power_plant_factor = 0.25
+		}
+		complete_effect = {
+			#@债务+20B
+			add_to_variable = { debt_var = 20 }
+		}
+		remove_effect = {
+			#@-5%环境改革进程
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = -0.05
+			}
+			PRC_add_enviromental_progress = yes
+			#@工业发展+5
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.05
+			}
+			add_industrial_development = yes
+			#@-A 4%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -4
+			}
+			add_oil_crisis_var_a = yes
+			#@-C 3%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = -3
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_energy_trade_local_currency 能源贸易本币结算计划
+	PRC_decision_energy_trade_local_currency = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 15
+		days_remove = 35
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_promote_oil_yuan
+		}
+		modifier = {
+			#获得为期35天的“能源贸易本币结算”：商业产值系数+10%，月度收入增长+7.5%，每日pp获得+0.05
+			business_value_factor = 0.1
+			income_growth_factor = 0.075
+			political_power_gain = 0.05
+		}
+		complete_effect = {
+			#@债务+8B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 8
+			}
+			add_debt_with_inflation = yes
+		}
+		remove_effect = {
+			#@-A 6%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -4
+			}
+			add_oil_crisis_var_a = yes
+			#@-C 1%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = -1
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_russia_oil_gas_corridor 中俄油气走廊合作
+	PRC_decision_russia_oil_gas_corridor = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 25
+		days_remove = 21
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_deepen_russia_energy
+		}
+		complete_effect = {
+			#@债务+10B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 10
+			}
+			add_debt_with_inflation = yes
+		}
+		remove_effect = {
+			#@pp+50
+			add_political_power = 50
+			#@-A 3%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -4
+			}
+			add_oil_crisis_var_a = yes
+			#@+B 5%
+			set_temp_variable = {
+				var = oil_b_var_temp
+				value = 5
+			}
+			add_oil_crisis_var_b = yes
+			#@-C 1%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = -1
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_northwest_solar_plan 西北光伏计划
+	PRC_decision_northwest_solar_plan = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 30
+		days_remove = 21
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_expand_northwest_solar
+		}
+		complete_effect = {
+			#@债务+15B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 15
+			}
+			add_debt_with_inflation = yes
+		}
+		modifier = {
+			#@获得为期21天的“西北光伏蓝海”：能源农场建造速度+25%，
+			production_speed_energy_farm_factor = 0.25
+		}
+		remove_effect = {
+			#@+2.5%环境改革进程
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = 0.025
+			}
+			PRC_add_enviromental_progress = yes
+			#@工业发展+5
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.05
+			}
+			add_industrial_development = yes
+			#@-A 4%
+			set_temp_variable = {
+				var = oil_a_var_temp
+				value = -4
+			}
+			add_oil_crisis_var_a = yes
+			#@+C 3%，
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = 3
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_global_energy_cooperate 国际能源合作
+	PRC_decision_global_energy_cooperate = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 25
+		days_remove = 28
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_global_win_win
+		}
+		complete_effect = {
+			#@-B 3%
+			set_temp_variable = {
+				var = oil_b_var_temp
+				value = -3
+			}
+			add_oil_crisis_var_b = yes
+		}
+		remove_effect = {
+			#@+75pp
+			add_political_power = 75
+		}
+	}
+
+	#@decision PRC_decision_develop_new_energy 发展新能源
+	PRC_decision_develop_new_energy = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 25
+		days_remove = 42
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_boost_self_sufficiency
+		}
+		complete_effect = {
+			#@债务+20B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 20
+			}
+			add_debt_with_inflation = yes
+		}
+		modifier = {
+			production_speed_energy_farm_factor = 0.25
+			production_speed_nuclear_reactor_factor = 0.25
+		}
+		remove_effect = {
+			#@工业发展+5
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.05
+			}
+			add_industrial_development = yes
+			#@+2.5%环境改革进程
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = 0.025
+			}
+			PRC_add_enviromental_progress = yes
+			#@+C 2%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = 2
+			}
+			add_oil_crisis_var_c = yes
+		}
+	}
+
+	#@decision PRC_decision_secure_traditional_energy 传统能源保量
+	PRC_decision_secure_traditional_energy = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 25
+		days_remove = 42
+		days_re_enable = 0
+		visible = {
+			has_country_flag = PRC_oil_crisis_ongoing
+			has_completed_focus = PRC_boost_self_sufficiency
+		}
+		complete_effect = {
+			#@债务+20B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 20
+			}
+			add_debt_with_inflation = yes
+		}
+		modifier = {
+			#@发电站建造速度+25%，
+			production_speed_power_plant_factor = 0.25
+			#@合成炼油厂建造速度+25%
+			production_speed_synthetic_refinery_factor = 0.25
+			#@储油罐建造速度+25%
+			production_speed_fuel_silo_factor = 0.25
+		}
+		remove_effect = {
+			#@-C 1%
+			set_temp_variable = {
+				var = oil_c_var_temp
+				value = -1
+			}
+			add_oil_crisis_var_c = yes
+			#@-2.5%环境改革进程
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = -0.025
+			}
+			PRC_add_enviromental_progress = yes
+			#@工业发展+5
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.05
+			}
+			add_industrial_development = yes
+		}
+	}
+}
+
+PRC_economic_recovery_cat = {
+	#回合结束
+	PRC_cardgame_turn_timer = {
+		icon = generic_inflation
+		priority = 100
+
+		activation = {
+			check_variable = { cardgame_start = 1 }
+		}
+
+		allowed = { tag = PRC }
+		available = {
+			NOT = {
+				check_variable = { cardgame_start = 1 }
+			}
+		}
+ 
+		fixed_random_seed = no
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 21
+
+		timeout_effect = {
+			hidden_effect = {
+				activate_mission = PRC_cardgame_turn_timer
+
+				add_to_variable = { turn_times = 1 }
+				if = {
+					limit = {
+						check_variable = { turn_times = 3 }
+					}
+					ZZZ = { country_event = tbr.zzz.4 }
+					add_to_variable = { turn_times = -2 }
+				}
+				ZZZ = { country_event = TBR.ZZZ.1 }
+				#'-E 5%, +F 5%, +D 3%
+				#默认计算
+				add_to_variable = { PRC_economic_stability_var = E_var }
+				add_to_variable = { PRC_economic_liquidity_var = F_var }
+				add_to_variable = { PRC_economic_crisis_var = D_var }
+				#加上临时
+				add_to_variable = { PRC_economic_stability_var = E_var_temp }
+				add_to_variable = { PRC_economic_liquidity_var = F_var_temp }
+				add_to_variable = { PRC_economic_crisis_var = D_var_temp }				
+				#重置
+				set_variable = { E_var_temp = 0 }
+				set_variable = { F_var_temp = 0 }
+				set_variable = { D_var_temp = 0 }
+
+				PRC_cardgame_update_status = yes
+			}
+		}
+	}
+
+	#配合政策
+	PRC_decision_tide_cooperating_enterprises = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		activation = {always = no}
+		selectable_mission = no
+		is_good = yes
+		days_mission_timeout = 20
+		priority = 50
+		#available = { NOT = {check_variable = { PRC_economic_multi_var > 1}}}
+
+		timeout_effect = {
+			custom_effect_tooltip = PRC_cardgame_double_tt
+		}
+	}
+
+	#资本外逃
+	PRC_decision_tide_capital_flight = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		activation = {always = no}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 20
+		priority = 50
+		available = {
+			#has_country_flag = PRC_cardgame_ignore_tide
+		}
+
+		timeout_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = PRC_card_emergency_plan_work
+					}
+				}
+				add_to_variable = { PRC_economic_stability_var = -10 }
+				add_to_variable = { PRC_economic_liquidity_var = 8 }
+			}
+		}
+	}
+
+	#成本飙升
+	PRC_decision_tide_cost_uncontrol = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		activation = {always = no}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 20
+		priority = 50
+		available = {
+			#has_country_flag = PRC_cardgame_ignore_tide
+		}
+
+		complete_effect = {
+			set_variable = { PRC_cardgame_debt_cost_factor = 1}
+		}
+
+		timeout_effect = {
+			set_variable = { PRC_cardgame_debt_cost_factor = 1}
+			custom_effect_tooltip = PRC_cardgame_debt_cost_double_tt
+		}
+	}
+
+	#政策失效
+	PRC_decision_tide_bad_policy = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		activation = {always = no}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 20
+		priority = 50
+		available = {
+			#has_country_flag = PRC_cardgame_ignore_tide
+		}
+
+		complete_effect = {
+			set_variable = { PRC_cardgame_pp_cost_factor = 30}
+		}
+
+		timeout_effect = {
+			set_variable = { PRC_cardgame_pp_cost_factor = 30}
+			custom_effect_tooltip = PRC_cardgame_pp_cost_double_tt
+		}
+	}
+
+	#黑天鹅事件
+	PRC_decision_tide_black_swan = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		activation = {always = no}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 20
+		priority = 50
+		available = {
+			#has_country_flag = PRC_cardgame_ignore_tide
+		}
+
+		timeout_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = PRC_card_emergency_plan_work
+					}
+				}
+				set_temp_variable = { PRC_economic_crisis_var_temp = 8}
+				PRC_cardgame_update_status = yes
+			}
+			else = {
+				custom_effect_tooltip = you_did_it_tt
+			}
+		}
+	}
+
+
+	#@decision PRC_decision_targeted_rate_stable 定向降息稳汇率
+	PRC_decision_targeted_rate_stable = {#card1
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+
+		available = {
+			#set_temp_variable = {
+            #    var = income_trigger_temp_var
+            #    value = 20
+            #}
+			#multiply_temp_variable = {
+			#	var = income_trigger_temp_var
+			#	value = PRC_cardgame_debt_cost_factor
+			#}
+			#has_income_greater_than_or_equals = yes
+		}
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_targeted_rate_stable_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card1 = 2 }
+		}
+		complete_effect = {
+            #@债务+10B
+			add_to_variable = { debt_var = 10 }
+            #@pp+25
+            add_political_power = 25
+			#'+E 4%，-F 4%
+			add_to_variable = { PRC_economic_stability_var = 4 }
+			add_to_variable = { PRC_economic_liquidity_var = -4 }
+
+			set_variable = { card1 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_forex_risk_reserve 外汇风险准备金
+	PRC_decision_forex_risk_reserve = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		
+		available = {
+			#set_temp_variable = {
+            #    var = income_trigger_temp_var
+            #    value = 20
+            #}
+			#multiply_temp_variable = {
+			#	var = income_trigger_temp_var
+			#	value = PRC_cardgame_debt_cost_factor
+			#}
+			#has_income_greater_than_or_equals = yes
+		}
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_forex_risk_reserve_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card2 = 2 }
+		}
+		complete_effect = {
+            #@稳定度+5
+            add_stability = 0.05
+			#@债务+20B
+			add_to_variable = { debt_var = 20 }
+			#'+E 6%
+			add_to_variable = { PRC_economic_stability_var = 6}
+
+			set_variable = { card2 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_foreign_investor_talk 约谈外资
+	PRC_decision_foreign_investor_talk = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+	
+
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_foreign_investor_talk_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card3 = 2 }
+		}
+		complete_effect = {
+			#@债务-20B
+			add_to_variable = { debt_var = -20 }
+			#'+E 10 %，+F 6% 
+			add_to_variable = { PRC_economic_stability_var = 10}
+			add_to_variable = { PRC_economic_liquidity_var = 6}
+
+			set_variable = { card3 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_expand_business_invest 扩大商业投资
+	PRC_decision_expand_business_invest = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		
+		available = {
+		#	set_temp_variable = {
+        #        var = income_trigger_temp_var
+        #        value = 20
+        #    }
+		#	multiply_temp_variable = {
+		#		var = income_trigger_temp_var
+		#		value = PRC_cardgame_debt_cost_factor
+		#	}
+		#	has_income_greater_than_or_equals = yes
+		}
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_expand_business_invest_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card4 = 2 }
+		}
+		complete_effect = {
+			#@债务+10B
+			add_to_variable = { debt_var = 10 }
+            #@社会发展+5
+            add_to_variable = { society_development_var = 0.05 }
+			#'+E 4 %，-F 4%
+			add_to_variable = { PRC_economic_stability_var = -4}
+			add_to_variable = { PRC_economic_liquidity_var = -4}
+
+			set_variable = { card4 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_bulk_price_control 大宗商品价格调控
+	PRC_decision_bulk_price_control = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		
+		available = {
+			#set_temp_variable = {
+            #    var = income_trigger_temp_var
+            #    value = 20
+            #}
+			#multiply_temp_variable = {
+			#	var = income_trigger_temp_var
+			#	value = PRC_cardgame_debt_cost_factor
+			#}
+			#has_income_greater_than_or_equals = yes
+		}
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_bulk_price_control_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card5 = 2 }
+		}
+		complete_effect = {
+			#@债务+10B
+			add_to_variable = { debt_var = 10 }
+
+            #@稳定度+5
+            add_stability = 0.05
+			#'-F 7%
+			add_to_variable = { PRC_economic_liquidity_var = -7}
+
+			set_variable = { card5 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_emergency_plan 市场管理紧急预案
+	PRC_decision_emergency_plan = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_emergency_plan_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card6 = 2 }
+		}
+		complete_effect = {
+            #@pp+25
+            add_political_power = 25
+            #@债务+20B
+            add_to_variable = { debt_var = 20 }
+			#下一回合D停止增长
+			set_variable = { D_var_temp = -5 }
+
+			set_variable = { card6 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_stock_positive_news 放出利好股市消息
+	PRC_decision_stock_positive_news = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_stock_positive_news_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card7 = 2 }
+		}
+		complete_effect = {
+			#下一次对DEF卡牌效果变量+100%
+			#'+E 7%，-F 5%，-D 10%
+			add_to_variable = { PRC_economic_stability_var = 7 }
+			add_to_variable = { PRC_economic_liquidity_var = -5 }
+			add_to_variable = { PRC_economic_crisis_var = -10 }			
+
+			set_variable = { card7 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_market_surveillance 市场监督
+	PRC_decision_market_surveillance = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_market_surveillance_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card8 = 2 }
+		}
+		complete_effect = {
+            #@债务+20B
+            add_to_variable = { debt_var = 20 }
+			#无视当前市场波动
+			#'+E 3%，-F 10%，-D 5%
+			add_to_variable = { PRC_economic_stability_var = 3 }
+			add_to_variable = { PRC_economic_liquidity_var = -10 }
+			add_to_variable = { PRC_economic_crisis_var = -5 }
+
+			set_variable = { card8 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_dollar_claims_cash 美元债权变现
+	PRC_decision_dollar_claims_cash = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_dollar_claims_cash_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_dump_us_bonds
+			check_variable = { card9 = 2 }
+		}
+		complete_effect = {
+            #@债务-30B
+            add_to_variable = { debt_var = -30 }
+            #@稳定度-5
+            add_stability = -0.05
+			#'-E 8%，-F 10%，-D 6%
+			add_to_variable = { PRC_economic_stability_var = -8}
+			add_to_variable = { PRC_economic_liquidity_var = -10}
+			add_to_variable = { PRC_economic_crisis_var = -6}
+
+			set_variable = { card9 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_manufacturing_upgrade_fund 制造业转型升级基金
+	PRC_decision_manufacturing_upgrade_fund = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		
+		available = {
+			#set_temp_variable = {
+            #    var = income_trigger_temp_var
+            #    value = 20
+            #}
+			#multiply_temp_variable = {
+			#	var = income_trigger_temp_var
+			#	value = PRC_cardgame_debt_cost_factor
+			#}
+			#has_income_greater_than_or_equals = yes
+		}
+
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_manufacturing_upgrade_fund_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_expand_investment
+			check_variable = { card10 = 2 }
+		}
+		complete_effect = {
+            #@债务+10B
+            add_to_variable = { debt_var = 10 }
+            #@工业发展+3
+            add_to_variable = { industrial_development_var = 0.03 }
+			#'-F 6%
+			add_to_variable = { PRC_economic_liquidity_var = -6 }
+
+			set_variable = { card10 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_six_guarantees_stable 六保六稳
+	PRC_decision_six_guarantees_stable = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		
+		available = {
+			#set_temp_variable = {
+            #    var = income_trigger_temp_var
+            #    value = 20
+            #}
+			#multiply_temp_variable = {
+			#	var = income_trigger_temp_var
+			#	value = PRC_cardgame_debt_cost_factor
+			#}
+			#has_income_greater_than_or_equals = yes
+		}
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_six_guarantees_stable_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_six_guarantees_stable
+			check_variable = { card11 = 2 }
+		}
+		complete_effect = {
+            #@债务+10B
+            add_to_variable = { debt_var = 10 }
+            #@贫困率+5
+            add_to_variable = { poverty_development_var = 0.05 }
+			#'+E 8%，-F 6%
+			add_to_variable = { PRC_economic_stability_var = 8 }
+			add_to_variable = { PRC_economic_liquidity_var = -6 }
+
+			set_variable = { card11 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_issue_special_bonds 发行特别国债
+	PRC_decision_issue_special_bonds = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_issue_special_bonds_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_epidemic_bonds
+			check_variable = { card12 = 2 }
+		}
+		complete_effect = {
+            #@债务-20B
+            add_to_variable = { debt_var = -20 }
+			#'+E 4%，-D 6%
+			add_to_variable = { PRC_economic_stability_var = 4 }
+			add_to_variable = { PRC_economic_liquidity_var = -6 }
+
+			set_variable = { card12 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_sme_rescue_plan 中小企业纾困计划
+	PRC_decision_sme_rescue_plan = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_sme_rescue_plan_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_support_smes
+			check_variable = { card13 = 2 }
+		}
+		complete_effect = {
+            #@稳定度+5
+            add_stability = 0.05
+            #@债务+8B
+            add_to_variable = { debt_var = 8 }
+			#金融危机每回合减4%
+			add_to_variable = { D_var = 4 }			
+
+			set_variable = { card13 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_hainan_finance_hub 海南自贸港金融中心
+	PRC_decision_hainan_finance_hub = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_hainan_finance_hub_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_hainan_free_trade
+			check_variable = { card14 = 2 }
+		}
+		complete_effect = {
+            #@债务-20B
+            add_to_variable = { debt_var = -20 }
+			#市场混乱度每回合减2%
+			add_to_variable = { F_var = -2 }			
+
+			set_variable = { card14 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_property_soft_landing 房地产软着陆政策
+	PRC_decision_property_soft_landing = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_property_soft_landing_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_stable_real_estate
+			check_variable = { card15 = 2 }
+		}
+		complete_effect = {
+            #@稳定度+10
+            add_stability = 10
+            #@pp+50
+            add_political_power = 50
+			#下一回合的市场波动出牌必为增益效果
+			#'+E 5%，+F 3%，-D 7%
+			add_to_variable = { PRC_economic_stability_var = 5 }
+			add_to_variable = { PRC_economic_liquidity_var = 3 }
+			add_to_variable = { PRC_economic_crisis_var = -7 }
+
+			set_variable = { card15 = 3 }
+		}
+	}
+
+	#@decision PRC_decision_new_infra_plan 新基建投资计划
+	PRC_decision_new_infra_plan = {
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = PRC_cardgame_pp_cost_factor
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_on_going
+			#PRC_decision_new_infra_plan_object = { check_variable = { cards_drawn > 0 } }
+			#has_completed_focus = PRC_restructure
+			check_variable = { card16 = 2 }
+		}
+		complete_effect = {
+            #@债务+20B
+            add_to_variable = { debt_var = 20 }
+            #@工业发展+5
+            add_to_variable = { industrial_development_var = 0.05 }
+			#抽2张牌
+			set_variable = { ZZZ.cardgame_num_use = 2 }
+			ZZZ = { country_event = tbr.zzz.2 }
+
+			set_variable = { card16 = 3 }
+		}
+	}
+}
+
+
+PRC_taiwan_war_cat = {
+	PRC_decision_taiwan_alert_countdown = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = { 
+			has_global_flag = PRC_ongoing_taiwan_war
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 210
+		timeout_effect = {
+			effect_tooltip = {
+				PRC_calc_tw_defence = yes
+				PRC_calc_ryu_defence = yes
+				PRC_calc_jap_defence = yes
+			}
+		}
+	}
+	PRC_tw_JAP_tw_defence_fake = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			has_completed_focus = PRC_detain_liangyue
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 29
+		timeout_effect = {
+			custom_effect_tooltip = PRC_tw_CHI_tw_defence_inc
+			effect_tooltip = {
+				PRC_calc_tw_defence = yes
+			}
+		}
+	}
+	PRC_tw_JAP_ryu_defence_fake = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			has_completed_focus = PRC_force_plan
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 29
+		timeout_effect = {
+			effect_tooltip = {
+				PRC_calc_ryu_defence = yes
+			}
+		}
+	}
+	PRC_tw_JAP_mainland_defence_fake = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 29
+		timeout_effect = {
+			effect_tooltip = {
+				PRC_calc_jap_defence = yes
+			}
+		}
+	}
+
+	PRC_tw_civ_infantry_eq = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_civ_orders
+			has_country_flag = PRC_prepare_taiwan_war
+		}
+		available = {
+			num_of_civilian_factories > 15
+		}
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 1500
+				producer = PRC
+			}
+		}
+	}
+
+	PRC_tw_civ_support_eq = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_civ_orders
+			has_country_flag = PRC_prepare_taiwan_war
+		}
+		available = {
+			num_of_civilian_factories > 15
+		}
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = PRC
+			}
+		}
+	}
+
+	PRC_tw_civ_mot_eq = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_civ_orders
+			has_country_flag = PRC_prepare_taiwan_war
+		}
+		available = {
+			num_of_civilian_factories > 15
+		}
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 100
+				producer = PRC
+			}
+		}
+	}
+
+	PRC_tw_civ_to_mil = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_economic_conversion_to_military_needs
+			has_country_flag = PRC_prepare_taiwan_war
+			check_variable = {PRC_tw_civ_to_mil_count < 5}
+		}
+		days_remove = 60
+		complete_effect = {
+			set_temp_variable = { vv = 5}
+			subtract_from_temp_variable = { var = vv value = PRC_tw_civ_to_mil_count}
+			custom_effect_tooltip = TBR_repeatable_decision_tt
+			add_to_variable = {
+				var = PRC_tw_civ_to_mil_count
+				value = 1
+			}
+			PRC_civ_to_mil = yes
+		}
+	}
+
+	PRC_decision_spread_propaganda = {
+		icon = GFX_decision_generic_propaganda_campaigns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_no_hurry
+		}
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = PRC_decision_taiwan_alert_countdown
+				days = 30
+			}
+		}
+	}
+
+	PRC_war_propaganda = {
+		icon = GFX_decision_generic_propaganda_campaigns
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_unite_people
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PRC_tw_war_stability_factor_var_negetive
+				check_variable = {PRC_tw_war_stability_factor_var < 0}
+			}
+		}
+		cancel_if_not_visible = true
+		cost = 75
+		days_remove = 30
+		days_re_enable = 60
+		complete_effect = {
+			PRC_tw_war_prepare = yes
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	PRC_taiwan_war_countdown = {
+		icon = GFX_decision_generic_crossed_guns
+		allowed = { 
+			tag = PRC
+		}
+		activation = {
+			always = no
+		}
+		available = { 
+			PRC = {
+				524 = {
+					is_fully_controlled_by = PRC
+				}
+				1150 = {
+					is_fully_controlled_by = PRC
+				}
+				1149 = {
+					is_fully_controlled_by = PRC
+				}
+				1148 = {
+					is_fully_controlled_by = PRC
+				}
+				648 = {
+					is_fully_controlled_by = PRC
+				}
+			}
+		}
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 365
+		complete_effect = {
+			PRC_win_tw_war = yes
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					JAP = { has_achievements_enabled = yes }
+					every_state = {
+						limit = { 
+							OR = {
+								is_core_of = CHI
+								is_core_of = JAP
+								is_core_of = AST
+								state = 326
+								state = 879
+								state = 1382
+							}
+						}
+						NOT = { is_controlled_by = PRC }
+					}
+				}
+				set_global_flag = JAP_iam_rock_conditions_fulfilled
+			}
+			add_stability = -0.3
+			add_war_support = -0.3
+			# country_event = {
+			# 	id = china.24
+			# }
+			# hidden_effect = {
+			# 	JAP = {
+			# 		country_event = { id = jap.9 days = 3 }
+			# 	}
+			# }
+		}
+	}
+	PRC_operation_crimson_sky = {
+		icon = GFX_PRC_crimson_sky
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			is_ai = yes
+		}
+		fire_only_once = yes
+		cost = 0
+		custom_cost_text = PRC_operation_crimson_sky_decision_cost
+		custom_cost_trigger = {
+			NOT = {
+				command_power < 30
+			}
+		}
+		days_remove = 30
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = PRC_operation_crimson_sky_tt
+			add_timed_idea = {
+				idea = PRC_operation_crimson_sky_idea
+				days = 100
+			}
+			hidden_effect = {
+				load_oob = PRC_crimson_sky
+			}
+		}
+		ai_will_do = {
+				base = 50
+		}
+	}
+	PRC_operation_guan_yu = {
+		icon = GFX_PRC_guan_yu
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			is_ai = yes
+		}
+		ai_will_do = {
+		base = 900
+		}
+		fire_only_once = yes
+		cost = 0
+		custom_cost_text = PRC_operation_crimson_sky_decision_cost
+		custom_cost_trigger = {
+			NOT = {
+				command_power < 30
+			}
+		}
+		days_remove = 30
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = PRC_operation_guan_yu_tt
+			add_timed_idea = {
+				idea = PRC_operation_guan_yu_idea
+				days = 150
+			}
+			hidden_effect = {
+				load_oob = PRC_guan_yu
+			}
+		}
+	}
+	PRC_operation_li_jing_decision = {
+		icon = generic_industry
+		available = {
+			tag = PRC
+			CHI = {
+				surrender_progress > 0.25
+			}
+		}
+		visible = {
+			is_ai = yes
+		}
+		ai_will_do = {
+		base = 900
+		}
+		fire_only_once = yes
+		cost = 0
+		custom_cost_text = PRC_operation_crimson_sky_decision_cost
+		custom_cost_trigger = {
+			NOT = {
+				command_power < 30
+			}
+		}
+		days_remove = 30
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -30
+			}
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = PRC_operation_li_jing
+				days = 125
+			}
+		}
+	}
+	PRC_taiwan_bombing_raid = {
+		icon = GFX_decision_generic_deploy_nukes
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			CHI = {
+				add_timed_idea = {
+					idea = PRC_bombing_raids
+					days = 100
+				}
+				add_war_support = -0.05
+			}
+		}
+		ai_will_do = {
+			base = 50
+		}
+	}
+    PRC_defend_kinmen_island = {
+        visible = {
+	        PRC = {
+		        has_war_with = CHI
+		    }
+	    }
+		
+	    allowed = { 
+		    tag = PRC
+	    }
+	
+	    available = {
+	        OR = {
+		        648 = {
+			        is_controlled_by = JAP
+		        }
+			    648 = {
+			        is_controlled_by = CHI
+		        }
+			    648 = {
+			        is_controlled_by = AST
+		        }
+		    }
+		    divisions_in_state = {
+			    type = infantry
+			    size < 2
+			    state = 648
+		    }	
+	    }
+		
+	    activation = {
+		    always = no
+	    }
+		
+	    icon = GFX_SOV_decision_vdv_training
+	    fire_only_once = yes
+	    days_mission_timeout = 59
+	    is_good = no
+		
+	    ai_will_do = {
+		    factor = 10
+	    }
+		
+	    complete_effect = {
+		    country_event = { id = china.78 }
+	    }
+	    timeout_effect = {
+		    country_event = { id = china.79 }
+	    }
+	    #cost = 50
+    }
+	PRC_adapt_to_modern_defense = {
+		icon = GFX_PRC_soliders
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_adapt_to_current_realities_of_battles
+		}
+		available = {
+			has_completed_focus = PRC_adapt_to_current_realities_of_battles
+			NOT = {
+				has_country_flag = PRC_adapt_to_modern_defense_time_flag
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 20
+		complete_effect = {
+			set_country_flag = PRC_adapt_to_modern_defense_time_flag
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = PRC_insufficient_understanding_of_modern_warfare_idea2
+				}
+				swap_ideas = {
+					remove_idea = PRC_insufficient_understanding_of_modern_warfare_idea2
+					add_idea = PRC_insufficient_understanding_of_modern_warfare_idea3
+				}
+			}	
+			if = {
+				limit = {
+					has_idea = PRC_insufficient_understanding_of_modern_warfare_idea4
+				}
+				swap_ideas = {
+					remove_idea = PRC_insufficient_understanding_of_modern_warfare_idea4
+					add_idea = PRC_insufficient_understanding_of_modern_warfare_idea5
+				}
+			}			
+			clr_country_flag = PRC_adapt_to_modern_defense_time_flag
+		}
+	}
+	PRC_adapt_to_modern_offensives = {
+		icon = GFX_PRC_soliders
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_adapt_to_current_realities_of_battles
+		}
+		available = {
+			has_completed_focus = PRC_adapt_to_current_realities_of_battles
+			NOT = {
+				has_country_flag = PRC_adapt_to_modern_defense_time_flag
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 20
+		complete_effect = {
+			set_country_flag = PRC_adapt_to_modern_defense_time_flag
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = PRC_insufficient_understanding_of_modern_warfare_idea2
+				}
+				swap_ideas = {
+					remove_idea = PRC_insufficient_understanding_of_modern_warfare_idea2
+					add_idea = PRC_insufficient_understanding_of_modern_warfare_idea4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = PRC_insufficient_understanding_of_modern_warfare_idea3
+				}
+				swap_ideas = {
+					remove_idea = PRC_insufficient_understanding_of_modern_warfare_idea3
+					add_idea = PRC_insufficient_understanding_of_modern_warfare_idea5
+				}
+			}				
+			clr_country_flag = PRC_adapt_to_modern_defense_time_flag
+		}
+	}
+	PRC_adapt_to_modern_airbattles = {
+		icon = GFX_decision_generic_air
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_adapt_to_current_realities_of_battles
+		}
+		available = {
+			has_idea = PRC_insufficient_understanding_of_modern_warfare_idea5
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 20
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			remove_ideas = 	PRC_insufficient_understanding_of_modern_warfare_idea5		
+			
+		}
+	}
+	PRC_destroy_taiwan_infr = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			CHI = {
+				every_controlled_state = {
+					damage_building = {
+						type = infrastructure
+						damage = 2
+					}
+					add_manpower = -2000
+				}
+			}				
+		}
+	}
+	PRC_destroy_taiwan_civ_industry = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			CHI = {
+				every_controlled_state = {
+					damage_building = {
+						type = industrial_complex
+						damage = 1.5
+					}
+					add_manpower = -2000
+				}
+			}				
+		}
+	}
+	PRC_destroy_taiwan_war_industry = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			CHI = {
+				every_controlled_state = {
+					damage_building = {
+						type = arms_factory
+						damage = 0.5
+					}
+					add_manpower = -2000
+				}
+			}				
+		}
+	}
+	PRC_strike_senkaku = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+			has_war_with = JAP
+			JAP = {						
+				has_full_control_of_state = 876
+			}
+		}
+		cost = 30
+		fire_only_once = no
+		days_remove = 3
+		days_re_enable = 60	
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = PRC_strike_senkaku_tt
+			damage_units = {
+				state = 876
+				damage = 0.3
+				org_damage = 0.3
+				str_damage = 0.3
+				ratio = yes
+				army = yes
+				navy = no
+			}
+			JAP = {
+				add_stability = -0.025
+				add_war_support = 0.025
+			}				
+		}
+	}
+	PRC_strike_okinawa = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+		}
+		available = {
+			has_completed_focus = PRC_indiscriminate_missile_strikes
+			has_war_with = JAP
+			JAP = {						
+				has_full_control_of_state = 526
+			}
+		}
+		cost = 30
+		fire_only_once = no
+		days_remove = 3
+		days_re_enable = 60			
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = PRC_strike_okinawa_tt
+			damage_units = {
+				state = 526
+				damage = 0.15
+				org_damage = 0.15
+				str_damage = 0.15
+				ratio = yes
+				army = yes
+				navy = no
+			}
+			JAP = {
+				add_stability = -0.025
+				add_war_support = 0.025
+			}				
+		}
+	}
+	PRC_break_the_naval_blockade = {
+		icon = GFX_PRC_sea_blockade
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_idea = PRC_blockade_of_trade_routes_idea
+		}
+		available = {
+			ships_in_area = {
+				area = 75
+				size > 10
+				#type = capital_ship
+			}
+			ships_in_area = {
+				area = 72
+				size > 10
+				#type = capital_ship
+			}
+		}
+		cost = 15
+		fire_only_once = yes
+		days_remove = 10
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			random_list = {
+				40 = {
+					remove_ideas = PRC_blockade_of_trade_routes_idea
+				}
+				60 = {
+					country_event = china.238
+				}
+			}				
+			add_political_power = 35
+			add_stability = 0.025
+			add_war_support = 0.025
+		}
+	}
+	PRC_expanding_trade_through_russia = {
+		icon = GFX_decision_SOV_brics_economy_decision
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_idea = PRC_blockade_of_trade_routes_idea2
+		}
+		available = {
+			
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 20
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			remove_ideas = PRC_blockade_of_trade_routes_idea2
+			SOV = {
+				country_event = china.239
+			}
+		}
+	}
+
+	PRC_operation_majestic_dec = {
+		name = PRC_operation_majestic
+		icon = generic_industry
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_tw_war_35
+		}
+		available = {
+			PRC_no_offensive_actions = yes
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			add_timed_idea = {
+				idea = PRC_operation_majestic_idea
+				days = 40 
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 526
+						state = 528
+						state = 1338
+						state = 529
+						state = 530
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = PRC_unplanned_offensive
+				}
+			}
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			base = 250
+		}
+	}
+
+	PRC_operation_genko = {
+		icon = generic_industry
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_tw_war_35
+		}
+		available = {
+			has_idea = PRC_operation_majestic_idea
+			has_equipment = {
+			    infantry_equipment > 10000
+			}
+			has_equipment = {
+			    support_equipment > 1000
+			}
+			has_manpower > 50000
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 10
+		complete_effect = {
+			modify_timed_idea = {
+			    idea = PRC_operation_majestic_idea
+			    days = 35
+			}
+			add_manpower = -50000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -10000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -1000
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = PRC_operation_genko_tt
+			hidden_effect = {
+				load_oob = PRC_genko
+				JAP = {
+					load_oob = GAW_militia_jap
+				}
+			}
+		}
+		ai_will_do = {
+			base = 150
+		}
+	}
+
+	PRC_continue_to_move_deep_into_japan = {
+		icon = generic_industry
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_operation_majestic
+		}
+		available = {
+			528 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			1338 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			529 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			530 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 25
+		complete_effect = {
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 531
+						state = 1340
+						state = 1337
+						state = 532
+						state = 535
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = PRC_unplanned_offensive
+				}
+			}
+		}
+		ai_will_do = {
+			base = 150
+		}
+	}
+
+	PRC_to_end_japan = {
+		icon = generic_industry
+		allowed = {
+			tag = PRC
+		}
+		visible = {
+			has_completed_focus = PRC_operation_majestic
+		}
+		available = {
+			531 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			1340 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			1337 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					region = 154
+					has_dynamic_modifier = {
+					    modifier = PRC_unplanned_offensive
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = PRC_unplanned_offensive
+				}
+			}
+			add_timed_idea = {
+				idea = PRC_to_end_japan_idea
+				days = 50
+			}
+		}
+		ai_will_do = {
+			base = 150
+		}
+	}
+}

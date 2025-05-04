@@ -1,0 +1,27 @@
+add_namespace = news
+#日本介入台海局势
+news_event = {
+	id = news.701
+	title = news.701.t
+	desc = news.701.d
+	picture = GFX_Korean_Civil_War
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = news.701.a
+        effect_tooltip = {
+            activate_mission = PRC_tw_JAP_tw_defence_fake
+        }
+		trigger = {
+			NOT = {
+				original_tag = PRC
+			}
+		}
+	}
+	option = {
+		name = news.701.b
+		trigger = {
+			original_tag = PRC
+		}
+	}
+}

@@ -1,0 +1,563 @@
+add_namespace = tbr.zzz
+
+#每回合自动抽卡开启
+country_event = {
+	id = tbr.zzz.1
+	title = tbr.zzz.1.t
+	desc = tbr.zzz.1.d
+	picture = 1
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = tbr.zzz.1.a
+		#检查现有卡组并恢复
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card1 = 1 }
+ 		           check_variable = { PRC.card1 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card1 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card2 = 1 }
+ 		           check_variable = { PRC.card2 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card2 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card3 = 1 }
+ 		           check_variable = { PRC.card3 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card3 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card4 = 1 }
+ 		           check_variable = { PRC.card4 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card4 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card5 = 1 }
+ 		           check_variable = { PRC.card5 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card5 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card6 = 1 }
+ 		           check_variable = { PRC.card6 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card6 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card7 = 1 }
+ 		           check_variable = { PRC.card7 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card7 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card8 = 1 }
+ 		           check_variable = { PRC.card8 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card8 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card9 = 1 }
+ 		           check_variable = { PRC.card9 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card9 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card10 = 1 }
+ 		           check_variable = { PRC.card10 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card10 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card11 = 1 }
+ 		           check_variable = { PRC.card11 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card11 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card12 = 1 }
+ 		           check_variable = { PRC.card12 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card12 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card13 = 1 }
+ 		           check_variable = { PRC.card13 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card13 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card14 = 1 }
+ 		           check_variable = { PRC.card14 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card14 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card15 = 1 }
+ 		           check_variable = { PRC.card15 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card15 = 1 }
+		}
+		if ={
+		    limit = {
+		        OR = {
+ 		           check_variable = { PRC.card16 = 1 }
+ 		           check_variable = { PRC.card16 = 2 }
+ 		       }
+ 		   }
+ 		   set_variable = { PRC.card16 = 1 }
+		}
+		#抽取次数设定
+		set_variable = { cardgame_num_use = PRC.cardgame_num }
+		
+		country_event = tbr.zzz.2
+	}
+}
+
+#随机抽卡
+country_event = {
+	id = tbr.zzz.2
+	title = tbr.zzz.2.t
+	desc = tbr.zzz.2.d
+	picture = 1
+	is_triggered_only = yes
+	immediate = {
+		#随机卡抽取
+		set_variable_to_random = { 
+			var = round_card 
+			min = 1
+			max = 16
+		}
+		round_variable = round_card
+	}
+	option = {
+		name = tbr.zzz.2.a
+		#卡的抽取检查
+		if = {
+			limit = {#如果卡1
+				check_variable = { round_card = 1 }
+				check_variable = { PRC.card1 = 1 }
+			}
+			set_variable = { PRC.card1 = 2 }#设定为已经抽取
+			add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+			if = {
+				limit = {
+					check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+				}
+				country_event = tbr.zzz.3 #开启下一轮抽卡
+			}
+		}
+		else ={
+			if = {
+				limit = {#如果卡2
+					check_variable = { round_card = 2 }
+					check_variable = { PRC.card2 = 1 }
+				}
+				set_variable = { PRC.card2 = 2 }#设定为已经抽取
+				add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+				if = {
+					limit = {
+						check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+					}
+					country_event = tbr.zzz.3 #开启下一轮抽卡
+				}
+			}
+			else = {
+				if = {
+					limit = {#如果卡3
+						check_variable = { round_card = 3 }
+						check_variable = { PRC.card3 = 1 }
+					}
+					set_variable = { PRC.card3 = 2 }#设定为已经抽取
+					add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+					if = {
+						limit = {
+							check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+						}
+						country_event = tbr.zzz.3 #开启下一轮抽卡
+					}
+				}
+				else = {
+					if = {
+						limit = {#如果卡4
+							check_variable = { round_card = 4 }
+							check_variable = { PRC.card4 = 1 }
+						}
+						set_variable = { PRC.card4 = 2 }#设定为已经抽取
+						add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+						if = {
+							limit = {
+								check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+							}
+							country_event = tbr.zzz.3 #开启下一轮抽卡
+						}
+					}
+					else = {
+						if = {
+							limit = {#如果卡5
+								check_variable = { round_card = 5 }
+								check_variable = { PRC.card5 = 1 }
+							}
+							set_variable = { PRC.card5 = 2 }#设定为已经抽取
+							add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+							if = {
+								limit = {
+									check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+								}
+								country_event = tbr.zzz.3 #开启下一轮抽卡
+							}
+						}
+						else = {
+							if = {
+								limit = {#如果卡6
+									check_variable = { round_card = 6 }
+									check_variable = { PRC.card6 = 1 }
+								}
+								set_variable = { PRC.card6 = 2 }#设定为已经抽取
+								add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+								if = {
+									limit = {
+										check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+									}
+									country_event = tbr.zzz.3 #开启下一轮抽卡
+								}
+							}
+							else = {
+								if = {
+									limit = {#如果卡7
+										check_variable = { round_card = 7 }
+										check_variable = { PRC.card7 = 1 }
+									}
+									set_variable = { PRC.card7 = 2 }#设定为已经抽取
+									add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+									if = {
+										limit = {
+											check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+										}
+										country_event = tbr.zzz.3 #开启下一轮抽卡
+									}
+								}
+								else = {
+									if = {
+										limit = {#如果卡8
+											check_variable = { round_card = 8 }
+											check_variable = { PRC.card8 = 1 }
+										}
+										set_variable = { PRC.card8 = 2 }#设定为已经抽取
+										add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+										if = {
+											limit = {
+												check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+											}
+											country_event = tbr.zzz.3 #开启下一轮抽卡
+										}
+									}
+									else = {
+										if = {
+											limit = {#如果卡9
+												check_variable = { round_card = 9 }
+												check_variable = { PRC.card9 = 1 }
+											}
+											set_variable = { PRC.card9 = 2 }#设定为已经抽取
+											add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+											if = {
+												limit = {
+													check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+												}
+												country_event = tbr.zzz.3 #开启下一轮抽卡
+											}
+										}
+										else = {
+											if = {
+												limit = {#如果卡10
+													check_variable = { round_card = 10 }
+													check_variable = { PRC.card10 = 1 }
+												}
+												set_variable = { PRC.card10 = 2 }#设定为已经抽取
+												add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+												if = {
+													limit = {
+														check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+													}
+													country_event = tbr.zzz.3 #开启下一轮抽卡
+												}
+											}
+											else = {
+												if = {
+													limit = {#如果卡11
+														check_variable = { round_card = 11 }
+														check_variable = { PRC.card11 = 1 }
+													}
+													set_variable = { PRC.card11 = 2 }#设定为已经抽取
+													add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+													if = {
+														limit = {
+															check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+														}
+														country_event = tbr.zzz.3 #开启下一轮抽卡
+													}
+												}
+												else = {
+													if = {
+														limit = {#如果卡12
+															check_variable = { round_card = 12 }
+															check_variable = { PRC.card12 = 1 }
+														}
+														set_variable = { PRC.card12 = 2 }#设定为已经抽取
+														add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+														if = {
+															limit = {
+																check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+															}
+															country_event = tbr.zzz.3 #开启下一轮抽卡
+														}
+													}
+													else = {
+														if = {
+															limit = {#如果卡13
+																check_variable = { round_card = 13 }
+																check_variable = { PRC.card13 = 1 }
+															}
+															set_variable = { PRC.card13 = 2 }#设定为已经抽取
+															add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+															if = {
+																limit = {
+																	check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+																}
+																country_event = tbr.zzz.3 #开启下一轮抽卡
+															}
+														}
+														if = {
+															limit = {#如果卡14
+																check_variable = { round_card = 14 }
+																check_variable = { PRC.card14 = 1 }
+															}
+															set_variable = { PRC.card14 = 2 }#设定为已经抽取
+															add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+															if = {
+																limit = {
+																	check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+																}
+																country_event = tbr.zzz.3 #开启下一轮抽卡
+															}
+														}
+														else = {
+															if = {
+																limit = {#如果卡15
+																	check_variable = { round_card = 15 }
+																	check_variable = { PRC.card15 = 1 }
+																}
+																set_variable = { PRC.card15 = 2 }#设定为已经抽取
+																add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+																if = {
+																	limit = {
+																		check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+																	}
+																	country_event = tbr.zzz.3 #开启下一轮抽卡
+																}
+															}
+															else = {
+																if = {
+																	limit = {#如果卡16
+																		check_variable = { round_card = 16 }
+																		check_variable = { PRC.card16 = 1 }
+																	}
+																	set_variable = { PRC.card16 = 2 }#设定为已经抽取
+																	add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+																	if = {
+																		limit = {
+																			check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+																		}
+																		country_event = tbr.zzz.3 #开启下一轮抽卡
+																	}
+																}
+																else = {#保底
+																	if = {
+																		limit = {
+																			check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+																		}
+																		country_event = tbr.zzz.3 #开启下一轮抽卡
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {#用于循环触发tbr.zzz.2
+	id = tbr.zzz.3
+	title = tbr.zzz.3.t
+	desc = tbr.zzz.3.d
+	picture = 1
+	is_triggered_only = yes
+	option = {
+		name = tbr.zzz.3.a
+		country_event = tbr.zzz.2
+	}
+}
+country_event = {#2回合重置
+	id = tbr.zzz.4
+	title = tbr.zzz.4.t
+	desc = tbr.zzz.4.d
+	picture = 1
+	is_triggered_only = yes
+	option = {
+		name = tbr.zzz.4.a
+		if = {
+			limit = {
+				check_variable = { PRC.card1 = 3 }
+			}
+			set_variable = { PRC.card1 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card2 = 3 }
+			}
+			set_variable = { PRC.card2 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card3 = 3 }
+			}
+			set_variable = { PRC.card3 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card4 = 3 }
+			}
+			set_variable = { PRC.card4 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card5 = 3 }
+			}
+			set_variable = { PRC.card5 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card6 = 3 }
+			}
+			set_variable = { PRC.card6 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card7 = 3 }
+			}
+			set_variable = { PRC.card7 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card8 = 3 }
+			}
+			set_variable = { PRC.card8 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card9 = 3 }
+			}
+			set_variable = { PRC.card9 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card10 = 3 }
+			}
+			set_variable = { PRC.card10 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card11 = 3 }
+			}
+			set_variable = { PRC.card11 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card12 = 3 }
+			}
+			set_variable = { PRC.card12 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card13 = 3 }
+			}
+			set_variable = { PRC.card13 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card14 = 3 }
+			}
+			set_variable = { PRC.card14 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card15 = 3 }
+			}
+			set_variable = { PRC.card15 = 1 }
+		}
+		if = {
+			limit = {
+				check_variable = { PRC.card16 = 3 }
+			}
+			set_variable = { PRC.card16 = 1 }
+		}
+	}
+}

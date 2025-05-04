@@ -1,0 +1,583 @@
+ideas = {
+	country = {
+		#全国封控
+		PRC_nationwide_lockdown_idea = {
+			picture = PRC_nationwide_lockdown_idea
+
+			allowed = {
+				tag = PRC
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.50
+				production_factory_max_efficiency_factor = -0.5
+				production_speed_buildings_factor = -0.5
+				stability_factor = 0.10
+				tax_business_rate = -0.25
+			}
+			on_remove = {
+				PRC_decrease_corona = yes
+			}
+		}
+		#紧急物资生产
+		PRC_emergency_supply_production_idea = {
+			picture = generic_covid
+			allowed = {
+				tag = PRC
+			}
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		#COVAX计划——图标？
+		PRC_COVAX_the_plan = {
+			picture = generic_covid
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		#政清人和
+		PRC_clear_politics = {
+			picture = generic_covid
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				income_growth_factor = 0.05
+				business_value_factor = 0.05
+				society_development_monthly = 0.025
+			}
+		}
+		#山川异域，风月同天
+		PRC_all_same_sky_idea = {
+			picture = generic_covid
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				industrial_factory_donations = 30
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				monthly_population = 0.01
+				society_development_monthly = 0.025
+			}
+		}
+		#群众志愿者
+		PRC_people_volunteer_idea = {
+			picture = generic
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				industrial_factory_donations = 5
+				stability_factor = 0.15
+			}
+		}
+		#市场稳定
+		PRC_market_stabilized_idea = {
+			picture = PRC_boost_consumption
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				poverty_development_monthly = 0.05
+				income_growth_factor = 0.05
+			}
+		}
+		#经济恢复
+		PRC_economy_regain_idea = {
+			picture = PRC_boost_consumption
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				society_development_monthly = 0.05
+				business_value_factor = 0.05
+				personal_value_factor = 0.05
+			}
+		}
+
+		PRC_coronavirus_pandemic_idea = {
+			picture = generic_covid
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				#consumer_goods_factor = 0.4
+				production_factory_max_efficiency_factor = -0.5
+				industrial_capacity_dockyard = -0.5
+				monthly_population = -0.3
+				stability_factor = -0.5
+			}
+		}
+
+		PRC_coronavirus_pandemic_idea1 = {
+			picture = generic_covid
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				#consumer_goods_factor = 0.3
+				production_factory_max_efficiency_factor = -0.4
+				industrial_capacity_dockyard = -0.4
+				monthly_population = -0.24
+				stability_factor = -0.4
+			}
+		}
+		
+		PRC_coronavirus_pandemic_idea2 = {
+			picture = generic_covid
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				#consumer_goods_factor = 0.2
+				production_factory_max_efficiency_factor = -0.3
+				industrial_capacity_dockyard = -0.3
+				monthly_population = -0.18
+				stability_factor = -0.3
+			}
+
+		}
+		
+		PRC_coronavirus_pandemic_idea3 = {
+			picture = generic_covid
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				#consumer_goods_factor = 0.1
+				production_factory_max_efficiency_factor = -0.2
+				industrial_capacity_dockyard = -0.2
+				monthly_population = -0.12
+				stability_factor = -0.2
+			}
+		}
+		
+		PRC_coronavirus_pandemic_idea4 = {
+			picture = generic_covid
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				# consumer_goods_factor = 0.1
+				production_factory_max_efficiency_factor = -0.1
+				industrial_capacity_dockyard = -0.1
+				monthly_population = -0.06
+				stability_factor = -0.1
+			}
+		}
+
+		PRC_covid_legacy_fake = {
+			picture = PRC_nationwide_lockdown_idea
+			allowed = {
+				tag = PRC
+			}
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = 0.05
+			}
+		}
+
+		PRC_covid_slander_idea_1 = {
+			picture = PRC_nationwide_lockdown_idea
+			allowed = {
+				tag = PRC
+			}
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.2
+				society_development_monthly = -0.01
+			}
+		}
+
+		PRC_covid_slander_idea_2 = {
+			picture = PRC_nationwide_lockdown_idea
+			allowed = {
+				tag = PRC
+			}
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.1
+				society_development_monthly = -0.005
+			}
+		}
+
+		PRC_made_in_china_dummy_idea101 = {
+			picture = GFX_idea_PRC_made_in_china
+			name = PRC_made_in_china_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.025
+				business_value_factor = 0.05
+			}
+		}
+
+		PRC_made_in_china_dummy_idea102 = {
+			picture = GFX_idea_PRC_made_in_china
+			name = PRC_made_in_china_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+				business_value_factor = 0.05
+			}
+		}
+
+		PRC_made_in_china_dummy_idea103 = {
+			picture = GFX_idea_PRC_made_in_china
+			name = PRC_made_in_china_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_office_park_factor = 0.25
+			}
+		}
+
+		PRC_made_in_china_dummy_idea104 = {
+			picture = GFX_idea_PRC_made_in_china
+			name = PRC_made_in_china_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+
+		PRC_tw_war_army_training_idea = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+
+			modifier = {
+				training_time_army_factor = -0.35
+			}
+		}
+
+
+
+		PRC_tw_war_dummy = {
+			allowed = {
+				tag = PRC
+			}
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+		}
+
+		PRC_tw_war_dummy_0 = {
+			allowed = {
+				tag = PRC
+			}
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = -0.3
+			}
+		}
+
+		PRC_tw_war_add_prepare_0 = {
+		}
+
+		PRC_tw_war_add_prepare_1 = {
+			modifier = {
+				war_support_factor = 0.01
+				stability_factor = 0.06
+			}
+		}
+
+		PRC_tw_war_add_prepare_2 = {
+			modifier = {
+				war_support_factor = 0.02
+				stability_factor = 0.12
+			}
+		}
+
+		PRC_tw_war_add_prepare_3 = {
+			modifier = {
+				war_support_factor = 0.03
+				stability_factor = 0.18
+			}
+		}
+
+		PRC_tw_war_army_training_idea = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+
+			modifier = {
+				training_time_army_factor = -0.35
+			}
+		}	
+
+		PRC_tw_war_joint_training_idea = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+
+			modifier = {
+				training_time_army_factor = -0.35
+			}
+		}	
+
+		PRC_tw_war_dummy_fast_finalization = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			modifier = {
+				war_support_factor = 0.05
+				army_speed_factor = 0.2
+			}
+		}
+
+		PRC_tw_war_dummy_slowly_but_surely = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			modifier = {
+				stability_factor = 0.05
+				army_attack_factor = 0.1
+			}
+		}
+
+		PRC_tw_war_dummy_modern = {
+			picture = PRC_conduct_final_trining_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			modifier = {
+				naval_invasion_planning_bonus_speed = 0.25
+			}
+		}
+
+		PRC_tw_war_dummy_high_alert = {
+			picture = PRC_conduct_final_trining_idea
+			modifier = {
+				experience_gain_army = 0.2
+				experience_gain_navy = 0.2
+				experience_gain_air = 0.2
+			}
+		}
+
+		PRC_blue_water_navy = {
+			picture = PRC_operation_crimson_sky
+			allowed = {
+				tag = PRC
+			}
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = -0.20
+				defense_bonus_against = -0.20
+			}
+		}
+
+		PRC_blue_water_navy_1 = {
+			picture = PRC_operation_crimson_sky
+			allowed = {
+				tag = PRC
+			}
+			available = {
+				has_country_flag = PRC_prepare_taiwan_war
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = -0.10
+				defense_bonus_against = -0.10
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+add_namespace = jap
+#Oil Crash Hits JAP
+#原先有  china.11, china.288, china.289, china.290, china.324这几个表现恐慌的定时触发事件
+country_event = {
+	id = jap.800
+	title = china.4.t
+	desc = china.4.d
+	picture = GFX_red_line_go_down
+	is_triggered_only = yes
+	trigger = {
+		tag = JAP
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = JAP_oil_crisis_ongoing
+			add_ideas = PRC_oil_crash1
+			add_political_power = -30
+			add_stability = -0.25
+			add_popularity = {
+				ideology = conservative
+				popularity = -0.175
+			}
+		}
+	}
+	option = {
+		name = china.4.a
+		effect_tooltip = {
+			add_ideas = PRC_oil_crash1
+			add_political_power = -30
+		}
+	}
+}

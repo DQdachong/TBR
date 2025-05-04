@@ -1,0 +1,84 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			PRC = {
+				set_variable = {
+                    var = PRC_economic_recession_consumer_factor_var
+                    value = 0
+                }
+				set_variable = {
+                    var = PRC_economic_recession_business_value_var
+                    value = 0
+                }
+				set_variable = {
+                    var = PRC_economic_recession_personal_value_var
+                    value = 0
+                }
+				set_variable = { 
+					var = PRC_covid_legacy_pp
+					value = 0.05
+				}
+				set_variable = { 
+					var = PRC_covid_legacy_stability
+					value = 0
+				}
+				set_variable = { 
+					var = PRC_covid_legacy_research
+					value = 0
+				}
+				set_variable = { 
+					var = PRC_covid_legacy_poverty
+					value = 0
+				}
+				set_variable = {
+					var = PRC_covid_control_level
+					value = 10
+				}
+				set_variable = {
+					var = PRC_covid_cure_level
+					value = 180
+				}
+				# country_event = {
+				# 	# first COVID identified
+				# 	id = china.10
+				# 	days = 9
+				# }
+				# country_event = {
+				# 	# first COVID death
+				# 	id = china.5
+				# 	days = 9
+				# }
+				# country_event = {
+				# 	id = china.303
+				# 	days = 10
+				# }
+				country_event = {
+					#Day of Mourning
+					id = china.75
+					days = 63
+				}
+				country_event = {
+					# Li Wenliang Passed Away
+					id = china.299
+					days = 37
+				}
+				country_event = {
+					# Award of the Medal of the Republic to Zhong Nanshan
+					id = china.298
+					days = 223
+				}
+				country_event = {
+					# Segregated Transfer Bus Rollover
+					id = china.301
+					days = 200
+				}
+
+				# country_event = {
+				# 	#Electric Vehicles Era
+				# 	id = china.314
+				# 	days = 60
+				# }
+			}
+		}
+	}
+}

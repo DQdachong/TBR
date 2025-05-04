@@ -1,0 +1,19 @@
+CHI_defend_strategy = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = CHI
+	}
+	enable = {
+        always = yes
+        # PRC = {
+        #     has_completed_focus = PRC_the_final_opportunity
+        # }
+    }
+    ai_strategy = {
+        type = put_unit_buffers
+        ratio = 0.5
+        states = {
+            1148
+        }
+    }
+}

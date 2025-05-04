@@ -1,0 +1,675 @@
+JAP_taiwan_war_category = { 
+    JAP_tw_defence = {
+        icon = GFX_JAP_taiwan_war_mission
+        allowed = { 
+			tag = JAP
+		}
+        visible = {
+			PRC = { has_country_flag = PRC_prepare_taiwan_war}
+            NOT = { has_global_flag = PRC_ongoing_taiwan_war }
+        }
+        available = {
+            NOT = { has_country_flag = JAP_prewar_defence_ongoing }
+            PRC = {
+                NOT = {
+                    has_completed_focus = PRC_detain_liangyue
+                }
+			}
+            check_variable = { JAP_tw_defence_value < 4 }
+		} 
+        days_remove = 30
+		cancel_if_not_visible = yes
+        complete_effect = {
+            set_country_flag = JAP_prewar_defence_ongoing
+            hidden_effect = {
+                PRC = {
+                    activate_mission = PRC_tw_JAP_tw_defence_fake
+                }
+            }
+			if = {
+				limit = { NOT = { has_global_flag = JAP_interfere_tw } }
+				news_event = news.701
+				set_global_flag = JAP_interfere_tw
+			}
+        }
+        remove_effect = {
+            add_to_variable = {
+                var = JAP_tw_defence_value
+                value = 1
+            }
+			clr_country_flag = JAP_prewar_defence_ongoing
+        }
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 10
+				NOT = { has_global_flag = JAP_interfere_tw }
+			}
+		}
+    }
+    JAP_ryu_defence = {
+        icon = GFX_JAP_taiwan_war_mission
+        allowed = { 
+			tag = JAP
+		}
+        visible = {
+			PRC = { has_country_flag = PRC_prepare_taiwan_war}
+            NOT = { has_global_flag = PRC_ongoing_taiwan_war }
+        }
+        available = {
+            NOT = { has_country_flag = JAP_prewar_defence_ongoing}
+            PRC = {
+                NOT = {
+                    has_completed_focus = PRC_force_plan
+                }
+			}
+            check_variable = { JAP_ryu_defence_value < 4 }
+		} 
+        days_remove = 30
+		cancel_if_not_visible = yes
+        complete_effect = {
+            set_country_flag = JAP_prewar_defence_ongoing
+            hidden_effect = {
+                PRC = {
+                    activate_mission = PRC_tw_JAP_ryu_defence_fake
+                }
+            }
+        }
+        remove_effect = {
+            add_to_variable = {
+                var = JAP_ryu_defence_value
+                value = 1
+            }
+			clr_country_flag = JAP_prewar_defence_ongoing
+        }
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				NOT = { has_global_flag = JAP_interfere_tw }
+			}
+		}
+    }
+    JAP_homeland_defence = {
+        icon = GFX_JAP_taiwan_war_mission
+        allowed = { 
+			tag = JAP
+		}
+        visible = {
+			PRC = { has_country_flag = PRC_prepare_taiwan_war}
+            NOT = { has_global_flag = PRC_ongoing_taiwan_war }
+        }
+        available = {
+            NOT = { has_country_flag = JAP_prewar_defence_ongoing}
+            check_variable = { JAP_home_defence_value < 11 }
+		} 
+        days_remove = 30
+		cancel_if_not_visible = yes
+        complete_effect = {
+            set_country_flag = JAP_prewar_defence_ongoing
+            hidden_effect = {
+                PRC = {
+                    activate_mission = PRC_tw_JAP_mainland_defence_fake
+                }
+            }
+        }
+        remove_effect = {
+            add_to_variable = {
+                var = JAP_home_defence_value
+                value = 1
+            }
+			clr_country_flag = JAP_prewar_defence_ongoing
+        }
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				NOT = { has_global_flag = JAP_interfere_tw }
+			}
+		}
+    }
+    JAP_taiwan_war_mission = {
+	    icon = GFX_JAP_taiwan_war_mission
+		allowed = { 
+			tag = JAP
+		}
+		activation = {
+			always = no
+		}
+		available = { 
+			PRC = {
+				524 = {
+					is_fully_controlled_by = PRC
+				}
+				1150 = {
+					is_fully_controlled_by = PRC
+				}
+				1149 = {
+					is_fully_controlled_by = PRC
+				}
+				1148 = {
+					is_fully_controlled_by = PRC
+				}
+				648 = {
+					is_fully_controlled_by = PRC
+				}
+			}
+		}
+
+		is_good = no
+		selectable_mission = no
+		days_mission_timeout = 365 # I know the timer for the PRC is 365 days, this one is 355 because its activated one day after the PRC's # you focked up mate
+		timeout_effect = { 
+			effect_tooltip = {
+				country_event = { id = jap.9 }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = JAP_taiwan_war_timer_tt
+			add_stability = -0.10
+			add_war_support = -0.10
+		}
+	}
+    JAP_spread_propaganda_on_wechat = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    PRC = {
+			    has_war_with = CHI
+			}
+		}
+	    fire_only_once = no
+	    cost = 75
+		days_remove = 30
+		days_re_enable = 30
+		icon = generic_propaganda_campaigns
+	    complete_effect = {
+		    add_days_mission_timeout = {
+			    mission = JAP_taiwan_war_mission
+				days = -30
+			}
+			hidden_effect = {
+			    PRC = {
+				    country_event = {
+						id = china.70
+					}
+					add_days_mission_timeout = {
+						mission = PRC_taiwan_war_countdown
+						days = -30
+					}
+				}
+			}
+	    }
+	}
+	JAP_arm_islamist_rebels = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    PRC = {
+			    has_war_with = CHI
+			}
+		}
+		icon = generic_civil_support
+	    fire_only_once = no
+	    cost = 75
+		days_remove = 30
+		days_re_enable = 30
+	    complete_effect = {
+		    add_days_mission_timeout = {
+			    mission = JAP_taiwan_war_mission
+				days = -10
+			}
+			hidden_effect = {
+			    PRC = {
+				    country_event = {
+						id = china.71
+					}
+					add_days_mission_timeout = {
+						mission = PRC_taiwan_war_countdown
+						days = -10
+					}
+				}
+			}
+	    }
+	}
+    JAP_defending_taiwan = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    PRC = {
+			    has_war_with = CHI
+			}
+		}
+		icon = GFX_JAP_jsdf
+	    fire_only_once = no
+	    cost = 75
+		days_remove = 30
+		days_re_enable = 120
+	    complete_effect = {
+			add_timed_idea = {
+			    idea = JAP_defense_of_taiwan_idea
+			    days = 60
+			}
+	    }
+	}
+	JAP_destroy_fuzhou_industry = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			PRC = {
+				every_controlled_state = {
+					limit = {
+						state = 595
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 2
+					}
+					add_manpower = -3500
+				}
+			}				
+		}
+	}
+	JAP_destroy_xiamen_industry = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			PRC = {
+				every_controlled_state = {
+					limit = {
+						state = 1218
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 2
+					}
+					add_manpower = -3500
+				}
+			}				
+		}
+	}
+	JAP_destroy_shanghai_industry = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		cost = 30
+		fire_only_once = yes
+		days_remove = 3
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			PRC = {
+				every_controlled_state = {
+					limit = {
+						state = 1215
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 1.5
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 0.5
+					}
+					add_manpower = -3000
+				}
+			}				
+		}
+	}
+	JAP_naval_strike_gaolei = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+			has_war_with = PRC
+		}
+		cost = 40
+		fire_only_once = no
+		days_remove = 3
+		days_re_enable = 60	
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = JAP_strike_gaolei_tt
+			damage_units = {
+				state = 728
+				damage = 0.2
+				org_damage = 0.2
+				str_damage = 0.2
+				ratio = yes
+				army = no
+				navy = yes
+			}
+			PRC = {
+				add_stability = -0.025
+				add_war_support = 0.025
+			}				
+		}
+	}
+	JAP_naval_strike_fuzhou = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+			has_war_with = PRC
+		}
+		cost = 40
+		fire_only_once = no
+		days_remove = 3
+		days_re_enable = 60	
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = JAP_strike_fuzhou_tt
+			damage_units = {
+				state = 595
+				damage = 0.2
+				org_damage = 0.2
+				str_damage = 0.2
+				ratio = yes
+				army = no
+				navy = yes
+			}
+			PRC = {
+				add_stability = -0.025
+				add_war_support = 0.025
+			}				
+		}
+	}
+	JAP_naval_strike_shanghai = {
+		icon = GFX_PRC_rocket_strike
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+		}
+		available = {
+			has_completed_focus = JAP_strike_chinese_military_bases
+			has_war_with = PRC
+		}
+		cost = 40
+		fire_only_once = no
+		days_remove = 3
+		days_re_enable = 60	
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			custom_effect_tooltip = JAP_strike_shanghai_tt
+			damage_units = {
+				state = 1215
+				damage = 0.2
+				org_damage = 0.2
+				str_damage = 0.2
+				ratio = yes
+				army = no
+				navy = yes
+			}
+			PRC = {
+				add_stability = -0.025
+				add_war_support = 0.025
+			}				
+		}
+	}
+	JAP_break_the_blockade_of_taiwan_dec = {
+		icon = GFX_PRC_sea_blockade
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			CHI = {
+				OR = {
+					has_idea = CHI_chinese_blockade
+				}
+			}
+			has_completed_focus = JAP_break_the_blockade_of_taiwan
+		}
+		available = {
+			ships_in_area = {
+				area = 75
+				size > 10
+				#type = capital_ship
+			}
+			ships_in_area = {
+				area = 76
+				size > 10
+				#type = capital_ship
+			}
+		}
+		cost = 15
+		fire_only_once = yes
+		days_remove = 10
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			CHI = {
+				remove_ideas = CHI_chinese_blockade
+			}
+			add_political_power = 35
+			add_stability = 0.025
+			add_war_support = 0.025
+		}
+	}		
+	JAP_throw_them_back_dec = {
+		icon = generic_industry
+		allowed = {
+			tag = JAP
+		}
+		visible = {
+			has_completed_focus = JAP_throw_them_into_the_sea
+		}
+		available = {
+			PRC = {
+				OR = {
+					controls_state = 524
+					controls_state = 1148
+					controls_state = 1149
+					controls_state = 1150
+				}
+			}
+		}
+		cost = 15
+		fire_only_once = yes
+		days_remove = 5
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_timed_idea = {
+			    idea = PDO_taiwan_counter_attack_idea
+			    days = 45
+			}
+			add_war_support = 0.05
+			AST = {
+				add_timed_idea = {
+					idea = PDO_taiwan_counter_attack_idea
+					days = 45
+				}
+				add_war_support = 0.05
+			}
+			CHI = {
+				add_timed_idea = {
+					idea = PDO_taiwan_counter_attack_idea
+					days = 45
+				}
+				add_war_support = 0.05
+			}
+		}
+	}	
+    JAP_activate_mission_kinmen = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    has_completed_focus = JAP_kinmen_operation
+		}
+	    fire_only_once = yes
+	    cost = 75
+	    complete_effect = {
+			activate_mission = JAP_free_kinmen_island
+			hidden_effect = { 
+			    PRC = {
+			        country_event =  { id = china.77 }
+				}
+			}
+	    }
+	}
+	JAP_free_kinmen_island = {
+	    visible = {
+		    PRC = {
+			    has_war_with = CHI
+			}
+		}
+			
+		allowed = { 
+			tag = JAP
+		}
+		
+		available = {
+		    OR = {
+			    648 = {
+				    is_controlled_by = JAP
+			    }
+				648 = {
+				    is_controlled_by = CHI
+			    }
+				648 = {
+				    is_controlled_by = AST
+			    }
+			}
+			divisions_in_state = {
+				type = infantry
+				size < 2
+				state = 648
+			}	
+		}
+			
+		activation = {
+			always = no
+		}
+			
+		icon = GFX_SOV_decision_vdv_training
+		fire_only_once = yes
+		days_mission_timeout = 60
+		is_good = no
+			
+		ai_will_do = {
+			base = 10
+		}
+			
+		complete_effect = {
+			country_event = { id = jap.20 }
+		}
+		timeout_effect = {
+			country_event = { id = jap.21 }
+		}
+		#cost = 50
+	}
+    JAP_taiwan_fleet = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    has_completed_focus = JAP_maintain_sea_and_air_superiority
+		}
+	    fire_only_once = yes 
+	    cost = 100
+		days_remove = 30
+	    complete_effect = {
+			add_timed_idea = {
+			    idea = JAP_taiwan_fleet_help
+			    days = 100
+			}
+	    }
+	}
+    JAP_taiwan_air = {
+	    available = {
+		    PRC = {
+		        has_war_with = CHI
+			}
+		} 
+	    visible = {
+		    has_completed_focus = JAP_maintain_sea_and_air_superiority
+		}
+	    fire_only_once = yes
+	    cost = 100
+		days_remove = 30
+	    complete_effect = {
+			add_timed_idea = {
+			    idea = JAP_taiwan_air_help
+			    days = 100
+			}
+	    }
+	}
+}

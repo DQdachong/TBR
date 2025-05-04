@@ -1,0 +1,72 @@
+add_namespace = nk
+country_event = {
+	id = nk.111
+	title = nk.111.t
+	desc = nk.111.desc
+	picture = GFX_event.nk.1 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = nk.111.a
+		add_stability = 0.05
+		custom_effect_tooltip = nk.111.ak
+	}
+}
+country_event = {
+	id = nk.112
+	title = nk.112.t
+	desc = nk.112.desc
+	picture = GFX_event.nk.2 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = nk.112.a
+		add_political_power = 50
+		add_stability = 0.05
+		load_focus_tree = PRK_focus_political
+		custom_effect_tooltip = nk.112.ak
+	}
+}
+country_event = {
+	id = nk.113
+	title = nk.113.t
+	desc = nk.113.desc
+	picture = GFX_event.nk.3 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = nk.113.a
+		add_manpower = -100
+		custom_effect_tooltip = nk.113.ak
+		}
+}
+
+add_namespace = tem
+country_event = {
+	id = tem.1
+	title = tem.1.t
+	desc = tem.1.desc
+	picture = GFX_event.tem.1 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = tem.1.a
+	}
+}
+country_event = {
+	id = tem.2
+	title = tem.2.t
+	desc = tem.2.desc
+	picture = GFX_event.tem.2 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = tem.2.a
+	}
+}
+country_event = {
+	id = tem.3
+	title = tem.3.t
+	desc = tem.3.desc
+	picture = GFX_event.tem.3 #500px*250px
+	is_triggered_only = yes
+	option = {
+		name = tem.3.a
+	}
+}
+

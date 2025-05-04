@@ -1,0 +1,191 @@
+focus_tree = {
+    id = PRK_focus_start
+    
+    country= {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = PRK
+        }
+    }
+
+
+    focus = {
+        id = prk_start_1
+        icon = GFX_focus_focus1
+        
+		x = 5
+        y = 1
+        cost = 1
+		
+        allow_branch = {
+        
+        }
+        available = {
+                
+        } 
+        completion_reward = {
+            add_political_power = 50
+			country_event = {id = nk.111}
+        }
+    }
+    focus = {
+		id = prk_start_2 #国策名称
+		icon = GFX_focus_focus2 #图标
+		relative_position_id = prk_start_1 #以什么为坐标原点
+        prerequisite = { focus = prk_start_1 } #前置
+		x = -1 #坐标
+		y = 1
+		cost = 2 #时间
+		allow_branch = {
+			
+		}
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {has_idea = prk_yiqing1}
+					swap_ideas = {
+						remove_idea = prk_yiqing1
+						add_idea = prk_yiqing2
+					}
+				}
+			else_if = {
+				limit = {has_idea = prk_yiqing2 }
+				swap_ideas = {
+					remove_idea = prk_yiqing2
+					add_idea = prk_yiqing3
+				}
+			}		
+		}
+	}	
+    focus = {
+		id = prk_start_3 #国策名称
+		icon = GFX_focus_focus3 #图标
+		relative_position_id = prk_start_2 #以什么为坐标原点
+        prerequisite = { focus = prk_start_1 } #前置
+		x = 2 #坐标
+		y = 0
+		cost = 2 #时间
+		allow_branch = {
+			
+		}
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {has_idea = prk_yiqing1}
+					swap_ideas = {
+						remove_idea = prk_yiqing1
+						add_idea = prk_yiqing2
+					}
+				}
+			else_if = {
+				limit = {has_idea = prk_yiqing2 }
+				swap_ideas = {
+					remove_idea = prk_yiqing2
+					add_idea = prk_yiqing3
+				}
+			}
+		}
+    }
+    focus = {
+		id = prk_start_4 #国策名称
+		icon = GFX_focus_focus4 #图标
+		relative_position_id = prk_start_1 #以什么为坐标原点
+        prerequisite = { focus = prk_start_2 } #前置
+		prerequisite = { focus = prk_start_3 } #前置
+		x = 0 #坐标
+		y = 2
+		cost = 2 #时间
+		allow_branch = {
+			
+		}
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			country_event = {id = nk.112}
+			remove_ideas = prk_yiqing3
+		}
+    }
+	focus = {
+		id = prk_tem_focus_233
+		icon = GFX_focus_prk_tem_focus_2
+		cost = 2
+		relative_position_id = prk_start_1 #以什么为坐标原点
+		prerequisite = {  } #前置
+		x = 0
+		y = 3
+		completion_reward = {
+		}
+		
+			
+		}
+	}
+	
+	
+	
+	
+	
+
+
+focus_tree = {
+	id = PRK_focus_political
+    
+    country= {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = PRK
+        }
+    }
+	focus = {
+		id = prk_poli_1
+		icon = GFX_focus_pol1
+		cost = 2
+		x = 5
+		y = 1
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.1
+			country_event = {id = nk.113}
+		}
+	}
+	focus = {
+		id = prk_tem_focus_1
+		icon = GFX_focus_prk_tem_focus_1
+		cost = 2
+		relative_position_id = prk_tem_focus_1 #以什么为坐标原点
+		prerequisite = {  } #前置
+		x = 0
+		y = 1
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.1
+			country_event = {}
+		}
+	}
+	focus = {
+		id = prk_tem_focus_2
+		icon = GFX_focus_prk_tem_focus_2
+		cost = 2
+		relative_position_id = prk_poli_1 #以什么为坐标原点
+		prerequisite = {  } #前置
+		x = 0
+		y = 1
+		completion_reward = {
+			add_ideas = liangxingtuanjie_1
+			add_stability = 0.075
+			
+		}
+	}
+}

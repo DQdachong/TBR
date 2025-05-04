@@ -1,0 +1,73 @@
+PRC_economic_recession_dynamic = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	consumer_goods_factor = PRC_economic_recession_consumer_factor_var
+	business_value_factor = PRC_economic_recession_business_value_var
+	personal_value_factor = PRC_economic_recession_personal_value_var
+}
+
+PRC_covid_legacy = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	political_power_gain = PRC_covid_legacy_pp
+	stability_factor = PRC_covid_legacy_stability
+	research_speed_factor = PRC_covid_legacy_research
+	poverty_development_monthly = PRC_covid_legacy_poverty
+}
+
+PRC_oil_crisis = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	consumer_goods_factor = PRC_oil_crisis_consumer_factor_var
+	stability_factor = PRC_oil_crisis_stability_factor_var
+	production_factory_max_efficiency_factor = PRC_oil_crisis_production_factory_max_efficiency_factor_var
+	business_value_factor = PRC_oil_crisis_business_value_factor_var
+	production_speed_buildings_factor = PRC_oil_crisis_production_speed_buildings_factor_var
+	fuel_gain_factor = PRC_oil_crisis_fuel_gain_factor_var
+}
+
+PRC_financial_crisis = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	consumer_goods_factor = PRC_financial_crisis_consumer_goods_factor_var
+	stability_factor = PRC_financial_crisis_stability_factor_var
+	business_value_factor = PRC_financial_crisis_business_value_factor_var
+	poverty_development_monthly = PRC_financial_crisis_poverty_development_monthly
+	income_growth_factor = PRC_financial_crisis_income_growth_factor
+}
+
+PRC_market = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	political_power_factor = PRC_market_political_power_factor_var
+	stability_weekly = PRC_market_stability_weekly_var
+	industrial_capacity_factory = PRC_market_industrial_capacity_factory_var
+	society_development_monthly = PRC_market_society_development_monthly_var
+}
+
+PRC_taiwan_war = {
+	enable = {
+		tag = PRC
+	}
+	icon = GFX_idea_PRC_BRI
+	political_power_gain = PRC_tw_war_political_power_gain_var
+	war_support_factor = PRC_tw_war_support_factor_var
+	stability_factor = PRC_tw_war_stability_factor_var
+	training_time_army_factor = PRC_tw_war_training_time_army_factor_var
+	army_speed_factor = PRC_tw_war_army_speed_factor_var
+	army_attack_factor = PRC_tw_war_army_attack_factor_var
+	naval_invasion_planning_bonus_speed = PRC_tw_war_naval_invasion_planning_bonus_speed_var
+	experience_gain_army = PRC_tw_war_experience_gain_army_var
+	experience_gain_navy = PRC_tw_war_experience_gain_navy_var
+	experience_gain_air = PRC_tw_war_experience_gain_air_var
+}

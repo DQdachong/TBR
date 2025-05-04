@@ -1,0 +1,486 @@
+add_namespace = china
+add_namespace = tbr
+#武汉封城
+country_event = {
+	id = tbr.1
+	title = tbr.1.t
+	desc = tbr.1.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = tbr.1.a
+		add_political_power = -10
+		add_stability = -0.05
+	}
+}
+
+#火神山雷神山建成
+country_event = {
+	id = tbr.2
+	title = tbr.2.t
+	desc = tbr.2.d
+	picture = GFX_Generic_COVID1
+	trigger = {
+		tag = PRC
+		has_country_flag = wuhan_with_hos
+		has_country_flag = xiangyang_with_hos
+		has_country_flag = Jiangyi_with_hos
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	fire_only_once = yes
+	option = {
+		name = tbr.2.a
+		add_political_power = 5
+	}
+}
+#外交部国际疫情合作声明
+country_event = {
+	id = tbr.3
+	title = tbr.3.t
+	desc = tbr.3.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.3.a
+		add_political_power = 10
+		every_country = {
+			limit = {
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = AST
+					tag = CAN
+				}
+			}
+			reverse_add_opinion_modifier = {
+				target = ROOT
+				modifier = diplomatic_statement
+			}
+		}
+	}
+}
+#疫情恶化
+country_event = {
+	id = tbr.4
+	title = tbr.4.t
+	desc = tbr.4.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.4.a
+		PRC_increase_corona = yes
+	}
+}
+
+#全国封控
+country_event = {
+	id = tbr.5
+	title = tbr.5.t
+	desc = tbr.5.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.5.a
+		add_stability = -0.05
+		set_temp_variable = {
+			industrial_development_var_temp = -0.15
+		}
+		set_temp_variable = {
+			poverty_development_var_temp = -0.15
+		}
+		add_poverty_development = yes
+		add_industrial_development = yes
+		set_temp_variable = {
+			debt_var_temp = 250
+		}
+		add_debt_with_inflation = yes
+	}
+}
+#COVAX计划
+country_event = {
+	id = tbr.6
+	title = tbr.6.t
+	desc = tbr.6.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.6.a
+		add_political_power = 10
+	}
+}
+#免费接种
+country_event = {
+	id = tbr.7
+	title = tbr.7.t
+	desc = tbr.7.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.7.a
+		add_stability = 0.05
+		add_political_power = 15
+	}
+}
+#山川异域，风月同天
+country_event = {
+	id = tbr.8
+	title = tbr.8.t
+	desc = tbr.8.d
+	trigger = {
+		tag = PRC
+		has_country_flag = west_europe_COVAX
+		has_country_flag = latin_COVAX
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	option = {
+		name = tbr.8.a
+		add_political_power = 300
+		add_timed_idea = {
+			idea = PRC_all_same_sky_idea
+			days = 365
+		}
+		set_temp_variable = {
+			society_development_var_temp = 0.2
+		}
+		add_society_development = yes
+	}
+}
+#市场稳定
+country_event = {
+	id = tbr.9
+	title = tbr.9.t
+	desc = tbr.9.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.9.a
+		set_temp_variable = {
+			poverty_development_var_temp = 0.05
+		}
+		add_poverty_development = yes
+		add_timed_idea = {
+			idea = PRC_market_stabilized_idea
+			days = 120
+		}
+	}
+}
+#经济恢复
+country_event = {
+	id = tbr.10
+	title = tbr.10.t
+	desc = tbr.10.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.10.a
+		set_temp_variable = {
+			society_development_var_temp = 0.05
+		}
+		add_society_development = yes
+		add_timed_idea = {
+			idea = PRC_economy_regain_idea
+			days = 90
+		}
+	}
+
+}
+#中国经验国际通报
+country_event = {
+	id = tbr.11
+	title = tbr.11.t
+	desc = tbr.11.d
+	is_triggered_only = yes
+	option = {
+		name = tbr.11.a
+		add_political_power = 50
+		every_other_country = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = covid_dealt
+			}
+		}
+	}
+
+}
+
+
+#9天
+#COVID identified 
+country_event = {
+	id = china.10
+	title = china.10.t
+	desc = china.10.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+	}
+    hidden = yes
+	# option = {
+	# 	name = china.10.a
+	# 	add_stability = -0.01
+	# 	add_political_power = -10
+	# 	add_days_mission_timeout = {
+	# 		mission = PRC_control_the_coronavirus_mission
+	# 		days = -10
+	# 	}
+	# }
+}
+
+
+#10天
+#First COVID Death
+country_event = {
+	id = china.5
+	title = china.5.t
+	desc = china.5.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+	}
+	option = {
+		name = china.5.a
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = PRC_coronavirus_pandemic_idea4
+				add_idea = PRC_coronavirus_pandemic_idea3
+			}
+		}
+	}
+}
+
+#Corona Spreads to nearby states
+country_event = {
+	id = china.31
+	title = china.31.t
+	desc = china.31.d
+	picture = GFX_Covid-19_Cases_Increase
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+	}
+	option = {
+		name = china.31.a
+		add_days_mission_timeout = {
+			mission = PRC_control_the_coronavirus_mission
+			days = -25
+		}
+	}
+}
+
+#20天
+#COVID spread to other province
+country_event = {
+	id = china.601
+	title = china.601.t
+	desc = china.601.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	trigger = {
+		tag = PRC
+	}
+	option = {
+		name = china.601.a
+		custom_effect_tooltip = PRC_covid_unlock_urgent_decision_tooltip
+		set_country_flag = PRC_covid_emergency_power
+		unlock_decision_tooltip = PRC_nationwide_lockdown_urgent_decision
+		unlock_decision_tooltip = PRC_covid_centralized_treatment_urgent_decision
+		unlock_decision_tooltip = PRC_covid_grassroots_governance_urgent_decision
+		unlock_decision_tooltip = PRC_covid_health_code_urgent_decision
+		unlock_decision_tooltip = PRC_covid_crackdown_profiteer_urgent_decision
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = PRC_coronavirus_pandemic_idea3
+				add_idea = PRC_coronavirus_pandemic_idea2
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = china.601.b
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = PRC_coronavirus_pandemic_idea3
+				add_idea = PRC_coronavirus_pandemic_idea2
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = china.602
+	title = china.602.t
+	desc = china.602.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	trigger = {
+		tag = PRC
+	}
+	immediate = {
+		hidden_effect = {
+			add_ideas = PRC_covid_slander_idea_1
+		}
+	}
+	option = {
+		name = china.602.a
+		effect_tooltip = {
+			add_ideas = PRC_covid_slander_idea_1
+		}
+	}
+}
+
+country_event = {
+	id = china.603
+	title = china.603.t
+	desc = china.603.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	trigger = {
+		tag = PRC
+	}
+	immediate = {
+		hidden_effect = {
+			activate_mission = {
+				mission = PRC_consumer_goods_shortage_mission
+			}
+		}
+	}
+	option = {
+		name = china.603.a
+		effect_tooltip = {
+			activate_mission = {
+				mission = PRC_consumer_goods_shortage_mission
+			}
+		}
+	}
+}
+
+country_event = {
+	id = china.604
+	title = china.604.t
+	desc = china.604.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	trigger = {
+		tag = PRC
+	}
+	option = {
+		name = china.604.a
+		effect_tooltip = {
+			add_dynamic_modifier = {
+				modifier = PRC_economic_recession_dynamic
+			}
+		}
+	}
+}
+
+
+
+#45天
+#Covid-19 Outbreak
+country_event = {
+	id = china.34
+	title = china.34.t
+	desc = china.34.d
+	picture = GFX_Generic_COVID1
+	is_triggered_only = yes
+	fire_only_once = yes
+    hidden = yes
+	trigger = {
+		tag = PRC
+	}
+	immediate = {
+		hidden_effect = {
+			# add_days_mission_timeout = {
+			# 	mission = PRC_control_the_coronavirus_mission
+			# 	days = -20
+			# }
+			PER = {
+				add_ideas = {
+					medium_covid_cases
+				}
+			}
+			USA = {
+				country_event = {
+					id = usa.127
+					days = 14
+				}
+			}
+			news_event = {
+				id = news.113
+				hours = 6
+			}
+		}
+	}
+}
+
+#200天
+#Segregated Transfer Bus Rollover
+country_event = {
+	id = china.301
+	title = china.301.t
+	desc = china.301.d
+	picture = GFX_PRC_transfer_bus_rollover
+	is_triggered_only = yes
+    hidden = yes
+	immediate = {
+	}
+	# option = {
+	# 	name = china.301.a
+	# 	add_stability = -0.015
+	# 	add_political_power = -15
+	# 	add_days_mission_timeout = {
+	# 		mission = PRC_control_the_coronavirus_mission
+	# 		days = -15
+	# 	}
+	# }
+}
+
+country_event = {
+	id = china.801
+	title = china.801.t
+	desc = china.801.d
+	picture = GFX_PRC_transfer_bus_rollover
+	is_triggered_only = yes
+	immediate = {
+        add_dynamic_modifier = {
+            modifier = PRC_economic_recession_dynamic
+        }
+	}
+	option = {
+		name = china.801.a
+        effect_tooltip = {
+            add_dynamic_modifier = {
+                modifier = PRC_economic_recession_dynamic
+            }
+        }
+	}
+}
+
+
+country_event = {
+    id = china.7882
+    title = china.7882.t
+    desc = china.7882.d
+    picture = GFX_event_china_743
+    is_triggered_only = yes
+    
+	immediate = {
+		CHI = {
+			load_oob = CHI_alert1
+		}
+	}
+
+	option = {
+	    name = china.7882.a
+	}
+}

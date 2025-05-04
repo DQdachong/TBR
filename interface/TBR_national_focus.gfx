@@ -1,0 +1,736 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_focus_PRC_covid_share_WHO"
+        texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_share_WHO.png"
+    }
+    SpriteType = {
+		name = "GFX_focus_PRC_covid_share_WHO_shine"
+		texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_share_WHO.png"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_share_WHO.png"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+
+		animation = {
+			animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_share_WHO.png"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+    spriteType = {
+        name = "GFX_focus_PRC_covid_prevent_oversea_input"
+        texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_prevent_oversea_input.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_covid_prevent_oversea_input_shine"
+        texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_prevent_oversea_input.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_prevent_oversea_input.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_prevent_oversea_input.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+    spriteType = {
+        name = "GFX_focus_PRC_covid_centralized_treatment"
+        texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_centralized_treatment.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_covid_centralized_treatment_shine"
+        texturefile = "gfx/interface/goals/PRC/focus_PRC_covid_centralized_treatment.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_centralized_treatment.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_covid_centralized_treatment.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+        spriteType = {
+        name = "GFX_focus_PRC_Action_COVAX"
+        texturefile = "gfx/interface/goals/PRC/PRC_Action_COVAX.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Action_COVAX_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Action_COVAX.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Action_COVAX.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Action_COVAX.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+    spriteType = {
+        name = "GFX_focus_PRC_Advocate_DNA_Test"
+        texturefile = "gfx/interface/goals/PRC/PRC_Advocate_DNA_Test.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Advocate_DNA_Test_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Advocate_DNA_Test.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Advocate_DNA_Test.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Advocate_DNA_Test.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_All_Vaccinated"
+        texturefile = "gfx/interface/goals/PRC/PRC_All_Vaccinated.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_All_Vaccinated_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_All_Vaccinated.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_All_Vaccinated.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_All_Vaccinated.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+    spriteType = {
+        name = "GFX_focus_PRC_Chinese_Experience"
+        texturefile = "gfx/interface/goals/PRC/PRC_Chinese_Experience.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Chinese_Experience_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Chinese_Experience.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Chinese_Experience.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Chinese_Experience.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Lockdown_on_Wuhan"
+        texturefile = "gfx/interface/goals/PRC/PRC_Lockdown_on_Wuhan.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Lockdown_on_Wuhan_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Lockdown_on_Wuhan.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Lockdown_on_Wuhan.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Lockdown_on_Wuhan.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+    spriteType = {
+        name = "GFX_focus_PRC_Emergency_Supply_Production"
+        texturefile = "gfx/interface/goals/PRC/PRC_Emergency_Supply_Production.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Emergency_Supply_Production_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Emergency_Supply_Production.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Emergency_Supply_Production.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Emergency_Supply_Production.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Global_Medical_Assistance"
+        texturefile = "gfx/interface/goals/PRC/PRC_Global_Medical_Assistance.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Global_Medical_Assistance_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Global_Medical_Assistance.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Global_Medical_Assistance.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Global_Medical_Assistance.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+    spriteType = {
+        name = "GFX_focus_PRC_Restore_Economy_in_COVID_Test"
+        texturefile = "gfx/interface/goals/PRC/PRC_Restore_Economy_in_COVID.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Restore_Economy_in_COVID_Test_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Restore_Economy_in_COVID.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Restore_Economy_in_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Restore_Economy_in_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Governor_Responsibility"
+        texturefile = "gfx/interface/goals/PRC/PRC_Governor_Responsibility.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Governor_Responsibility_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Governor_Responsibility.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Governor_Responsibility.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Governor_Responsibility.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+    spriteType = {
+        name = "GFX_focus_PRC_Stablize_Market_in_COVID_Test"
+        texturefile = "gfx/interface/goals/PRC/PRC_Stablize_Market_in_COVID.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Stablize_Market_in_COVID_Test_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Stablize_Market_in_COVID.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Stablize_Market_in_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Stablize_Market_in_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Great_Wall_Against_COVID"
+        texturefile = "gfx/interface/goals/PRC/PRC_Great_Wall_Against_COVID.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Great_Wall_Against_COVID_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Great_Wall_Against_COVID.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Great_Wall_Against_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Great_Wall_Against_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Hospital_Dynamic"
+        texturefile = "gfx/interface/goals/PRC/PRC_Hospital_Dynamic.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Hospital_Dynamic_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Hospital_Dynamic.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Hospital_Dynamic.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Hospital_Dynamic.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_International_Propaganda"
+        texturefile = "gfx/interface/goals/PRC/PRC_International_Propaganda.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_International_Propaganda_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_International_Propaganda.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_International_Propaganda.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_International_Propaganda.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Mobilize_The_Mass"
+        texturefile = "gfx/interface/goals/PRC/PRC_Mobilize_The_Mass.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Mobilize_The_Mass_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Mobilize_The_Mass.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Mobilize_The_Mass.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Mobilize_The_Mass.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_National_Decovid"
+        texturefile = "gfx/interface/goals/PRC/PRC_National_Decovid.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_National_Decovid_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_National_Decovid.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_National_Decovid.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_National_Decovid.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Post_COVID"
+        texturefile = "gfx/interface/goals/PRC/PRC_Post_COVID.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Post_COVID_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Post_COVID.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Post_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Post_COVID.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+
+
+    spriteType = {
+        name = "GFX_focus_PRC_Research_Vaccine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Research_Vaccine.png"
+    }
+    SpriteType = {
+        name = "GFX_focus_PRC_Research_Vaccine_shine"
+        texturefile = "gfx/interface/goals/PRC/PRC_Research_Vaccine.png"
+        effectFile = "gfx/FX/buttonstate.lua"
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Research_Vaccine.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = -90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+    
+        animation = {
+            animationmaskfile = "gfx/interface/goals/PRC/PRC_Research_Vaccine.png"
+            animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+            animationrotation = 90.0
+            animationlooping = no
+            animationtime = 0.75
+            animationdelay = 0
+            animationblendmode = "add"
+            animationtype = "scrolling"
+            animationrotationoffset = { x = 0.0 y = 0.0 }
+            animationtexturescale = { x = 1.0 y = 1.0 }
+        }
+        legacy_lazy_load = no
+    }
+
+}

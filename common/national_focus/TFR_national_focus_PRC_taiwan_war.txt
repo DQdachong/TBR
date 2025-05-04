@@ -1,0 +1,1350 @@
+focus_tree = {
+	id = PRC_taiwan_war_tree
+	country = {
+		factor = 0
+	}
+    
+	#@focus PRC_the_final_opportunity 最后机会
+	focus = {
+	    id = PRC_the_final_opportunity
+	    icon = GFX_focus_PRC_second_gaw
+	    x = 12
+	    y = 1
+	    cost = 2
+	    completion_reward = {
+			country_event = china.2		
+			create_faction = PRC_east_asian_defense_initative_faction
+
+			# every_state = {
+			# 	limit = {
+			# 		OR = {
+			# 			state = 524
+			# 			state = 1150
+			# 			state = 1149
+			# 			state = 1148
+			# 		}
+			# 	}
+			# 	add_dynamic_modifier = {
+			# 		modifier = PRC_unplanned_offensive
+			# 		scope = PRC
+			# 	}
+			# }
+	    }
+	}
+	
+	#@focus PRC_prepare_taiwan_war 准备解放台湾
+	focus = {
+	    id = PRC_prepare_taiwan_war
+	    icon = GFX_focus_PRC_prepare_taiwan_war
+	    x = 0
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_the_final_opportunity
+		}
+	    completion_reward = {
+	        country_event = china.707
+			# country_event = { id = china.744 days = 3}
+			# country_event = { id = china.745 days = 3}
+			set_country_flag = PRC_prepare_taiwan_war
+			effect_tooltip = {
+				add_ideas = PRC_tw_war_dummy_0
+			}
+			hidden_effect = {
+				set_variable = { PRC_tw_war_political_power_gain_var = 0 }
+				set_variable = { PRC_tw_war_support_factor_var = 0.05 }
+				set_variable = { PRC_tw_war_stability_factor_var = -0.3 }
+				add_dynamic_modifier = {
+					modifier = PRC_taiwan_war
+				}
+			}
+			mark_focus_tree_layout_dirty = yes
+			activate_mission = PRC_decision_taiwan_alert_countdown
+	    }
+	}
+	
+	#@focus PRC_no_hurry 切勿心急
+	focus = {
+	    id = PRC_no_hurry
+	    icon = GFX_focus_PRC_no_hurry
+	    x = 3
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_the_final_opportunity
+		}
+		available = {
+			has_completed_focus = PRC_prepare_taiwan_war
+		}
+	    completion_reward = {
+	        unlock_decision_tooltip = PRC_decision_spread_propaganda
+	    }
+	}
+
+	#@focus PRC_unite_people 团结群众
+	focus = {
+	    id = PRC_unite_people
+	    icon = GFX_focus_PRC_unite_the_people
+	    x = -3
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_the_final_opportunity
+		}
+
+		available = {
+			has_completed_focus = PRC_prepare_taiwan_war
+		}
+	    completion_reward = {
+	        swap_ideas = {
+				remove_idea = PRC_the_separatist_problem_2
+				add_idea = PRC_the_separatist_problem_4
+			}
+			unlock_decision_tooltip = PRC_war_propaganda
+	    }
+	}
+	
+	#@focus PRC_economic_conversion_to_military_needs 经济转型
+	focus = {
+	    id = PRC_economic_conversion_to_military_needs
+	    icon = GFX_focus_PRC_economic_conversion
+		prerequisite = {
+			focus = PRC_prepare_taiwan_war
+		}
+		relative_position_id = PRC_the_final_opportunity
+	    x = -1
+	    y = 3
+	    cost = 2
+		mutually_exclusive = { focus = PRC_civ_orders }
+		ai_will_do = {
+	    	factor = 10
+	    }
+	    completion_reward = {	
+			add_stability = -0.1
+			unlock_decision_tooltip = PRC_tw_civ_to_mil
+			upgrade_economy_law = yes
+			PRC_civ_to_mil = yes
+			PRC_civ_to_mil = yes
+			PRC_civ_to_mil = yes
+		}
+	}
+
+	#@focus PRC_civ_orders 特别订单
+	focus = {
+	    id = PRC_civ_orders
+	    icon = GFX_focus_PRC_PRC_civ_orders
+		prerequisite = {
+			focus = PRC_prepare_taiwan_war
+		}
+		relative_position_id = PRC_the_final_opportunity
+	    x = 1
+	    y = 3
+	    cost = 2
+		mutually_exclusive = { focus = PRC_economic_conversion_to_military_needs }
+		ai_will_do = {
+	    	factor = 10
+	    }
+	    completion_reward = {	
+			unlock_decision_tooltip = PRC_tw_civ_infantry_eq
+			unlock_decision_tooltip = PRC_tw_civ_support_eq
+			unlock_decision_tooltip = PRC_tw_civ_mot_eq
+		}
+	}
+
+	#@focus PRC_conduct_joint_training 联合利剑演习
+	focus = {
+	    id = PRC_conduct_joint_training
+	    icon = GFX_focus_PRC_conduct_joint_training
+	    x = -2
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_conduct_final_training}
+	    prerequisite = {
+			focus = PRC_economic_conversion_to_military_needs
+		    focus = PRC_civ_orders
+		}
+
+	    completion_reward = {
+			army_experience = 100
+			air_experience = 100
+			navy_experience = 100
+	    }
+	}
+	
+	#@focus PRC_conduct_final_training 举行最后演习
+	focus = {
+	    id = PRC_conduct_final_training
+	    icon = GFX_focus_PRC_finaltraining
+	    x = 2
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_conduct_joint_training}
+	    prerequisite = {
+			focus = PRC_economic_conversion_to_military_needs
+		    focus = PRC_civ_orders
+		}
+
+	    completion_reward = {
+			add_to_variable = {
+				var = PRC_tw_war_training_time_army_factor_var
+				value = -0.35
+			}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_tw_war_dummy
+					add_idea = PRC_tw_war_army_training_idea
+				}
+			}
+	    }
+	}
+	
+	#@focus PRC_tw_war_10 重申钓鱼岛
+	focus = {
+	    id = PRC_tw_war_10
+	    icon = GFX_focus_PRC_tw_war_10
+	    x = 3
+	    y = 5
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_conduct_joint_training
+			focus = PRC_conduct_final_training
+		}
+
+	    completion_reward = {
+			876 = {
+				set_state_name = "钓鱼岛"
+				transfer_state_to = PRC
+			}	
+	    }
+	}
+	#@focus PRC_pla_high_alert 全军高度戒备
+	focus = {
+	    id = PRC_pla_high_alert
+	    icon = GFX_focus_PRC_pla_high_alert
+		x = -3
+		y = 5
+		cost = 2
+		relative_position_id = PRC_the_final_opportunity
+		prerequisite = {
+			focus = PRC_conduct_joint_training
+			focus = PRC_conduct_final_training
+		}
+
+		completion_reward = {
+			add_to_variable = { var = PRC_tw_war_experience_gain_army_var value = 0.2 }
+			add_to_variable = { var = PRC_tw_war_experience_gain_navy_var value = 0.2 }
+			add_to_variable = { var = PRC_tw_war_experience_gain_air_var value = 0.2 }
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_tw_war_dummy
+					add_idea = PRC_tw_war_dummy_high_alert
+				}
+			}
+		}
+	}
+
+	#@focus PRC_attitude_jap_kor 试探日韩
+	focus = {
+	    id = PRC_attitude_jap_kor
+	    icon = GFX_focus_PRC_attitude_jap_kor
+	    x = 0
+	    y = 5
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_conduct_joint_training
+			focus = PRC_conduct_final_training
+		}
+
+	    completion_reward = {
+	        country_event = china.709
+	    }
+	}
+	
+	#@focus PRC_tw_war_11 引蛇出洞
+	focus = {
+	    id = PRC_tw_war_11
+	    icon = GFX_focus_PRC_tw_war_11
+	    x = 1
+	    y = 6
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_detain_liangyue }
+	    prerequisite = {
+		    focus = PRC_attitude_jap_kor
+		}
+	    completion_reward = {
+	        custom_effect_tooltip = PRC_tw_use_jap_tw_defence_tt
+			JAP = {
+				set_temp_variable = {taiwan_alert_value_temp = JAP_tw_defence_value}
+			}
+			if = {
+				limit = { check_temp_variable = {taiwan_alert_value_temp > 0}}
+				set_temp_variable = {PRC_tw_war_stability_factor_var_temp = 0.06}
+				multiply_temp_variable = {PRC_tw_war_stability_factor_var_temp = taiwan_alert_value_temp}
+				add_to_variable = {var = PRC_tw_war_stability_factor_var value = PRC_tw_war_stability_factor_var_temp}
+				set_temp_variable = {PRC_tw_war_support_factor_var_temp = 0.01}
+				multiply_temp_variable = {PRC_tw_war_support_factor_var_temp = taiwan_alert_value_temp}
+				add_to_variable = {var = PRC_tw_war_support_factor_var value = PRC_tw_war_support_factor_var_temp}
+				meta_effect = {
+					text = {
+						effect_tooltip = {
+							swap_ideas = {
+								remove_idea = PRC_tw_war_dummy
+								add_idea = PRC_tw_war_add_prepare_[VALUE]
+							}
+						}
+					}
+					VALUE = "[?taiwan_alert_value_temp]"
+				}
+			}
+	    }
+	}
+	
+	#@focus PRC_detain_liangyue 区域拒止
+	focus = {
+	    id = PRC_detain_liangyue
+	    icon = GFX_focus_PRC_detain_liangyue
+	    x = -1
+	    y = 6
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_tw_war_11 }
+	    prerequisite = {
+		    focus = PRC_attitude_jap_kor
+		}
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				ships_in_area = {
+					area = 76
+					size > 10
+					#type = capital_ship
+				}
+			}
+		}
+	    completion_reward = {
+			country_event = china.711
+			custom_effect_tooltip = PRC_tw_remove_jap_tw_defence_tt
+			JAP = {
+				set_temp_variable = { temp = JAP_tw_defence_value}
+				add_to_variable = { JAP_home_defence_value = temp}
+				set_variable = {JAP_tw_defence_value = 0}
+			}
+	    }
+	}
+
+	#@focus PRC_ryukyu_position 琉球决议
+	focus = {
+	    id = PRC_ryukyu_position
+	    icon = GFX_focus_PRC_ryukyu_position
+	    x = -3
+	    y = 7
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_force_plan}
+	    prerequisite = {
+		    focus = PRC_tw_war_11
+			focus = PRC_detain_liangyue
+		}
+
+	    completion_reward = {
+			country_event = china.706
+			custom_effect_tooltip = PRC_tw_use_jap_ryu_defence_tt
+			JAP = {
+				set_temp_variable = {taiwan_alert_value_temp = JAP_ryu_defence_value}
+			}
+			if = {
+				limit = { check_temp_variable = {taiwan_alert_value_temp > 0}}
+				set_temp_variable = {PRC_tw_war_stability_factor_var_temp = 0.06}
+				multiply_temp_variable = {PRC_tw_war_stability_factor_var_temp = taiwan_alert_value_temp}
+				add_to_variable = {var = PRC_tw_war_stability_factor_var value = PRC_tw_war_stability_factor_var_temp}
+				set_temp_variable = {PRC_tw_war_support_factor_var_temp = 0.01}
+				multiply_temp_variable = {PRC_tw_war_support_factor_var_temp = taiwan_alert_value_temp}
+				add_to_variable = {var = PRC_tw_war_support_factor_var value = PRC_tw_war_support_factor_var_temp}
+				meta_effect = {
+					text = {
+						effect_tooltip = {
+							swap_ideas = {
+								remove_idea = PRC_tw_war_dummy
+								add_idea = PRC_tw_war_add_prepare_[VALUE]
+							}
+						}
+					}
+					VALUE = "[?taiwan_alert_value_temp]"
+				}
+			}
+	    }
+	}
+	
+	#@focus PRC_force_plan 琉球预案
+	focus = {
+	    id = PRC_force_plan
+	    icon = GFX_focus_PRC_force_plan
+	    x = 3
+	    y = 7
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+		mutually_exclusive = { focus = PRC_ryukyu_position }
+	    prerequisite = {
+		    focus = PRC_tw_war_11
+			focus = PRC_detain_liangyue
+		}
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				ships_in_area = {
+					area = 76
+					size > 20
+					#type = capital_ship
+				}
+			}
+		}
+	    completion_reward = {
+	        country_event = china.714
+			custom_effect_tooltip = PRC_tw_remove_jap_ryu_defence_tt
+			set_temp_variable = { temp = JAP_ryu_defence_value}
+			add_to_variable = { JAP_home_defence_value = temp}
+			set_variable = {JAP_ryu_defence_value = 0}
+	    }
+	}
+	
+	#@focus PRC_sieze_kinmen 夺取金门
+	focus = {
+		id = PRC_sieze_kinmen
+		icon = GFX_focus_PRC_sieze_kinmen
+
+	    x = 0
+	    y = 8
+	    cost = 2
+	    relative_position_id = PRC_the_final_opportunity
+	    prerequisite = {
+		    focus = PRC_ryukyu_position
+			focus = PRC_force_plan
+		}
+
+	    completion_reward = {
+			648 = {
+				transfer_state_to = PRC
+			}	
+			country_event = {
+				id = china.9
+				days = 1
+		   }						
+	
+		   hidden_effect = {
+			   news_event = {
+				   id = china.8
+			   }
+		   }
+		   news_event = { id = news.139 }
+		   CHI = {
+			   country_event = china.83
+		   }
+		   declare_war_on = {
+			   target = CHI
+			   type = annex_everything
+		   }
+		   add_named_threat = {
+			   threat = 10
+			   name = PRC_invasion_of_taiwan_threat
+		   }		
+		   #set_country_flag = PRC_ongoing_taiwan_war
+		   set_global_flag = PRC_ongoing_taiwan_war	
+		   activate_mission = PRC_taiwan_war_countdown
+		   hidden_effect = {
+				PRC_calc_tw_defence = yes
+				PRC_calc_ryu_defence = yes
+				PRC_calc_jap_defence = yes
+		   }
+			#    country_event = {
+			# 		id = china.236
+			# 		days = 4
+			# 	}
+			# 	country_event = {
+			# 		id = china.442
+			# 		days = 137
+			# 	}
+			# 	country_event = {
+			# 		id = china.68
+			# 		days = 140
+			# 	}
+			# 	country_event = {
+			# 		id = china.73
+			# 		days = 200
+			# 	}
+			# 	country_event = {
+			# 		id = china.154
+			# 		days = 2
+			# 	}
+			# news_event = {
+			# 	id = australia.9
+			# 	days = 130
+			# }
+			JAP = {
+				country_event = {
+					id = jap.8
+				}
+				if = {
+					limit = { has_government = social_democrat }
+					country_event = {
+						 id = jap.33
+						 days = 35
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_ai = no
+					JAP  = {
+						is_ai = no
+					}
+				}
+				every_country = {
+					limit = {
+						is_in_faction_with = CHI
+					}
+					add_ideas = PDTO_stand_up_to_taiwan_idea
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						JAP  = {
+							is_ai = yes
+						}
+						is_ai = no
+					}
+				}
+				every_country = {
+					limit = {
+						is_in_faction_with = CHI
+					}
+					add_ideas = PDTO_stand_up_to_taiwan_idea_ai
+				}
+			}							
+		   
+	    }
+	}
+	
+	#@focus PRC_finish_what_mao_wanted 完成未竟之事
+	focus = {
+	    id = PRC_finish_what_mao_wanted
+	    icon = GFX_focus_PRC_finish_what_mao_wanted
+	    x = 3
+	    y = 2
+	    cost = 2
+		available = {
+			has_completed_focus = PRC_prepare_taiwan_war
+		}
+		
+		allow_branch = {
+			has_country_flag = PRC_prepare_taiwan_war
+		}
+
+	    completion_reward = {
+	        
+	    }
+	}
+
+	#@focus PRC_operation_silent_dawn 寂静黎明行动
+	focus = {
+	    id = PRC_operation_silent_dawn
+	    icon = GFX_focus_PRC_operationsilentdawn
+	    x = -3
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_finish_what_mao_wanted
+	    prerequisite = {
+		    focus = PRC_finish_what_mao_wanted
+		}
+
+	    completion_reward = {
+			set_country_flag = PRC_slient_dawn
+			if = {
+				limit = {
+					has_war_with = CHI
+				}
+				PRC_slient_dawn_effect = yes
+			}
+			else = {
+				custom_effect_tooltip = PRC_slient_dawn_prepare_tt
+				effect_tooltip = {
+					PRC_slient_dawn_effect = yes
+				}
+			}
+	    }
+	}
+
+	#@focus PRC_expand_the_j20_program J20项目
+	focus = {
+		id = PRC_expand_the_j20_program
+		icon = GFX_focus_PRC_j20programme
+		x = -3
+		y = 4
+		cost = 2
+		relative_position_id = PRC_finish_what_mao_wanted
+		prerequisite = {
+			focus = PRC_operation_silent_dawn
+		}
+
+		completion_reward = {
+			air_experience = 100
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "By Blood Alone"
+					}
+					add_equipment_to_stockpile = {
+						type = small_plane_airframe_2
+						variant_name = "Chengdu J-20"
+						amount = 150
+						producer = PRC
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = fighter_equipment_2
+						amount = 150
+						producer = PRC
+					}
+				}
+			}
+			custom_effect_tooltip = PRC_expand_the_j20_program_tt
+		}
+	}
+
+	#@focus PRC_air_deconservation 神兵天降
+	focus = {
+		id = PRC_air_deconservation
+		icon = GFX_focus_PRC_air_deconservation
+		x = -2
+		y = 5
+		cost = 2
+		relative_position_id = PRC_finish_what_mao_wanted
+		prerequisite = {
+			focus = PRC_expand_the_j20_program
+		}
+		completion_reward = {
+			custom_effect_tooltip = PRC_air_deconservation_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "By Blood Alone"
+					}
+					add_equipment_to_stockpile = {
+						type = small_plane_airframe_1
+						variant_name = "Xain JH-7"
+						amount = 50
+						producer = PRC
+					}									
+					add_equipment_to_stockpile = {
+						type = small_plane_airframe_0
+						variant_name = "Shenyang J-7"
+						amount = 250
+						producer = PRC
+					}
+					add_equipment_to_stockpile = {
+						type = small_plane_airframe_0
+						variant_name = "Shenyang J-8"
+						amount = 100
+						producer = PRC
+					}
+					add_equipment_to_stockpile = {
+						type = small_plane_airframe_0
+						variant_name = "Nanchang Q-5"
+						amount = 250
+						producer = PRC
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = fighter_equipment
+						amount = 500
+						producer = PRC
+					}
+					add_equipment_to_stockpile = {
+						type = CAS_equipment
+						amount = 100
+						producer = PRC
+					}
+				}
+			}		
+		}
+	}
+
+	#@focus PRC_blockade_taiwan 封锁台湾
+	focus = {
+	    id = PRC_blockade_taiwan
+	    icon = GFX_focus_PRC_blockadetaiwan
+	    x = 3
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_finish_what_mao_wanted
+	    prerequisite = {
+		    focus = PRC_finish_what_mao_wanted
+		}
+
+	    completion_reward = {
+			CHI = {
+				add_ideas = CHI_chinese_blockade
+				add_named_threat = {
+					threat = 3.5
+					name = PRC_blockade_of_taiwan 
+				}
+			}
+			hidden_effect = {
+				news_event = {
+					id = china.6
+				}	
+			}
+	    }
+	}
+
+	#@focus PRC_prepare_landing_craft 准备登陆艇
+	focus = {
+		id = PRC_prepare_landing_craft
+		icon = GFX_focus_PRC_preparelandingcraft
+		x = 3
+		y = 4
+		cost = 2
+		relative_position_id = PRC_finish_what_mao_wanted
+		prerequisite = {
+			focus = PRC_blockade_taiwan
+		}
+
+		completion_reward = {
+			if = {
+				limit = { 
+					NOT = { 
+						has_dlc = "Man the Guns" 
+					}
+					NOT = {
+						has_tech = landing_craft 
+					}						
+				}
+				set_technology = { 
+					landing_craft = 1
+				}
+			}
+			else_if = {
+				limit = { 
+					NOT = { 
+						has_dlc = "Man the Guns" 
+					}
+					has_tech = landing_craft 
+					NOT = {
+						has_tech = tank_landing_craft 
+					}					
+				}
+				set_technology = { 
+					tank_landing_craft = 1
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns" 
+					NOT = {
+						has_tech = mtg_landing_craft 
+					}
+				}			
+				set_technology = {
+					mtg_landing_craft = 1
+				}
+			}
+			else_if = {
+				limit = { 
+					has_dlc = "Man the Guns" 
+					has_tech = mtg_landing_craft 
+					NOT = {
+						has_tech = mtg_tank_landing_craft 
+					}					
+				}
+				set_technology = { 
+					mtg_tank_landing_craft = 1
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = amphibious_mechanized_equipment_1
+				amount = 500
+				producer = PRC
+			}
+		}
+	}
+
+	#@focus PRC_adapt_to_current_realities_of_battles 现代登陆战
+	focus = {
+		id = PRC_adapt_to_current_realities_of_battles
+		icon = GFX_focus_PRC_adapt_to_current_realities_of_battles
+		x = 2
+		y = 5
+		cost = 2
+		relative_position_id = PRC_finish_what_mao_wanted
+		prerequisite = {
+			focus = PRC_prepare_landing_craft
+		}
+
+		completion_reward = {
+			add_to_variable = {var = PRC_tw_war_naval_invasion_planning_bonus_speed_var value = 0.25}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_tw_war_dummy
+					add_idea = PRC_tw_war_dummy_modern
+				}
+			}
+		}
+	}
+	
+	#@focus PRC_analyze_first_days 首日战况分析
+	focus = {
+	    id = PRC_analyze_first_days
+	    icon = GFX_focus_PRC_analyze_the_first_days
+	    x = 0
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_finish_what_mao_wanted
+	    prerequisite = {
+		    focus = PRC_finish_what_mao_wanted
+		}
+		available = {
+			has_global_flag = PRC_ongoing_taiwan_war
+		}
+	    completion_reward = {
+	        country_event = china.84
+	    }
+	}
+	
+	#@focus PRC_fast_finalization 兵贵神速
+	focus = {
+	    id = PRC_fast_finalization
+	    icon = GFX_focus_PRC_fast_finalization
+	    x = -2
+	    y = 3
+	    cost = 2
+	    relative_position_id = PRC_finish_what_mao_wanted
+		mutually_exclusive = { focus = PRC_slowly_but_surely}
+	    prerequisite = {
+		    focus = PRC_analyze_first_days
+		}
+		available = {
+			has_country_flag = PRC_fast_finalization_flag
+		}
+	    completion_reward = {	
+			add_to_variable = { var = PRC_tw_war_support_factor_var value = 0.05}
+			add_to_variable = { var = PRC_tw_war_army_speed_factor_var value = 0.2}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_tw_war_dummy
+					add_idea = PRC_tw_war_dummy_fast_finalization
+				}
+			}
+			add_days_mission_timeout = {
+	 			mission = PRC_taiwan_war_countdown
+ 				days = -30
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_war_with = JAP
+					}
+					JAP = {
+						add_days_mission_timeout = {
+		   	 				mission = JAP_taiwan_war_mission
+							days = -30
+						}
+					}
+				}	
+			}
+		}
+	}
+	
+	#@focus PRC_slowly_but_surely 稳中求进
+	focus = {
+	    id = PRC_slowly_but_surely
+	    icon = GFX_focus_PRC_slowly_but_surely
+	    x = 2
+	    y = 3
+	    cost = 2
+	    relative_position_id = PRC_finish_what_mao_wanted
+		mutually_exclusive = { focus = PRC_fast_finalization}
+	    prerequisite = {
+		    focus = PRC_analyze_first_days
+		}
+		available = {
+			has_country_flag = PRC_slowly_but_surely_flag
+		}
+	    completion_reward = {	
+			add_to_variable = { var = PRC_tw_war_stability_factor_var value = 0.05}
+			add_to_variable = { var = PRC_tw_war_army_attack_factor_var value = 0.1}
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_tw_war_dummy
+					add_idea = PRC_tw_war_dummy_slowly_but_surely
+				}
+			}
+			add_stability = 0.025
+			add_days_mission_timeout = {
+	 			mission = PRC_taiwan_war_countdown
+ 				days = 30
+			}	
+			hidden_effect = {
+				if = {
+					limit = {
+						has_war_with = JAP
+					}
+					JAP = {
+						add_days_mission_timeout = {
+		   	 				mission = JAP_taiwan_war_mission
+							days = 30
+						}
+					}
+				}	
+			}									
+		}
+	}
+
+	#@focus PRC_final_offensive 最终攻势
+	focus = {
+	    id = PRC_final_offensive
+	    icon = GFX_focus_PRC_the_final_offensive
+		prerequisite = {
+			focus = PRC_fast_finalization
+			focus = PRC_slowly_but_surely
+		}
+		relative_position_id = PRC_finish_what_mao_wanted
+	    x = 0
+	    y = 4
+		
+	    cost = 5
+		
+		ai_will_do = {
+	    	factor = 10
+	    }
+	    completion_reward = {	
+			add_timed_idea = {
+				idea = PRC_final_offensive_idea
+				days = 100
+			}	
+			add_days_mission_timeout = {
+	 			mission = PRC_taiwan_war_countdown
+ 				days = -30
+			}	
+			hidden_effect = {
+				if = {
+					limit = {
+						has_war_with = JAP
+					}
+					JAP = {
+						add_days_mission_timeout = {
+		   	 				mission = JAP_taiwan_war_mission
+							days = -30
+						}
+					}
+				}					
+			}						
+		}
+	}
+	
+	#@focus PRC_cut_off_the_ring 斩断遏制之环
+	focus = {
+	    id = PRC_cut_off_the_ring
+	    icon = GFX_focus_PRC_cut_off_the_ring
+	    x = 21
+	    y = 2
+	    cost = 2
+
+		allow_branch = {
+			has_completed_focus = PRC_attitude_jap_kor
+		}
+
+	    completion_reward = {
+			every_state = {
+				limit = {
+					is_owned_by = JAP
+					NOT = {
+						OR = {
+							state = 526
+							state = 876
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = PRC_unplanned_offensive
+					scope = PRC
+				}
+			}
+	    }
+	}
+	
+	#@focus PRC_war_with_japen 准备对日作战
+	focus = {
+	    id = PRC_war_with_japen
+	    icon = GFX_focus_PRC_war_with_japen
+	    x = -3
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_cut_off_the_ring
+		}
+
+	    completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 528
+						state = 1338
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = PRC_unplanned_offensive
+				}
+			}
+			add_ideas = PRC_blue_water_navy
+	    }
+	}
+	
+	#@focus PRC_tw_anti_japanese_covert_operations 反日秘密行动
+	focus = {
+		id = PRC_tw_anti_japanese_covert_operations
+		icon = GFX_focus_PRC_anti_japanese_covert_operations
+	    x = 3
+	    y = 2
+	    cost = 2
+		relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_cut_off_the_ring
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		  
+		}
+		completion_reward = { #вернусь сюда когда сделаем японию #не вернулся, ну потом значит
+			JAP = {
+				add_political_power = -100
+				add_stability = -0.05
+				add_war_support = -0.1
+			}
+			gain_random_agency_upgrade = yes
+			gain_random_agency_upgrade = yes
+			gain_random_agency_upgrade = yes
+		}
+	}
+	
+	#@focus PRC_challenge_first_chain 突破第一岛链
+	focus = {
+	    id = PRC_challenge_first_chain
+	    icon = GFX_focus_PRC_challenge_first_chain
+	    x = 0
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_war_with_japen
+		}
+		prerequisite = {
+		    focus = PRC_tw_anti_japanese_covert_operations
+		}
+
+		available = {
+			524 = {
+				is_fully_controlled_by = PRC
+			}
+			1150 = {
+				is_fully_controlled_by = PRC
+			}
+			1149 = {
+				is_fully_controlled_by = PRC
+			}
+			1148 = {
+				is_fully_controlled_by = PRC
+			}
+			648 = {
+				is_fully_controlled_by = PRC
+			}
+		}
+
+	    completion_reward = {
+			swap_ideas = {
+				remove_idea = PRC_blue_water_navy
+				add_idea = PRC_blue_water_navy_1
+			}
+	    }
+	}
+	
+	#@focus PRC_tw_war_35 前进基地
+	focus = {
+	    id = PRC_tw_war_35
+	    icon = GFX_focus_PRC_tw_war_35
+	    x = -2
+	    y = 5
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_challenge_first_chain
+		}
+		prerequisite = {
+		    focus = PRC_tw_national_fanaticism
+		}
+
+		available = {
+			has_full_control_of_state = 526
+		}
+
+	    completion_reward = {
+			remove_ideas = PRC_blue_water_navy_1
+			unlock_decision_tooltip = PRC_operation_majestic_dec
+			unlock_decision_tooltip = PRC_operation_genko
+	    }
+	}
+	
+	#@focus PRC_operation_majestic 至尊行动
+	focus = {
+		id = PRC_operation_majestic
+		icon = GFX_focus_PRC_operation_majestic
+	    x = -2
+	    y = 6
+	    cost = 2
+		available_if_capitulated = yes
+	    relative_position_id = PRC_cut_off_the_ring
+		ai_will_do = {
+			factor = 60
+		}
+		prerequisite = { focus = PRC_tw_war_35 }
+		available = {
+		}
+		completion_reward = {
+			unlock_decision_tooltip = PRC_continue_to_move_deep_into_japan
+			unlock_decision_tooltip = PRC_to_end_japan
+		}
+	}
+	
+	#@focus PRC_our_island_chain 他们的铁锁
+	focus = {
+	    id = PRC_our_island_chain
+	    icon = GFX_focus_PRC_our_island_chain
+	    x = 2
+	    y = 5
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_challenge_first_chain
+		}
+		prerequisite = {
+			focus = PRC_tw_increase_naval_production
+		}
+
+	    completion_reward = {
+	        
+	    }
+	}
+	
+	#@focus PRC_tw_war_38 绝海扼日
+	focus = {
+	    id = PRC_tw_war_38
+	    icon = GFX_focus_PRC_Starve_the_Island
+	    x = 2
+	    y = 6
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_our_island_chain
+		}
+
+	    completion_reward = {
+	        PRC_win_tw_war = yes
+	    }
+	}
+	
+	#@focus PRC_tw_national_fanaticism 民族狂热
+	focus = {
+		id = PRC_tw_national_fanaticism
+		icon = GFX_focus_PRC_national_fanaticism
+	    x = -2
+	    y = 3
+	    cost = 2
+		available_if_capitulated = yes
+	    relative_position_id = PRC_cut_off_the_ring
+		ai_will_do = {
+			factor = 1
+		}
+		prerequisite = {
+			focus = PRC_war_with_japen
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: focus PRC_national_fanaticism completion_reward"
+			add_war_support = 0.075
+			set_temp_variable = {
+				value = 2
+				var = campaign_slot_total_var_temp
+			}
+			add_total_campaign_slot = yes
+			unlock_decision_tooltip = PRC_proudly_serve_your_nation
+			unlock_decision_tooltip = PRC_modern_dare_to_die_corps
+		}
+	}
+	
+	#@focus PRC_tw_war_41 陆空占位国策2
+	focus = {
+	    id = PRC_tw_war_41
+	    icon = GFX_focus_PRC_tw_war_41
+	    x = -3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_tw_national_fanaticism
+		}
+
+	    completion_reward = {
+	        
+	    }
+	}
+	
+	#@focus PRC_tw_increase_naval_production 远超太约海军
+	focus = {
+	    id = PRC_tw_increase_naval_production
+	    icon = GFX_focus_PRC_increase_naval_production
+	    x = 2
+	    y = 3
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_tw_anti_japanese_covert_operations
+		}
+
+	    completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_timed_idea = {
+					idea = PRC_mass_naval_production_bba
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				add_timed_idea = {
+					idea = PRC_mass_naval_production_non_bba
+					days = 180
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				create_equipment_variant = {
+					name = "Type 052C Corvette"
+					type = ship_hull_light_2
+					parent_version = 0
+					modules = {
+						rear_1_custom_slot = ship_light_battery_2
+						fixed_ship_battery_slot = ship_light_battery_2
+						fixed_ship_anti_air_slot = ship_anti_air_3
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_torpedo_slot = ship_torpedo_1
+						fixed_ship_engine_slot = light_ship_engine_2
+						mid_1_custom_slot = ship_torpedo_1
+					}
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_light_2
+						creator = "PRC"
+						version_name = "Type 052C Corvette"
+					}
+					name = "Fushun"
+					requested_factories = 1
+					progress = 0.7
+					amount = 1
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_light_2
+						creator = "PRC"
+						version_name = "Type 052C Corvette"
+					}
+					name = "Quanzhou"
+					requested_factories = 1
+					progress = 0.7
+					amount = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_dlc = "Man the Guns"
+					}
+				}
+				add_equipment_production = {
+					equipment = {
+						type = destroyer_2
+						creator = "PRC"
+					}
+					name = "Fushun"
+					requested_factories = 1
+					progress = 0.7
+					amount = 1
+				}
+				add_equipment_production = {
+					equipment = {
+						type = destroyer_2
+						creator = "PRC"
+					}
+					name = "Quanzhou"
+					requested_factories = 1
+					progress = 0.7
+					amount = 1
+				}
+			}
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 150
+			}
+			add_debt_with_inflation = yes
+			unlock_decision_tooltip = PRC_project_impulse_dec
+			set_temp_variable = {
+				var = PRC_enviromental_progress_temp
+				value = -0.025
+			}
+			PRC_add_enviromental_progress = yes
+	    }
+	}
+	
+	#@focus PRC_tw_war_44 海空占位国策2
+	focus = {
+	    id = PRC_tw_war_44
+	    icon = GFX_focus_PRC_tw_war_44
+	    x = 3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_cut_off_the_ring
+	    prerequisite = {
+		    focus = PRC_tw_increase_naval_production
+		}
+
+	    completion_reward = {
+	        
+	    }
+	}
+	
+}

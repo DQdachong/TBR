@@ -1,0 +1,1738 @@
+focus_tree = {
+	id = china_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		} 
+	}
+
+    #复苏4个
+
+    #本土石油1个
+    #新能源2个
+    #海湾2个
+    #俄罗斯油气1个
+    #台湾1个
+    #南海1个
+
+    #外交共4个
+    
+	#疫情加重倒计时初始为10天，意味着点武汉封城21天的时候会吃两层。点生产口罩，扩展核酸测试。将疫情加重倒计时永久延长到60天
+	#疫情消退倒计时初始就在，但时间很长120天。需要点方舱医院国策和后续决议，缩短到约70天
+	#每次疫情蔓延还会额外加重经济衰退debuff，经济衰退按等级给经济debuff，但还没想好具体给什么。
+	#武汉封城点后两天触发主席到达武汉，给200pp点
+	#武汉封城点后四天触发疫情蔓延到全国事件，给选项消耗100政治点立刻完成全国封锁的国策(otl时间线)，也可以不要（应该不会吧）
+	#可以靠100pp立刻完成生产口罩/核酸测试/社区管理等等第一第二层国策，一般只能选一个
+	#全国封锁国策会给疫情倒计时延长100天，但是会给10级的经济衰退。100天延后能保证点4-5个国策，比如生产口罩，扩展核酸测试。将疫情加重倒计时永久延长到50天
+	#第一层的生产口罩，扩展核酸测试可以将疫情加重倒计时永久延长到50天（生产口罩给几座工厂，核酸测试再一次性延长20天）
+	#全国封锁后出现管理混乱debuff，社区管理国策可以消掉
+	#集中收治(方舱医院)和后续决议减疫情消退倒计时
+	#指责无能官员消一层腐败debuff
+	#全国封锁后出现物价飙升的倒计时决议(70天)，需要在时限内点出打击囤货国策。不然会加重经济debuff
+	#健康码可以延长疫情加重倒计时
+	#全国封锁后出现媒体公知污蔑的debuff，减pp减稳定，点反击污蔑(原指责美国)可以削弱，并给点pp
+	#全面复工复产解锁经济线。给个限时经济buff，减蔓延倒计时。不设限制，但你不点上面的疫情蔓延会很快
+	#和WHO合作削弱污蔑的debuff，给点别的
+	#疫苗研发加速国策如题
+	#分发疫苗，缩短到约40天疫情消退倒计时
+	#严防输入解锁决议，一次性延长疫情蔓延倒计时但是会损害经济
+	#回归常态给点永久好处(buff没想好)
+
+	#预计节奏是武汉前2层，封城后暂停，期间通过疫情消退计时减到0层。放开后一直点严防输入会保持+1-1+1-1的节奏，不点可能会有所上升。
+	#所有增减倒计时的国策后续视情况加点卡卡提的国策改成决议，点决议逐渐增强产生效果，还可以适当给点buff之类的
+	#buff需要整合一下，比如抗疫精神
+
+
+    #21 武汉封城 疫情蔓延10天，2级
+    #28 全国封锁 疫情蔓延10天，2级
+    #49 方舱医院 
+    #70 社区监控 1级
+    #91 生产口罩 
+    #112 扩大核酸
+    #133 打击囤货
+    #154 经济复苏 疫情蔓延50天，疫情消退100天
+    #175 严防输入 不断损耗经济延长疫情蔓延
+    #196 美国病毒
+    #217 推进疫苗
+    #238 指责官员
+    #259 WHO
+    #280 分享防疫经验
+    #301 分发疫苗 疫情蔓延50天，结束疫情蔓延
+    #322 送瘟神
+    #343 回归常态
+
+
+	#phase 1
+    #疫情倒计时10天一次，国策期间会吃两次到等级2
+	#21 武汉封城 PRC_lockdown_wuhan
+    #解锁决议建设应急医院 疫情治愈速度-50，结合扣除两次，达到100天
+	focus = {
+		id = PRC_lockdown_wuhan
+		icon = GFX_focus_PRC_Lockdown_on_Wuhan
+		x = 12
+		y = 0
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		}
+		completion_reward = {
+			if = {
+                limit = {
+                    is_ai = no
+                }
+                custom_effect_tooltip = PRC_kickstart_vaccine_research_tt
+            }
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+            unlock_decision_tooltip = PRC_deploy_the_pla
+			unlock_decision_tooltip = PRC_Xi_in_Wuhan
+			hidden_effect = {
+				add_dynamic_modifier = {
+					modifier = PRC_covid_legacy
+				}
+			}
+			set_temp_variable = {
+				debt_var_temp = 0.15
+			}
+			add_debt_with_inflation = yes
+			country_event = tbr.1
+			
+		}
+	}
+
+	#21 推广核酸测试 PRC_covid_implement_widespread_testing
+    #不先点封城铁定再吃2层debuff
+    #疫情蔓延倒计时永久延长20天
+	focus = {
+		id = PRC_covid_implement_widespread_testing
+		icon = GFX_focus_PRC_Advocate_DNA_Test
+		x = 3
+		y = 1
+		cost = 3
+		relative_position_id = PRC_lockdown_wuhan
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_lockdown_wuhan
+		}
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 30
+			}
+			country_event = tbr.4
+		}
+	}
+
+
+    #21 应急物资生产 PRC_covid_focus_on_mask_production
+    #不先点封城铁定再吃2层debuff
+    #给点2个民工意思意思
+    #疫情蔓延倒计时永久延长20天，达到50天
+    focus = {
+		id = PRC_covid_focus_on_mask_production
+		icon = GFX_focus_PRC_Emergency_Supply_Production
+		x = 1
+		y = 1
+		cost = 3
+		relative_position_id = PRC_lockdown_wuhan
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_lockdown_wuhan
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = PRC_emergency_supply_production_idea
+				days = 5
+			}
+			unlock_decision_tooltip = PRC_Send_Medical_Supplies
+			unlock_decision_tooltip = PRC_Ensure_Life_Supply
+		}
+	}
+
+
+    #phase 2
+    #35 全国性防控 PRC_covid_nationwide_lockdown
+    #点下后5天(疫情等级达到3之前一天)弹出事件，可靠pp点立刻完成国策，避免达到3。但会严重影响经济和政局
+    #解锁循环任务，每30天延长蔓延倒计时25天，但每次读条都会损害经济，直到点出复工复产结束该任务
+	focus = {
+		id = PRC_covid_nationwide_lockdown
+		icon = GFX_focus_PRC_National_Decovid
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = PRC_lockdown_wuhan
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		}
+        prerequisite = {
+            focus = PRC_covid_centralized_treatment
+        }
+		prerequisite = {
+			focus = PRC_covid_focus_on_mask_production
+		}
+		prerequisite = {
+			focus = PRC_covid_implement_widespread_testing
+		}
+		completion_reward = {
+			unlock_decision_tooltip = PRC_national_lockdown_decision
+		}
+	}
+
+    #建设方舱医院 PRC_covid_centralized_treatment
+	#(可参考方舱医院,但不是火神山和雷神山，他们在封锁武汉解锁的决议里)
+    #疫情治愈速度+40，
+    #解锁决议：建立方舱医院，可加快治愈速度
+    focus = {
+		id = PRC_covid_centralized_treatment
+		icon = GFX_focus_PRC_Hospital_Dynamic
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = PRC_lockdown_wuhan
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_lockdown_wuhan
+		}
+		completion_reward = {
+			unlock_decision_tooltip = PRC_construct_emergency_hospitals
+			unlock_decision_tooltip = PRC_construct_emergency_hospitals1
+			unlock_decision_tooltip = PRC_construct_emergency_hospitals2
+		}
+	}
+
+	#人的方面
+    #调动基层社区 PRC_covid_grassroots_governance
+    #封城导致的经济衰退永久延长10天，达到标准的40天
+    #加点永久buff，组织能力层面的
+    focus = {
+		id = PRC_covid_grassroots_governance
+		icon = GFX_focus_PRC_Action_COVAX
+		x = 0
+		y = 2
+		cost = 3
+		relative_position_id = PRC_covid_counter_attack_slander
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_covid_counter_attack_slander
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = PRC_COVAX_the_plan
+				days = 365
+			}
+			country_event = tbr.6
+		}
+	}
+
+	#国际疫情公关 PRC_covid_counter_attack_slander
+    #给点稳定度，pp点之类的，供点上面的决议
+    focus = {
+		id = PRC_covid_counter_attack_slander
+		icon = GFX_focus_PRC_International_Propaganda
+		x = -3
+		y = 1
+		cost = 5
+		relative_position_id = PRC_lockdown_wuhan
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_lockdown_wuhan
+		}
+		completion_reward = {
+			add_political_power = 50
+			country_event = tbr.3
+
+		}
+	}
+
+	#斥责官员 PRC_covid_blame_incompetent_officials
+    #削一层腐败debuff
+    #给点pp
+	focus = {
+		id = PRC_covid_blame_incompetent_officials
+		icon = GFX_focus_PRC_Governor_Responsibility
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = PRC_covid_nationwide_lockdown
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_covid_nationwide_lockdown
+		}
+		select_effect = {
+			add_ideas = PRC_clear_politics_idea
+		}
+		completion_reward = {
+			custom_effect_tooltip = FRA_focus_select_effect_tt
+			effect_tooltip = {
+				add_ideas = PRC_clear_politics_idea
+			}
+			custom_effect_tooltip = FRA_focus_complete_effect_tt
+			add_timed_idea = {
+				idea = PRC_clear_politics
+				days = 350
+			}
+			hidden_effect = {
+				remove_ideas = PRC_clear_politics_idea
+			}
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+
+    #phase 3
+    #全面复工复产 PRC_covid_economic_stability_policy
+    #不设限制，玩家想什么时候解封就什么时候解封，甚至可以一路向下只点三个国策就到这里。(就是群体免疫)
+    #解锁经济线国策
+    #给个限时buff
+	focus = {
+		id = PRC_covid_economic_stability_policy
+		icon = GFX_focus_PRC_Stablize_Market_in_COVID_Test
+		x = 3
+		y = 1
+		cost = 4
+		relative_position_id = PRC_covid_nationwide_lockdown
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 5
+		}
+		prerequisite = {
+			focus = PRC_covid_nationwide_lockdown
+		}
+		available = {
+		}
+		completion_reward = {
+			add_stability = 0.05
+			unlock_decision_tooltip = PRC_relief_pressure
+		}
+	}
+
+    #推进疫苗研发 PRC_covid_boost_vaccine_research
+    #加速疫苗倒计时,给点债务
+    focus = {
+        id = PRC_covid_boost_vaccine_research
+        icon = GFX_focus_PRC_Research_Vaccine
+        x = -1
+        y = 1
+        cost = 3
+        relative_position_id = PRC_covid_nationwide_lockdown
+        available_if_capitulated = yes
+        ai_will_do = {
+            factor = 150
+        }
+        available = {
+        }
+        prerequisite = {
+            focus = PRC_covid_nationwide_lockdown
+        }
+        completion_reward = {
+			custom_effect_tooltip = PRC_kickstart_vaccine_research_tt
+			activate_mission = PRC_vaccine_development_mission
+			
+        }
+    }
+
+    #给点buff
+    #疫苗全额报销 PRC_covid_cover_vaccine_cost
+	focus = {
+		id = PRC_covid_cover_vaccine_cost
+		icon = GFX_focus_PRC_All_Vaccinated
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = PRC_covid_boost_vaccine_research
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+			has_country_flag = PRC_vaccine_done
+		}
+		prerequisite = {
+			focus = PRC_covid_boost_vaccine_research
+		}
+		completion_reward = {
+			custom_effect_tooltip = PRC_kickstart_vaccine_research_tt
+			activate_mission = PRC_natural_waning_coronavirus
+			unlock_decision_tooltip = PRC_distribute_vaccines
+			country_event = tbr.7
+		}
+	}
+
+	#送瘟神 PRC_covid_zero_policy
+	focus = {
+		id = PRC_covid_zero_policy
+		icon = GFX_focus_PRC_Chinese_Experience
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = PRC_covid_cover_vaccine_cost
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_flag = PRC_vaccine_done
+		}
+		prerequisite = { 
+			focus = PRC_covid_cover_vaccine_cost
+        }
+		prerequisite = {
+			focus = PRC_covid_share_WHO
+		}
+		completion_reward = {
+			add_political_power = 50
+			country_event = tbr.11
+		}
+	}
+
+	focus = {
+		id = PRC_covid_great_wall
+		icon = GFX_focus_PRC_Great_Wall_Against_COVID
+		cost = 3
+		x = 1
+		y = 1
+		relative_position_id = PRC_covid_aid_vaccine
+		prerequisite = {
+			focus = PRC_covid_aid_vaccine
+		}
+		prerequisite = {
+			focus = PRC_covid_prevent_oversea_input
+		}
+		completion_reward = { 
+			add_stability = 0.25
+		}
+	}
+	#援助疫苗 PRC_covid_aid_vaccine 
+    #加点关系
+    #给点buff
+	focus = {
+		id = PRC_covid_aid_vaccine
+		icon = GFX_focus_PRC_Mobilize_The_Mass
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = PRC_covid_blame_incompetent_officials
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_flag = PRC_vaccine_done
+		}
+		prerequisite = { focus = PRC_covid_blame_incompetent_officials }
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = PRC_control_the_coronavirus_mission
+				days = 70
+			}
+			add_political_power = 50
+			add_timed_idea = {
+				idea = PRC_people_volunteer_idea
+				days = 180
+			}
+		}
+	}
+
+
+
+    #严防输入 PRC_covid_prevent_oversea_input
+    #降低疫情严重程度对经济的影响
+	focus = {
+		id = PRC_covid_prevent_oversea_input
+		icon = GFX_focus_PRC_Restore_Economy_in_COVID_Test
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = PRC_covid_economic_stability_policy
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 3
+		}
+        bypass = {
+			has_country_flag = PRC_no_coronavirus
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_covid_economic_stability_policy
+		}
+		completion_reward = {
+			add_political_power = 50
+			unlock_decision_tooltip = PRC_stabilify_the_chain
+		}
+	}
+
+    
+    #分享抗疫经验 PRC_covid_share_WHO
+	focus = {
+		id = PRC_covid_share_WHO
+		icon = GFX_focus_PRC_Global_Medical_Assistance
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = PRC_covid_grassroots_governance
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		}
+		prerequisite = {
+			focus = PRC_covid_grassroots_governance
+		}
+		completion_reward = {
+			unlock_decision_tooltip = PRC_COVAX_south_and_southeast
+			unlock_decision_tooltip = PRC_COVAX_middie_asia_east
+		}
+	}
+
+    #phase 4
+    #回归常态 PRC_covid_return_to_normalcy
+    #经济线有些强力国策以此为前提，体现群体免疫路线短和不用等疫苗的优点
+    #加个表彰大会事件，根据最高达到的疫情等级来个结算
+	focus = {
+		id = PRC_covid_return_to_normalcy
+		icon = GFX_focus_PRC_Post_COVID
+		x = 0
+		y = 4
+		cost = 5
+		relative_position_id = PRC_covid_nationwide_lockdown
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+			has_country_flag = PRC_no_coronavirus
+		}
+		prerequisite = {
+			focus = PRC_covid_zero_policy
+		}
+		prerequisite = {
+			focus = PRC_covid_great_wall
+		}
+		completion_reward = {
+			effect_tooltip = {
+				remove_ideas = PRC_coronavirus_pandemic_idea4
+			}
+			hidden_effect = {
+				remove_ideas = PRC_coronavirus_pandemic_idea
+				remove_ideas = PRC_coronavirus_pandemic_idea1
+				remove_ideas = PRC_coronavirus_pandemic_idea2
+				remove_ideas = PRC_coronavirus_pandemic_idea3
+				remove_ideas = PRC_coronavirus_pandemic_idea4
+			}
+			custom_effect_tooltip = SOV_no_covid_tt
+		}
+	}
+	#@focus PRC_manage_financial_crisis 应对金融危机
+	focus = {
+	    id = PRC_manage_financial_crisis
+	    icon = GFX_focus_PRC_manage_financial_crisis
+	    x = 21
+	    y = 0
+	    cost = 1
+
+	    completion_reward = {
+			#PRC_cardgame_init = yes
+			#@触发事件“2020金融危机”
+			country_event = {
+				id = china.730
+			}
+			#@获得政治点数(100)
+			add_political_power = 100
+			#@威权社会主义+3.5
+			add_popularity = {
+				ideology = communist
+				popularity = 0.035
+			}	
+			#@获得稳定度(5)
+			add_stability = 0.05
+			#@卡牌小游戏初始化
+			hidden_effect = {
+				activate_mission = PRC_cardgame_turn_timer #开始回合
+				set_variable = { cardgame_start = 1 }#开始卡牌游戏（1为开启，0为禁用）
+				set_variable = { cardgame_num = 4 }#抽取卡牌数量
+				#设定初始卡牌
+				set_variable = { card1 = 1 }
+				set_variable = { card2 = 1 }
+				set_variable = { card3 = 1 }
+				set_variable = { card4 = 1 }
+				set_variable = { card5 = 1 }
+				set_variable = { card6 = 1 }
+				set_variable = { card7 = 1 }
+				set_variable = { card8 = 1 }
+
+				set_variable = { card9 = 0 }
+				set_variable = { card10 = 0 }
+				set_variable = { card11 = 0 }
+				set_variable = { card12 = 0 }
+				set_variable = { card13 = 0 }
+				set_variable = { card14 = 0 }
+				set_variable = { card15 = 0 }
+				set_variable = { card16 = 0 }
+				#开启第一轮抽卡
+				ZZZ = { country_event = tbr.zzz.1 }
+				#轮数设置
+				add_to_variable = { turn_times = 1 }
+				#影响、稳定、混乱设定
+				set_variable = { PRC_economic_crisis_var = 74 }
+				set_variable = { PRC_economic_stability_var = 54 }
+				set_variable = { PRC_economic_liquidity_var = 56 }
+				#回合EFD设置
+				set_variable = { E_var = -5 }
+				set_variable = { F_var = 5 }
+				set_variable = { D_var = 2 }
+			}
+	    }
+	}
+	
+	#@focus PRC_expand_investment 扩大投资
+	focus = {
+	    id = PRC_expand_investment
+	    icon = GFX_focus_PRC_expand_investment
+	    x = -2
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_manage_financial_crisis
+		}
+
+	    completion_reward = {
+			#@触发事件“投资企业”
+			country_event = {
+				id = china.731
+			}
+			#@pp+50
+			add_political_power = 50
+			#@解锁经济牌：制造业转型升级基金
+			set_variable = { card10 = 1 }
+	    }
+	}
+	
+	#@focus PRC_restructure 结构调整
+	focus = {
+	    id = PRC_restructure
+	    icon = GFX_focus_PRC_restructure
+	    x = 0
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_manage_financial_crisis
+		}
+
+	    completion_reward = {
+	    	#@pp+50
+			add_political_power = 50
+			#@解锁政策牌：新基建投资计划
+			set_variable = { card16 = 1 }
+	    }
+	}
+	
+	#@focus PRC_dump_us_bonds 抛售美债
+	focus = {
+	    id = PRC_dump_us_bonds
+	    icon = GFX_focus_PRC_dump_us_bonds
+	    x = 2
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_manage_financial_crisis
+		}
+
+	    completion_reward = {
+			#@触发事件“美国表达不满”
+			country_event = {
+				id = china.732
+			}
+			#@pp+50
+			add_political_power = 50
+			#@解锁经济牌：美元债权变现
+			set_variable = { card9 = 1 }
+	    }
+	}
+	
+	#@focus PRC_six_guarantees_stable 实施六保六稳
+	focus = {
+	    id = PRC_six_guarantees_stable
+	    icon = GFX_focus_PRC_six_guarantees_stable
+	    x = -1
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_expand_investment
+		}
+		prerequisite = {
+		    focus = PRC_restructure
+		}
+
+	    completion_reward = {
+			#@获得贫困率+5
+			set_temp_variable = {
+				var = poverty_development_var_temp
+				value = 0.1
+			}
+			add_poverty_development = yes
+			#@建制派+2.5
+			set_temp_variable = { 
+				var = PRC_influence_cen_var_temp
+				value = 0.025
+			}
+			PRC_add_influence_cen = yes
+			#@社会福利升级
+			swap_ideas = {
+				remove_idea = medium_welfare
+				add_idea = high_welfare
+			}
+			#@解锁经济牌：六保六稳
+			set_variable = { card11 = 1 }
+			#@触发事件“六保六稳”
+			country_event = {
+				id = china.733
+			}
+	    }
+	}
+	
+	#@focus PRC_stable_real_estate 稳地产政策
+	focus = {
+	    id = PRC_stable_real_estate
+	    icon = GFX_focus_PRC_stable_real_estate
+	    x = 1
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_restructure
+		}
+		prerequisite = {
+		    focus = PRC_dump_us_bonds
+		}
+
+	    completion_reward = {
+			#@威权社会主义+2
+			add_popularity = {
+				ideology = communist
+				popularity = 0.02
+			}	
+			#@解锁政策牌：房地产软着陆政策
+			set_variable = { card15 = 1 }
+			#@获得稳定度(2.5)
+			add_stability = 0.025
+			#@社会发展+5
+	        set_temp_variable = {
+				var = society_development_var_temp
+				value = 0.05
+			}
+			add_society_development = yes
+	    }
+	}
+	
+	#@focus PRC_epidemic_bonds 发行抗疫特别国债
+	focus = {
+	    id = PRC_epidemic_bonds
+	    icon = GFX_focus_PRC_epidemic_bonds
+	    x = -2
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_six_guarantees_stable
+		}
+		prerequisite = {
+		    focus = PRC_stable_real_estate
+		}
+
+	    completion_reward = {
+			#@解锁经济牌：发行特别国债
+			set_variable = { card12 = 1 }
+			#@稳定度+10
+			add_stability = 0.01
+			#@贫困率+5
+			set_temp_variable = {
+				var = poverty_development_var_temp
+				value = 0.1
+			}
+			add_poverty_development = yes
+			#@pp+25
+	        add_political_power = 25
+	    }
+	}
+	
+	#@focus PRC_support_smes 定向支持中小企业
+	focus = {
+	    id = PRC_support_smes
+	    icon = GFX_focus_PRC_support_smes
+	    x = 0
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_six_guarantees_stable
+		}
+		prerequisite = {
+		    focus = PRC_stable_real_estate
+		}
+
+	    completion_reward = {
+			#@解锁政策牌：中小企业纾困计划
+			set_variable = { card13 = 1 }
+			#@稳定度+3
+			add_stability = 0.03
+			#@pp+25
+			add_political_power = 25
+			#@触发事件“金融危机下的中小企业”
+			country_event = {
+				id = china.734
+			}
+	    }
+	}
+	
+	#@focus PRC_hainan_free_trade 海南自贸港
+	focus = {
+	    id = PRC_hainan_free_trade
+	    icon = GFX_focus_PRC_hainan_free_trade
+	    x = 2
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_six_guarantees_stable
+		}
+		prerequisite = {
+		    focus = PRC_stable_real_estate
+		}
+
+	    completion_reward = {
+			#@解锁政策牌：海南自贸港金融中心
+			set_variable = { card14 = 1 }
+			#@pp+25
+			add_political_power = 25
+			#@触发事件“海南自贸港”
+	        country_event = {
+				id = china.735
+			}
+	    }
+	}
+	
+	#@focus PRC_boost_consumption 促进消费升级
+	focus = {
+	    id = PRC_boost_consumption
+	    icon = GFX_focus_PRC_boost_consumption
+	    x = -3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_epidemic_bonds
+		}
+
+	    completion_reward = {
+			#@流动资金+100B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 100
+			}
+			add_debt_with_inflation = yes
+			#@pp+50
+			add_political_power = 50
+			#@社会发展+10
+			set_temp_variable = {
+				var = society_development_var_temp
+				value = 0.10
+			}
+			add_society_development = yes
+			#@稳定度+5
+			add_stability = 5
+			#@触发事件“消费升级”
+			country_event = {
+				id = china.736
+			}
+	    }
+	}
+	
+	#@focus PRC_dual_circulation 双循环发展
+	focus = {
+	    id = PRC_dual_circulation
+	    icon = GFX_focus_PRC_dual_circulation
+	    x = -1
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_support_smes
+		}
+
+	    completion_reward = {
+			#@中国特色社会主义追加效果, 工厂产出+2.5, 商业产值+5
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_made_in_china_dummy_idea
+					add_idea = PRC_made_in_china_dummy_idea101
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = PRC_mic_industrial_capacity_factory_dynamic_var
+					value = 0.025
+				}
+				add_to_variable = {
+					var = PRC_mic_business_value_factor_dynamic_var
+					value = 0.05
+				}	
+			}
+			#@流动资金+100B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 100
+			}
+			add_debt_with_inflation = yes
+			#@触发事件“危机下的双循环”
+			country_event = {
+				id = china.737
+			}
+	    }
+	}
+	
+	#@focus PRC_self_control_chain 自主可控产业链
+	focus = {
+	    id = PRC_self_control_chain
+	    icon = GFX_focus_PRC_self_control_chain
+	    x = 1
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_support_smes
+		}
+
+	    completion_reward = {
+			#@中国特色社会主义追加效果,生产效率上限+5,效率增长+5,商业产值+5
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_made_in_china_dummy_idea
+					add_idea = PRC_made_in_china_dummy_idea102
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = PRC_mic_production_factory_efficiency_gain_factor_dynamic_var
+					value = 0.05
+				}
+				add_to_variable = {
+					var = PRC_mic_production_factory_max_efficiency_factor_dynamic_var
+					value = 0.05
+				}
+				add_to_variable = {
+					var = PRC_mic_business_value_factor_dynamic_var
+					value = 0.05
+				}	
+			}
+			#@社会发展+5
+			set_temp_variable = {
+				var = society_development_var_temp
+				value = 0.10
+			}
+			add_society_development = yes
+			#@工业发展+5
+	        set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.10
+			}
+			add_industrial_development = yes
+	    }
+	}
+	
+	#@focus PRC_cjk_trade_zone 中日韩自贸区
+	focus = {
+	    id = PRC_cjk_trade_zone
+	    icon = GFX_focus_PRC_cjk_trade_zone
+	    x = 3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_hainan_free_trade
+		}
+
+	    completion_reward = {
+			#@中国特色社会主义追加效果,办公区建造速度+25
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_made_in_china_dummy_idea
+					add_idea = PRC_made_in_china_dummy_idea103
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = PRC_mic_production_speed_office_park_factor_dynamic_var
+					value = 0.25
+				}
+			}
+			#@pp+50
+			add_political_power = 50
+			#@触发事件“中日韩自贸区会议”
+	        country_event = {
+				id = china.738
+			}
+	    }
+	}
+	
+	#@focus PRC_deep_reforms 深化结构性改革
+	focus = {
+	    id = PRC_deep_reforms
+	    icon = GFX_focus_PRC_deep_reforms
+	    x = -2
+	    y = 5
+	    cost = 3
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_dual_circulation
+			focus = PRC_boost_consumption
+		}
+
+	    completion_reward = {
+			#@中国特色社会主义追加效果,工厂产出+5，基础生产效率+5
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = PRC_made_in_china_dummy_idea
+					add_idea = PRC_made_in_china_dummy_idea104
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = PRC_mic_industrial_capacity_factory_dynamic_var
+					value = 0.05
+				}
+				add_to_variable = {
+					var = PRC_mic_production_factory_start_efficiency_factor_dynamic_var
+					value = 0.05
+				}
+			}
+			#@mio经费
+			every_military_industrial_organization = {
+				add_mio_funds = 1250
+			}
+			#@触发事件“结构改革阶段性成果”
+	        country_event = {
+				id = china.739
+			}
+	    }
+	}
+	
+	#@focus PRC_expand_belt_road 扩展一带一路
+	focus = {
+	    id = PRC_expand_belt_road
+	    icon = GFX_focus_PRC_expand_belt_road
+	    x = 2
+	    y = 5
+	    cost = 3
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_cjk_trade_zone
+			focus = PRC_self_control_chain
+		}
+
+	    completion_reward = {
+			#@获得120day“一带一路合作”每周稳定度+0.2,pp获得+15,月度社会发展+0.5
+			#TODO
+			#@pp+50
+			add_political_power = 50
+			#@触发事件“一带一路”
+	        country_event = {
+				id = china.740
+			}
+	    }
+	}
+	
+	#@focus PRC_end_financial_crisis 平定金融危机
+	focus = {
+	    id = PRC_end_financial_crisis
+	    icon = GFX_focus_PRC_end_financial_crisis
+	    x = 0
+	    y = 6
+	    cost = 1
+	    relative_position_id = PRC_manage_financial_crisis
+	    prerequisite = {
+		    focus = PRC_deep_reforms
+		}
+		prerequisite = {
+		    focus = PRC_expand_belt_road
+		}
+		available = {
+			has_country_flag = cardgame_end_flag
+		}
+	    completion_reward = {
+			#@稳定度+10
+			add_stability = 0.1
+			#@获得140日经济稳定
+			add_timed_idea = {
+				idea = PRC_economic_stabilization_idea
+				days = 140
+			}
+			#@工业发展+15
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.15
+			}
+			add_industrial_development = yes
+			#@触发事件,经济稳定
+	        country_event = {
+				id = china.741
+			}
+	    }
+	}
+	
+	#@focus PRC_curb_oil_crisis 遏制石油危机
+	focus = {
+	    id = PRC_curb_oil_crisis
+	    icon = GFX_focus_PRC_curb_oil_crisis
+	    x = 3
+	    y = 0
+	    cost = 1
+
+		allow_branch = {
+			has_country_flag = PRC_oil_crisis_started
+		}
+
+	    completion_reward = {
+			hidden_effect = {
+				start_oil_crisis = yes
+			}
+			#@获得政治点数(100)
+			add_political_power = 100
+			#@获得稳定度(5)
+			add_stability = 0.05
+			#@威权社会主义+3.5
+			add_popularity = {
+				ideology = communist
+				popularity = 0.035
+			}	
+			#@触发事件“石油危机紧急方案”
+			country_event = {
+				id = china.719
+			}
+			#@解锁决议：扩大火力发电规模
+			unlock_decision_tooltip = PRC_decision_expand_coal_power
+			#@解锁决议：补贴新能源产业
+			unlock_decision_tooltip = PRC_decision_subsidize_new_energy
+			#@解锁决议：启用国家石油储备
+			unlock_decision_tooltip = PRC_decision_activate_national_oil
+	    }
+	}
+	
+	#@focus PRC_global_energy_replace 国际能源寻替
+	focus = {
+	    id = PRC_global_energy_replace
+	    icon = GFX_focus_PRC_global_energy_replace
+	    x = -2
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_curb_oil_crisis
+		}
+
+	    completion_reward = {
+			#@稳定度+5
+			add_stability = 0.05
+			#@pp+50
+			add_political_power = 50
+			#@威权社会主义+2
+			add_popularity = {
+				ideology = communist
+				popularity = 0.02
+			}	
+			#@触发事件“加深国际合作”
+			country_event = {
+				id = china.720
+			}
+	    }
+	}
+	
+	#@focus PRC_stable_politics 稳定政局
+	focus = {
+	    id = PRC_stable_politics
+	    icon = GFX_focus_PRC_stable_politics
+	    x = 0
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_curb_oil_crisis
+		}
+
+	    completion_reward = {
+			#@获得140日政治稳定
+			add_timed_idea = {
+				idea = PRC_political_stabilization_idea
+				days = 140
+			}
+			#@增加社会发展10
+			set_temp_variable = {
+				var = society_development_var_temp
+				value = 0.10
+			}
+			add_society_development = yes
+			#@建制派+5
+			set_temp_variable = { 
+				var = PRC_influence_cen_var_temp
+				value = 0.05
+			}
+			PRC_add_influence_cen = yes
+			#@触发事件"政治稳定"
+			country_event = {
+				id = china.721
+			}
+	    }
+	}
+	
+	#@focus PRC_domestic_energy_growth 国内能源发展
+	focus = {
+	    id = PRC_domestic_energy_growth
+	    icon = GFX_focus_PRC_domestic_energy_growth
+	    x = 2
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_curb_oil_crisis
+		}
+
+	    completion_reward = {
+			#@pp+50
+			add_political_power = 50
+			#@稳定度+5
+			add_stability = 0.05
+			#@威权社会主义+2
+			add_popularity = {
+				ideology = communist
+				popularity = 0.02
+			}
+			#@触发事件“国内能源发展”
+	        country_event = {
+				id = china.722
+			}
+	    }
+	}
+	
+	#@focus PRC_promote_oil_yuan 推广石油人民币
+	focus = {
+	    id = PRC_promote_oil_yuan
+	    icon = GFX_focus_PRC_promote_oil_yuan
+	    x = -1
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_global_energy_replace
+		}
+		prerequisite = {
+		    focus = PRC_stable_politics
+		}
+		prerequisite = {
+		    focus = PRC_domestic_energy_growth
+		}
+
+	    completion_reward = {
+			#@触发事件“石油人民币体系”
+			country_event = {
+				id = china.723
+			}
+			#@稳定度+10
+			add_stability = 0.1
+			#@解锁决议：能源贸易本币结算计划
+			unlock_decision_tooltip = PRC_decision_energy_trade_local_currency
+	    }
+	}
+	
+	#@focus PRC_optimize_energy_supply 优化能源供应
+	focus = {
+	    id = PRC_optimize_energy_supply
+	    icon = GFX_focus_PRC_optimize_energy_supply
+	    x = 1
+	    y = 2
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_global_energy_replace
+		}
+		prerequisite = {
+		    focus = PRC_stable_politics
+		}
+		prerequisite = {
+		    focus = PRC_domestic_energy_growth
+		}
+
+	    completion_reward = {
+			#@B进度条每1×7天变化变化加0.5%
+			#@（完成后为+1.5%）
+			#@获得buff，稳定度+5，建造速度5,生产效率上限+5,商业产值系数+5
+	        
+	    }
+	}
+	
+	#@focus PRC_gulf_peace_plan 海湾维和计划
+	focus = {
+	    id = PRC_gulf_peace_plan
+	    icon = GFX_focus_PRC_gulf_peace_plan
+	    x = -2
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_promote_oil_yuan
+		}
+		prerequisite = {
+		    focus = PRC_optimize_energy_supply
+		}
+
+	    completion_reward = {
+	    	#@触发事件“沙特内战维和计划”
+	        country_event = {
+				id = china.724
+			}
+	    }
+	}
+	
+	#@focus PRC_deepen_russia_energy 加深中俄能源合作
+	focus = {
+	    id = PRC_deepen_russia_energy
+	    icon = GFX_focus_PRC_deepen_russia_energy
+	    x = 0
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_promote_oil_yuan
+		}
+		prerequisite = {
+		    focus = PRC_optimize_energy_supply
+		}
+
+	    completion_reward = {
+			#@解锁决议：中俄油气走廊合作
+			unlock_decision_tooltip = PRC_decision_russia_oil_gas_corridor
+			#@pp+100
+			add_political_power = 100
+			#@触发事件“中俄加深能源合作”
+			country_event = {
+				id = china.725
+			}
+	    }
+	}
+	
+	#@focus PRC_oil_crisis_transition 石油危机中的转型
+	focus = {
+	    id = PRC_oil_crisis_transition
+	    icon = GFX_focus_PRC_oil_crisis_transition
+	    x = 2
+	    y = 3
+	    cost = 3
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_promote_oil_yuan
+		}
+		prerequisite = {
+		    focus = PRC_optimize_energy_supply
+		}
+
+	    completion_reward = {
+	    	#@+C 5%
+			#TODO
+			#@工业发展+25
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.25
+			}
+			add_industrial_development = yes
+			#@能源科研卡*2
+			add_tech_bonus = {
+				name = PRC_renewable
+				bonus = 0.5
+				uses = 2
+				category = energy
+			}
+			#@送6座能源农场
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					state_population > 1000000
+					free_building_slots = {
+						building = infrastructure
+						size < 3
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = energy_farm
+					level = 1
+					instant_build = yes
+				}
+			}
+			#@触发事件“中国新能源发展”
+			country_event = {
+				id = china.726
+			}
+	    }
+	}
+	
+	#@focus PRC_riyadh_talks 利亚德谈判
+	focus = {
+	    id = PRC_riyadh_talks
+	    icon = GFX_focus_PRC_riyadh_talks
+	    x = -3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_gulf_peace_plan
+		}
+
+	    completion_reward = {
+			#@利亚得谈判结果：-A 15%
+			#TODO
+			#@沙特内战已经停止
+			ROC = {
+				set_temp_variable = {
+					var = military_development_var_temp
+					value = 0.25
+				}
+				add_military_development = yes
+				add_ideas = PRC_chinese_advisors
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Liwa Almsha\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
+						owner = ROC
+						count = 3
+					}
+				}
+			}
+			custom_effect_tooltip = PRC_gambit_in_the_gulf_tt
+			effect_tooltip = {
+				country_event = china.141
+			}
+			hidden_effect = {
+				country_event = {
+					id = china.338
+					days = 10
+				}
+			}
+			#@触发事件：利亚德谈判
+			country_event = {
+				id = china.742
+			}
+	    }
+	}
+	
+	#@focus PRC_aid_southeast_asia 救济东南亚
+	focus = {
+	    id = PRC_aid_southeast_asia
+	    icon = GFX_focus_PRC_aid_southeast_asia
+	    x = -1
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_deepen_russia_energy
+		}
+
+	    completion_reward = {
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 75
+			}
+			add_debt_with_inflation = yes
+			VIN = {
+				country_event = china.244
+				event_option_tooltip = china.244.a
+			}
+			CAM = {
+				country_event = china.244
+				event_option_tooltip = china.244.a
+			}
+			LAO = {
+				country_event = china.244
+				event_option_tooltip = china.244.a
+			}
+			add_power_balance_value = {
+				id = PRC_power_balance
+				value = -0.05
+			}
+			set_temp_variable = { 
+				var = PRC_influence_lib_var_temp
+				value = 0.05
+			}
+			PRC_add_influence_lib = yes
+	    	#@东南亚救济：-A 10%
+			#TODO
+	    }
+	}
+	
+	#@focus PRC_tap_reserve_oilfields 开采备用油田
+	focus = {
+	    id = PRC_tap_reserve_oilfields
+	    icon = GFX_focus_PRC_tap_reserve_oilfields
+	    x = 1
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_deepen_russia_energy
+		}
+
+	    completion_reward = {
+			#@B进度条每1×7天变化变化加0.5%（完成后为+2%）
+			#@工业发展+5
+			set_temp_variable = {
+				var = industrial_development_var_temp
+				value = 0.05
+			}
+			add_industrial_development = yes
+			#@巴音郭楞+40的石油产出
+			#TODO
+			#@债务+10B
+			set_temp_variable = {
+				var = debt_var_temp
+				value = 10
+			}
+			add_debt_with_inflation = yes
+	    }
+	}
+	
+	#@focus PRC_expand_northwest_solar 扩大西北光伏产业
+	focus = {
+	    id = PRC_expand_northwest_solar
+	    icon = GFX_focus_PRC_expand_northwest_solar
+	    x = 3
+	    y = 4
+	    cost = 2
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_oil_crisis_transition
+		}
+
+	    completion_reward = {
+			#@pp+50
+			add_political_power = 50
+			#@解锁决议：西北光伏计划
+			unlock_decision_tooltip = PRC_decision_northwest_solar_plan
+			#@触发事件“中核规划2020-2021”
+			country_event = {
+				id = china.727
+			}
+	    }
+	}
+	
+	#@focus PRC_global_win_win 国际合作共赢
+	focus = {
+	    id = PRC_global_win_win
+	    icon = GFX_focus_PRC_global_win_win
+	    x = -2
+	    y = 5
+	    cost = 3
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_riyadh_talks
+			focus = PRC_aid_southeast_asia
+		}
+
+	    completion_reward = {
+			#@解锁决议：国际能源合作
+			unlock_decision_tooltip = PRC_decision_global_energy_cooperate
+			#@+50pp
+			add_political_power = 50
+			#@触发事件“合作共赢”
+			country_event = {
+				id = china.728
+			}
+	    }
+	}
+	
+	#@focus PRC_boost_self_sufficiency 提升自给占比
+	focus = {
+	    id = PRC_boost_self_sufficiency
+	    icon = GFX_focus_PRC_boost_self_sufficiency
+	    x = 2
+	    y = 5
+	    cost = 3
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_expand_northwest_solar
+			focus = PRC_tap_reserve_oilfields
+		}
+
+	    completion_reward = {
+			#@解锁决议：发展新能源
+			unlock_decision_tooltip = PRC_decision_develop_new_energy
+			#@解锁决议：传统能源保量
+			unlock_decision_tooltip = PRC_decision_secure_traditional_energy
+			#@+50pp
+			add_political_power = 50
+			#@触发事件“中国未来能源发展”
+	        country_event = {
+				id = china.729
+			}
+	    }
+	}
+	
+	#@focus PRC_energy_pause 能源问题暂歇
+	focus = {
+	    id = PRC_energy_pause
+	    icon = GFX_focus_PRC_energy_pause
+	    x = 0
+	    y = 6
+	    cost = 1
+	    relative_position_id = PRC_curb_oil_crisis
+	    prerequisite = {
+		    focus = PRC_global_win_win
+		}
+		prerequisite = {
+		    focus = PRC_boost_self_sufficiency
+		}
+
+	    completion_reward = {
+	    	#@威权社会主义+5
+	        add_popularity = {
+				ideology = communist
+				popularity = 0.05
+			}
+			#@建制派+5
+			set_temp_variable = { 
+				var = PRC_influence_cen_var_temp
+				value = 0.06
+			}
+			PRC_add_influence_cen = yes
+			add_political_power = 75
+			PRC_decrease_corrupt_bureaucracy = yes
+	    }
+	}
+}

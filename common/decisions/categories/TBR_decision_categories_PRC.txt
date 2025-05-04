@@ -1,0 +1,83 @@
+PRC_economic_recovery_cat = {
+    icon = GFX_decision_PRC_covid_19_cat
+    visible_when_empty = yes
+    priority = 2
+
+    allowed = {
+    	original_tag = PRC
+    }
+
+    visible = {
+      #has_country_flag = PRC_financial_crisis_started
+      check_variable = { cardgame_start = 1 }
+    }
+
+    scripted_gui = TBR_PRC_finance_GUI
+}
+
+PRC_oil_recovery_cat = {
+  icon = GFX_decision_PRC_covid_19_cat
+  visible_when_empty = yes
+  priority = 99
+
+  allowed = {
+    original_tag = PRC
+  }
+
+  visible = {
+    has_country_flag = PRC_oil_crisis_started
+  }
+
+  scripted_gui = TBR_PRC_energy_GUI
+}
+
+PRC_taiwan_war_cat = {
+  icon = GFX_decision_category_PRC_internal_factions_icon   
+  picture = GFX_decision_cat_PRC_taiwan_war
+  visible_when_empty = yes
+  priority = 2
+
+  allowed = {
+    original_tag = PRC
+  }
+  
+  visible = {
+      NOT = {
+          has_global_flag = PRC_china_collapse
+          has_global_flag = PRC_god_emperor_xi_flag
+      }
+      has_completed_focus = PRC_prepare_taiwan_war
+  }
+}
+
+JAP_taiwan_war_category = {
+  icon = GFX_desicion_category_jsdf
+  picture = GFX_JAP_taiwan_war
+  visible_when_empty = yes
+  priority = 4
+
+  visible = {
+      PRC = {has_completed_focus = PRC_prepare_taiwan_war}
+      NOT = {
+        OR = {
+          has_global_flag = JAP_japan_lost
+          has_global_flag = JAP_japan_victory
+        }
+      }
+  }
+
+  allowed = {
+      original_tag = JAP
+  }
+}
+
+#我的代码过于丑陋，如果你能帮助我改进的话，那就帮一下吧
+#本决议组用于代替自动触发
+TBR_ZZZ_DEBUG = {
+  visible_when_empty = yes
+  priority = 9999
+
+  allowed = {
+    original_tag = ZZZ
+  }
+}

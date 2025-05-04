@@ -1,0 +1,51 @@
+characters = {
+	PRC_decision_targeted_rate_stable_object = {
+		name = PRC_decision_targeted_rate_stable_name
+	}
+	PRC_decision_forex_risk_reserve_object = {
+		name = PRC_decision_forex_risk_reserve_name
+	}
+	PRC_decision_foreign_investor_talk_object = {
+		name = PRC_decision_foreign_investor_talk_name
+	}
+	PRC_decision_expand_business_invest_object = {
+		name = PRC_decision_expand_business_invest_name
+	}
+	PRC_decision_bulk_price_control_object = {
+		name = PRC_decision_bulk_price_control_name
+	}
+	PRC_decision_emergency_plan_object = {
+		name = PRC_decision_emergency_plan_name
+	}
+	PRC_decision_stock_positive_news_object = {
+		name = PRC_decision_stock_positive_news_name
+	}
+	PRC_decision_market_surveillance_object = {
+		name = PRC_decision_market_surveillance_name
+	}
+	PRC_decision_dollar_claims_cash_object = {
+		name = PRC_decision_dollar_claims_cash_name
+	}
+	PRC_decision_manufacturing_upgrade_fund_object = {
+		name = PRC_decision_manufacturing_upgrade_fund_name
+	}
+	PRC_decision_six_guarantees_stable_object = {
+		name = PRC_decision_six_guarantees_stable_name
+	}
+	PRC_decision_issue_special_bonds_object = {
+		name = PRC_decision_issue_special_bonds_name
+	}
+	PRC_decision_sme_rescue_plan_object = {
+		name = PRC_decision_sme_rescue_plan_name
+	}
+	PRC_decision_hainan_finance_hub_object = {
+		name = PRC_decision_hainan_finance_hub_name
+	}
+	PRC_decision_property_soft_landing_object = {
+		name = PRC_decision_property_soft_landing_name
+	}
+	PRC_decision_new_infra_plan_object = {
+		name = PRC_decision_new_infra_plan_name
+	}
+}
+

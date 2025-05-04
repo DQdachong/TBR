@@ -1,0 +1,149 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_bg1"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_bg1.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_bg2"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_bg2.png"
+	}
+	progressbartype = {
+		name = "GFX_PRC_energy_GUI_green_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_energy_GUI_green_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_energy_GUI_green_prog2.png"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		size = {
+			x = 103
+			y = 23
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+	}
+	progressbartype = {
+		name = "GFX_PRC_energy_GUI_stockpile_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_energy_GUI_stockpile_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_energy_GUI_stockpile_prog2.png"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		size = {
+			x = 105
+			y = 22
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+	}
+	progressbartype = {
+		name = "GFX_PRC_energy_GUI_crisis_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_energy_GUI_crisis_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_energy_GUI_crisis_prog2.png"
+		color = { 1.0 1.0 1.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		size = {
+			x = 146
+			y = 43
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+	}
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_bg3"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_bg3.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_green_prog_bg"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_green_prog_bg.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_stockpile_prog_bg"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_stockpile_prog_bg.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_energy_GUI_crisis_prog_bg"
+		texturefile = "gfx/interface/decisions/PRC_energy_GUI_crisis_prog_bg.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_bg1"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_bg1.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_computer2_bg"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_computer2_bg.png"
+	}
+	progressbartype = {
+		name = "GFX_PRC_finance_GUI_crisis_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_finance_GUI_crisis_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_finance_GUI_crisis_prog2.png"
+		size = {
+			x = 99
+			y = 23
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_crisis_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_crisis_outline.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_computer2_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_computer2_outline.png"
+	}
+	
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_computer1_bg"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_computer1_bg.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_computer1_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_computer1_outline.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_bg2"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_bg2.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_bg3"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_bg3.png"
+	}
+	progressbartype = {
+		name = "GFX_PRC_finance_GUI_chaos_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_finance_GUI_chaos_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_finance_GUI_chaos_prog2.png"
+		size = {
+			x = 31
+			y = 120
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_chaos_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_chaos_outline.png"
+	}
+	progressbartype = {
+		name = "GFX_PRC_finance_GUI_stable_prog"
+		textureFile1 = "gfx/interface/decisions/PRC_finance_GUI_stable_prog1.png"
+		textureFile2 = "gfx/interface/decisions/PRC_finance_GUI_stable_prog2.png"
+		size = {
+			x = 31
+			y = 120
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_stable_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_stable_outline.png"
+	}
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_tide_outline"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_tide_outline.png"
+	}
+
+	spriteType = {
+		name = "GFX_PRC_finance_GUI_bg4"
+		texturefile = "gfx/interface/decisions/PRC_finance_GUI_bg4.png"
+	}
+
+}
