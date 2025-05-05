@@ -50,7 +50,7 @@
   PRC_covid_prevent_oversea_input: "严防输入"
   PRC_covid_prevent_oversea_input_desc: ""
   PRC_covid_share_WHO: "分享抗疫经验"
-  PRC_covid_share_WHO_desc: "分享抗疫经验"
+  PRC_covid_share_WHO_desc: "就在我国疫情防控势出现胜利曙光之时，疫情在多国暴发蔓延，目前欧洲仍然是全球疫情大流行的中心，亚洲国家疫情不容乐观，非洲存在蔓延的风险。身为负责任的大国，我国有必要向处于困难时期的国家提供援助，同时，在中国抗疫最艰难的时期，曾收到国际社会提供的大量援助。多个国家领导人、国际和地区组织负责人向我国领导人表示支持和慰问，.国际组织为中国人民抗疫斗争提供了大量援助。滴水之恩，当涌泉相报。山川异域，风月同天！"
   PRC_covid_return_to_normalcy: "回归常态"
   PRC_covid_return_to_normalcy_desc: "经历了多年的艰苦努力，今日，我们终于能向全国人民和全世界宣布，中国已经走出了新冠病毒大流行的时代，正式回归常态。这不光是中国共产党和中华人民共和国的胜利，也是十四亿中国人民所取得的伟大胜利！"
   PRC_eye_to_asia: "亚太风云"
@@ -249,5 +249,3 @@
 
   dx_more_than_30B: "£dx  §H30B§!"
   dx_more_than_30B_blocked: "£dx  §R30B§!"
-
-  cardgame_end_flag: "§R金融危机§!已经结束！"
