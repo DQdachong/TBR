@@ -572,6 +572,10 @@ focus_tree = {
 	    y = 0
 	    cost = 1
 
+		allow_branch = {
+			has_country_flag = PRC_financial_crisis_start
+		}
+
 	    completion_reward = {
 			#PRC_cardgame_init = yes
 			#@触发事件“2020金融危机”
