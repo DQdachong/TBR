@@ -1,4 +1,5 @@
 add_namespace = news
+add_namespace = TBR.news
 #日本介入台海局势
 news_event = {
 	id = news.701
@@ -22,6 +23,27 @@ news_event = {
 		name = news.701.b
 		trigger = {
 			original_tag = PRC
+		}
+	}
+}
+#金融危机爆发
+news_event = {
+    id = TBR.news.1
+    title = TBR.news.1.t
+	desc = TBR.news.1.d
+	picture = GFX_aaa
+	major = yes
+	is_triggered_only = yes
+	trigger = {
+	    date > 2021.3.7
+	    date < 2021.3.9
+	}
+	option = {
+		name = TBR.news.1.a
+		hidden_effect = {
+		    PRC = {
+		        add_country_flag = PRC_financial_crisis_start
+		    }
 		}
 	}
 }
