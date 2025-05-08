@@ -571,13 +571,12 @@ focus_tree = {
 	    x = 21
 	    y = 0
 	    cost = 1
-
 		allow_branch = {
-			has_country_flag = PRC_financial_crisis_start
+			has_country_flag = PRC_manage_financial_crisis_started
 		}
 
 	    completion_reward = {
-			#PRC_cardgame_init = yes
+			PRC_cardgame_init = yes
 			#@触发事件“2020金融危机”
 			country_event = {
 				id = china.730
@@ -591,42 +590,6 @@ focus_tree = {
 			}	
 			#@获得稳定度(5)
 			add_stability = 0.05
-			#@卡牌小游戏初始化
-			hidden_effect = {
-				activate_mission = PRC_cardgame_turn_timer #开始回合
-				set_variable = { cardgame_start = 1 }#开始卡牌游戏（1为开启，0为禁用）
-				set_variable = { cardgame_num = 4 }#抽取卡牌数量
-				#设定初始卡牌
-				set_variable = { card1 = 1 }
-				set_variable = { card2 = 1 }
-				set_variable = { card3 = 1 }
-				set_variable = { card4 = 1 }
-				set_variable = { card5 = 1 }
-				set_variable = { card6 = 1 }
-				set_variable = { card7 = 1 }
-				set_variable = { card8 = 1 }
-
-				set_variable = { card9 = 0 }
-				set_variable = { card10 = 0 }
-				set_variable = { card11 = 0 }
-				set_variable = { card12 = 0 }
-				set_variable = { card13 = 0 }
-				set_variable = { card14 = 0 }
-				set_variable = { card15 = 0 }
-				set_variable = { card16 = 0 }
-				#开启第一轮抽卡
-				ZZZ = { country_event = tbr.zzz.1 }
-				#轮数设置
-				add_to_variable = { turn_times = 1 }
-				#影响、稳定、混乱设定
-				set_variable = { PRC_economic_crisis_var = 74 }
-				set_variable = { PRC_economic_stability_var = 54 }
-				set_variable = { PRC_economic_liquidity_var = 56 }
-				#回合EFD设置
-				set_variable = { E_var = -5 }
-				set_variable = { F_var = 5 }
-				set_variable = { D_var = 2 }
-			}
 	    }
 	}
 	
@@ -650,7 +613,8 @@ focus_tree = {
 			#@pp+50
 			add_political_power = 50
 			#@解锁经济牌：制造业转型升级基金
-			set_variable = { card10 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_manufacturing_upgrade_fund_object }
+			GER_bm_card_add = yes
 	    }
 	}
 	
@@ -670,7 +634,8 @@ focus_tree = {
 	    	#@pp+50
 			add_political_power = 50
 			#@解锁政策牌：新基建投资计划
-			set_variable = { card16 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_new_infra_plan_object }
+			GER_bm_card_add = yes
 	    }
 	}
 	
@@ -694,7 +659,8 @@ focus_tree = {
 			#@pp+50
 			add_political_power = 50
 			#@解锁经济牌：美元债权变现
-			set_variable = { card9 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_dollar_claims_cash_object }
+			GER_bm_card_add = yes
 	    }
 	}
 	
@@ -732,7 +698,8 @@ focus_tree = {
 				add_idea = high_welfare
 			}
 			#@解锁经济牌：六保六稳
-			set_variable = { card11 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_six_guarantees_stable_object }
+			GER_bm_card_add = yes
 			#@触发事件“六保六稳”
 			country_event = {
 				id = china.733
@@ -762,7 +729,8 @@ focus_tree = {
 				popularity = 0.02
 			}	
 			#@解锁政策牌：房地产软着陆政策
-			set_variable = { card15 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_property_soft_landing_object }
+			GER_bm_card_add = yes
 			#@获得稳定度(2.5)
 			add_stability = 0.025
 			#@社会发展+5
@@ -791,7 +759,8 @@ focus_tree = {
 
 	    completion_reward = {
 			#@解锁经济牌：发行特别国债
-			set_variable = { card12 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_issue_special_bonds_object }
+			GER_bm_card_add = yes
 			#@稳定度+10
 			add_stability = 0.01
 			#@贫困率+5
@@ -822,7 +791,8 @@ focus_tree = {
 
 	    completion_reward = {
 			#@解锁政策牌：中小企业纾困计划
-			set_variable = { card13 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_sme_rescue_plan_object }
+			GER_bm_card_add = yes
 			#@稳定度+3
 			add_stability = 0.03
 			#@pp+25
@@ -851,7 +821,8 @@ focus_tree = {
 
 	    completion_reward = {
 			#@解锁政策牌：海南自贸港金融中心
-			set_variable = { card14 = 1 }
+			set_temp_variable = { GER_card_added = PRC_decision_hainan_finance_hub_object }
+			GER_bm_card_add = yes
 			#@pp+25
 			add_political_power = 25
 			#@触发事件“海南自贸港”
@@ -1105,9 +1076,7 @@ focus_tree = {
 		prerequisite = {
 		    focus = PRC_expand_belt_road
 		}
-		available = {
-			has_country_flag = cardgame_end_flag
-		}
+
 	    completion_reward = {
 			#@稳定度+10
 			add_stability = 0.1
