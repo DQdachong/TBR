@@ -1,0 +1,21 @@
+add_namespace = china
+
+
+news_event = {
+    id = china.755
+    title = china.755.t
+    desc = china.755.d
+    picture = GFX_event_china_755
+    major = no
+    trigger = {
+        date >2020.1.2
+        date <2020.1.4
+    }
+    
+	option = {
+        name = china.755.a
+        set_country_flag = PRC_manage_financial_crisis_started
+        focus_unlock = yes
+        mark_focus_tree_layout_dirty = yes
+	}
+}
