@@ -1512,6 +1512,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card1 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_targeted_rate_stable_tt
             #@债务+10B
 			add_to_variable = { debt_var = 10 }
             #@pp+25
@@ -1547,6 +1548,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card2 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_forex_risk_reserve_tt
             #@稳定度+5
             add_stability = 0.05
 			#@债务+20B
@@ -1571,6 +1573,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card3 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_foreign_investor_talk_tt
 			#@债务-20B
 			add_to_variable = { debt_var = -20 }
 			#'+E 10 %，+F 6% 
@@ -1604,6 +1607,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card4 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_expand_business_invest_tt
 			#@债务+10B
 			add_to_variable = { debt_var = 10 }
             #@社会发展+5
@@ -1639,6 +1643,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card5 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_bulk_price_control_tt
 			#@债务+10B
 			add_to_variable = { debt_var = 10 }
 
@@ -1663,6 +1668,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card6 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_emergency_plan_tt
             #@pp+25
             add_political_power = 25
             #@债务+20B
@@ -1686,6 +1692,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card7 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_stock_positive_news_tt
 			#下一次对DEF卡牌效果变量+100%
 			#'+E 7%，-F 5%，-D 10%
 			add_to_variable = { PRC_economic_stability_var = 7 }
@@ -1708,6 +1715,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card8 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = 	PRC_decision_market_surveillance_tt
             #@债务+20B
             add_to_variable = { debt_var = 20 }
 			#无视当前市场波动
@@ -1732,6 +1740,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card9 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_dollar_claims_cash_tt
             #@债务-30B
             add_to_variable = { debt_var = -30 }
             #@稳定度-5
@@ -1770,6 +1779,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card10 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_manufacturing_upgrade_fund_tt
             #@债务+10B
             add_to_variable = { debt_var = 10 }
             #@工业发展+3
@@ -1805,6 +1815,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card11 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_six_guarantees_stable_tt
             #@债务+10B
             add_to_variable = { debt_var = 10 }
             #@贫困率+5
@@ -1829,6 +1840,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card12 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_issue_special_bonds_tt
             #@债务-20B
             add_to_variable = { debt_var = -20 }
 			#'+E 4%，-D 6%
@@ -1852,6 +1864,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card13 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_sme_rescue_plan_tt
             #@稳定度+5
             add_stability = 0.05
             #@债务+8B
@@ -1876,6 +1889,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card14 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_hainan_finance_hub_tt
             #@债务-20B
             add_to_variable = { debt_var = -20 }
 			#市场混乱度每回合减2%
@@ -1898,6 +1912,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card15 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_property_soft_landing_tt
             #@稳定度+10
             add_stability = 10
             #@pp+50
@@ -1925,6 +1940,7 @@ PRC_economic_recovery_cat = {
 			check_variable = { card16 = 2 }
 		}
 		complete_effect = {
+			custom_effect_tooltip = PRC_decision_new_infra_plan_tt
             #@债务+20B
             add_to_variable = { debt_var = 20 }
             #@工业发展+5

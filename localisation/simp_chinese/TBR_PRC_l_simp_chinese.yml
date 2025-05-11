@@ -150,6 +150,47 @@
   PRC_decision_hainan_finance_hub_name: "海南自贸港金融中心"
   PRC_decision_property_soft_landing_name: "房地产软着陆政策"
   PRC_decision_new_infra_plan_name: "新基建投资计划"
+  var_E: "§G市场稳定值§!"
+  var_F: "§R市场混乱值§!"
+  var_D: "§Y金融危机影响§!"
+##以下是决议的描述
+##基础政策组
+  PRC_decision_targeted_rate_stable_tt: "§Y$PRC_decision_targeted_rate_stable_name$§!\n $var_E$ §G+4%§!\n $var_F$ §R-4%§!\n $var_D$ §Y不变§!\n §Y政治点数§! §G+25§!"
+
+  PRC_decision_forex_risk_reserve_tt: "§Y$PRC_decision_forex_risk_reserve_name$§!\n $var_E$ §G+6%§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y稳定度§! §G+3%§!\n §Y债务§! §R+10B§!"
+
+  PRC_decision_foreign_investor_talk_tt: "§Y$PRC_decision_foreign_investor_talk_name$§!\n $var_E$ §G+10%§!\n $var_F$ §R+6%§!\n $var_D$ §Y不变§!\n §Y流动金§! §G+20B§!"
+
+  PRC_decision_expand_business_invest_tt: "§Y$PRC_decision_expand_business_invest_name$§!\n $var_E$ §G+4%§!\n $var_F$ §R-4%§!\n $var_D$ §Y不变§!\n §Y债务§! §R+10B§!\n §Y社会发展§! §G+5%§!"
+
+  PRC_decision_bulk_price_control_tt: "§Y$PRC_decision_bulk_price_control_name$§!\n $var_E$ §Y不变§!\n $var_F$ §R-7%§!\n $var_D$ §Y不变§!\n §Y稳定度§! §G+3%§!"
+
+  PRC_decision_emergency_plan_tt: "§Y$PRC_decision_emergency_plan_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y债务§! §R+20B§!\n §Y政治点数§! §G+25§!  \n §Y若$var_D$在下一回合中有增幅效果，则下一回合获得30政治点数的相同效果政策牌§! "
+
+  PRC_decision_stock_positive_news_tt: "§Y$PRC_decision_stock_positive_news_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y稳定度§! §G+5%§!\n §Y当前回合的下一张经济牌效果翻倍§!"
+
+  PRC_decision_market_surveillance_tt: "§Y$PRC_decision_market_surveillance_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y债务§! §R+20B§! \n §Y知道下一回合市场波动的出牌， 并在当前回合内决定是否要将下一回合及下下回合的市场波动一起无视§!"
+
+##经济牌政策组
+  PRC_decision_dollar_claims_cash_tt: "§Y$PRC_decision_dollar_claims_cash_name$§!\n $var_E$ §R-8%§!\n $var_F$ §G-10%§!\n $var_D$ §G-6%§!\n §Y流动金§! §G+30B§!\n §Y稳定度§! §R-5%§!"
+
+  PRC_decision_manufacturing_upgrade_fund_tt: "§Y$PRC_decision_manufacturing_upgrade_fund_name$§!\n $var_E$ §Y不变§!\n $var_F$ §R-6%§!\n $var_D$ §Y不变§!\n §Y债务§! §R+10B§!\n §Y工业发展§! §G+3%§!"
+
+  PRC_decision_six_guarantees_stable_tt: "§Y$PRC_decision_six_guarantees_stable_name$§!\n $var_E$ §G+8%§!\n $var_F$ §R-6%§!\n $var_D$ §Y不变§!\n §Y债务§! §R+10B§!\n §Y贫困率§! §R+5%§!"
+
+  PRC_decision_issue_special_bonds_tt: "§Y$PRC_decision_issue_special_bonds_name$§!\n $var_E$ §G+4%§!\n $var_F$ §Y不变§!\n $var_D$ §R-6%§!\n §Y流动金§! §G+20B§!"
+
+  PRC_decision_sme_rescue_plan_tt: "§Y$PRC_decision_sme_rescue_plan_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y债务§! §R+8B§!\n §Y稳定度§! §G+5%§!\n §Y $var_D$的回合增幅永久减4%§!"
+
+  PRC_decision_hainan_finance_hub_tt: "§Y$PRC_decision_hainan_finance_hub_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y流动金§! §G+20B§! \n §Y $var_F$的回合增幅永久减2%§!"
+
+  PRC_decision_property_soft_landing_tt: "§Y$PRC_decision_property_soft_landing_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y稳定度§! §G+5%§!\n §Y政治点数§! §G+50§! \n §Y下一回合的市场波动出牌必为增益效果§!"
+
+  PRC_decision_new_infra_plan_tt: "§Y$PRC_decision_new_infra_plan_name$§!\n $var_E$ §Y不变§!\n $var_F$ §Y不变§!\n $var_D$ §Y不变§!\n §Y债务§! §R+20B§!\n §Y工业发展§! §G+2%§! \n §Y抽两张牌§!"
+
+
+
+
 
   PRC_decision_targeted_rate_stable_add_tt: "将一张§Y$PRC_decision_targeted_rate_stable_name$§!加入牌库"
   PRC_decision_forex_risk_reserve_add_tt: "将一张§Y$PRC_decision_forex_risk_reserve_name$§!加入牌库"
