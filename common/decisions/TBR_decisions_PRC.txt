@@ -1317,6 +1317,123 @@ PRC_oil_recovery_cat = {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 PRC_economic_recovery_cat = {
 	#回合结束
 	PRC_cardgame_turn_timer = {
@@ -1365,7 +1482,14 @@ PRC_economic_recovery_cat = {
 				set_variable = { E_var_temp = 0 }
 				set_variable = { F_var_temp = 0 }
 				set_variable = { D_var_temp = 0 }
-
+				##如果D大于零且上一回合有市场监督牌，则解锁一个市场监督牌
+				if = {
+					limit = {
+						check_variable = { card6 = 3 } ##上一回合已经执行过该政策卡
+					}
+					 ##继续可用,但是30pp
+					set_variable = { card6_used = 2 }
+				}
 				PRC_cardgame_update_status = yes
 			}
 		}
@@ -1658,6 +1782,8 @@ PRC_economic_recovery_cat = {
 
 	#@decision PRC_decision_emergency_plan 市场管理紧急预案
 	PRC_decision_emergency_plan = {
+		##1.下一回合的D停止增长
+		##2.下一次获得相同政策牌30pp
 		icon = GFX_PRC_decision_youth_project
 		allowed = { tag = PRC }
 		cost = PRC_cardgame_pp_cost_factor
@@ -1680,8 +1806,34 @@ PRC_economic_recovery_cat = {
 		}
 	}
 
+	#@decision PRC_decision_emergency_plan 市场管理紧急预案2
+	PRC_decision_emergency_plan_2 = {
+		##1.下一回合的D停止增长
+		##2.下一次获得相同政策牌30pp
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 30
+		
+		visible = {
+			#has_country_flag = PRC_financial_crisis_started
+			#PRC_decision_emergency_plan_object = { check_variable = { cards_drawn > 0 } }
+			check_variable = { card6_used = 2 }
+		}
+		complete_effect = {
+			custom_effect_tooltip = PRC_decision_emergency_plan_tt
+            #@pp+25
+            add_political_power = 25
+            #@债务+20B
+            add_to_variable = { debt_var = 20 }
+			#下一回合D停止增长
+			set_variable = { D_var_temp = -5 }
+
+			set_variable = { card6 = 3 }
+		}
+	}
+
 	#@decision PRC_decision_stock_positive_news 放出利好股市消息
-	PRC_decision_stock_positive_news = {
+	PRC_decision_stock_positive_news = {#当前回合的下一张经济牌效果翻倍
 		icon = GFX_PRC_decision_youth_project
 		allowed = { tag = PRC }
 		cost = PRC_cardgame_pp_cost_factor
@@ -1700,11 +1852,16 @@ PRC_economic_recovery_cat = {
 			add_to_variable = { PRC_economic_crisis_var = -10 }			
 
 			set_variable = { card7 = 3 }
+			set_variable = { news = 1} #设置一个变量
 		}
 	}
 
 	#@decision PRC_decision_market_surveillance 市场监督
 	PRC_decision_market_surveillance = {
+		##市场监督：知道下一回合市场波动的出牌，
+		## 并在当前回合内决定是否要将下一回合及下下回合的市场波动一起无视
+		##（生成限时决议 20pp 决定就点）
+
 		icon = GFX_PRC_decision_youth_project
 		allowed = { tag = PRC }
 		cost = PRC_cardgame_pp_cost_factor
@@ -1725,6 +1882,33 @@ PRC_economic_recovery_cat = {
 			add_to_variable = { PRC_economic_crisis_var = -5 }
 
 			set_variable = { card8 = 3 }
+			unlock_decision_tooltip = PRC_decision_market_surveillance_used
+		}
+	}
+
+	PRC_decision_market_surveillance_used = { ##市场监督的二级及决议
+		
+
+		icon = GFX_PRC_decision_youth_project
+		allowed = { tag = PRC }
+		cost = 20
+		fire_only_once = yes
+		visible = {
+			check_variable = {
+				card8 = 3
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = PRC_decision_market_surveillance_tt
+            #@债务+20B
+            add_to_variable = { debt_var = 20 }
+			#无视下下一局市场波动
+			#'+E 3%，-F 10%，-D 5%
+			add_to_variable = { PRC_economic_stability_var = 3 }
+			add_to_variable = { PRC_economic_liquidity_var = -10 }
+			add_to_variable = { PRC_economic_crisis_var = -5 }
+
+			
 		}
 	}
 
@@ -1741,10 +1925,8 @@ PRC_economic_recovery_cat = {
 		}
 		complete_effect = {
 			custom_effect_tooltip = PRC_decision_dollar_claims_cash_tt
-            #@债务-30B
-            add_to_variable = { debt_var = -30 }
-            #@稳定度-5
-            add_stability = -0.05
+			
+            PRC_decision_dollar_claims_cash_bonus  = yes
 			#'-E 8%，-F 10%，-D 6%
 			add_to_variable = { PRC_economic_stability_var = -8}
 			add_to_variable = { PRC_economic_liquidity_var = -10}
@@ -1780,10 +1962,7 @@ PRC_economic_recovery_cat = {
 		}
 		complete_effect = {
 			custom_effect_tooltip = PRC_decision_manufacturing_upgrade_fund_tt
-            #@债务+10B
-            add_to_variable = { debt_var = 10 }
-            #@工业发展+3
-            add_to_variable = { industrial_development_var = 0.03 }
+            PRC_decision_manufacturing_upgrade_fund_bonus  = yes
 			#'-F 6%
 			add_to_variable = { PRC_economic_liquidity_var = -6 }
 
@@ -1816,10 +1995,7 @@ PRC_economic_recovery_cat = {
 		}
 		complete_effect = {
 			custom_effect_tooltip = PRC_decision_six_guarantees_stable_tt
-            #@债务+10B
-            add_to_variable = { debt_var = 10 }
-            #@贫困率+5
-            add_to_variable = { poverty_development_var = 0.05 }
+			PRC_decision_six_guarantees_stable_bonus = yes
 			#'+E 8%，-F 6%
 			add_to_variable = { PRC_economic_stability_var = 8 }
 			add_to_variable = { PRC_economic_liquidity_var = -6 }
@@ -1841,8 +2017,7 @@ PRC_economic_recovery_cat = {
 		}
 		complete_effect = {
 			custom_effect_tooltip = PRC_decision_issue_special_bonds_tt
-            #@债务-20B
-            add_to_variable = { debt_var = -20 }
+            PRC_decision_issue_special_bonds_bonus = yes
 			#'+E 4%，-D 6%
 			add_to_variable = { PRC_economic_stability_var = 4 }
 			add_to_variable = { PRC_economic_liquidity_var = -6 }

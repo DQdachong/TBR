@@ -134,6 +134,41 @@
   add_oil_crisis_var_b_tooltip: "增加§Y[?oil_b_var_temp|.1%%]§!§G国家石油储备§!"
   add_oil_crisis_var_c_tooltip: "增加§Y[?oil_c_var_temp|.1%%]§!§G新能源替代率§!"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   PRC_decision_targeted_rate_stable_name: "定向降息稳汇率"
   PRC_decision_forex_risk_reserve_name: "外汇风险准备金"
   PRC_decision_foreign_investor_talk_name: "约谈外资"
@@ -228,6 +263,46 @@
   you_did_it_tt: "由于上回合的紧急预案，损失得到了控制"
   PRC_cardgame_tide_extra_draw: "§Y流动性注入:回合开始时抽牌+1§!"
   PRC_cardgame_tide_reduce_draw: "§Y通胀螺旋:回合开始时抽牌-1§!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   PRC_tw_use_jap_tw_defence_tt: "日本已有或将来投资的台湾防务点数每点将给予3点正当性"
   PRC_tw_remove_jap_tw_defence_tt: "日本将不再能投资台湾防务，已投资的点数重新分配到本土"

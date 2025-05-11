@@ -1315,3 +1315,139 @@ PRC_win_tw_war = {
 	}
 	
 }
+
+PRC_decision_dollar_claims_cash_bonus = { ##美元债券变现
+	if = {
+		limit = {
+			check_variable = { news= 1}
+		}
+		#@债务-30B
+		add_to_variable = { debt_var = -60 }
+		#@稳定度-5
+		add_stability = -0.1
+		set_variable = {
+			news= 0
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { news= 0}
+		}
+		#@债务-30B
+		add_to_variable = { debt_var = -30 }
+		#@稳定度-5
+		add_stability = -0.05
+	}
+
+	
+}
+
+PRC_decision_manufacturing_upgrade_fund_bonus = { ##制造业转型升级基金
+	if = {
+		limit = {
+			check_variable = { news= 1}
+		}
+		#@债务+10B
+		add_to_variable = { debt_var = 20 }
+		#@工业发展+3
+		add_to_variable = { industrial_development_var = 0.06 }
+		set_variable = {
+			news= 0
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { news= 0}
+		}
+		#@债务+10B
+		add_to_variable = { debt_var = 10 }
+		#@工业发展+3
+		add_to_variable = { industrial_development_var = 0.03 }
+	}
+
+	
+}
+
+PRC_decision_six_guarantees_stable_bonus = { ##六保六稳
+	if = {
+		limit = {
+			check_variable = { news= 1}
+		}
+		 #@债务+10B
+		 add_to_variable = { debt_var = 20 }
+		 #@贫困率+5
+		 add_to_variable = { poverty_development_var = 0.10 }
+		set_variable = {
+			news= 0
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { news= 0}
+		}
+		 #@债务+10B
+		 add_to_variable = { debt_var = 10 }
+		 #@贫困率+5
+		 add_to_variable = { poverty_development_var = 0.05 }
+	}
+
+	
+}
+
+PRC_decision_issue_special_bonds_bonus = { ##发行特别国债
+	if = {
+		limit = {
+			check_variable = { news= 1}
+		}
+		#@债务-20B
+		add_to_variable = { debt_var = -40 }
+		set_variable = {
+			news= 0
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { news= 0}
+		}
+		#@债务-20B
+		add_to_variable = { debt_var = -20 }
+	}
+
+	
+}
+
+TBR_scripted_random_card = {
+	set_variable = {random_card = 1}
+	meta_effect = {
+		text = {
+			if = {
+				limit = {#如果卡n
+					check_variable = { round_card = [cardnum] }
+					check_variable = { PRC.card[cardnum] = 1 }
+				}
+				set_variable = { PRC.card[cardnum] = 2 }#设定为已经抽取
+				add_to_variable = { cardgame_num_use = -1 }#减少一张剩余抽卡次数
+				if = {
+					limit = {
+						check_variable = { cardgame_num_use > 0 }#检查剩余抽卡次数
+					}
+					country_event = tbr.zzz.3 #开启下一轮抽卡
+				}
+			}
+			else = {#如果第n张卡没抽到，就递归进行第n+1张卡
+				if = {
+					limit = {
+						check_variable = { random_card = 16 }
+					}
+					set_variable = { random_card = 1 } #归1
+				}
+				else = {
+					add_to_variable = {random_card = 1}
+					TBR_scripted_random_card = yes
+				}
+			    
+			}
+		}
+		cardnum = "[?random_card]"
+	}
+}
