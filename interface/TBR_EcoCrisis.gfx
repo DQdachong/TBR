@@ -1,0 +1,32 @@
+spriteTypes = {
+	##背景
+	spriteType = {
+		#这些是背景
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/finance_gui/background/background_out.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+	spriteType = {
+		name = GFX_PRC_TW_LAND_1_O
+		texturefile = "gfx/interface/TWGUI/PRC_TW_LAND_1_O.png"
+	}
+}
