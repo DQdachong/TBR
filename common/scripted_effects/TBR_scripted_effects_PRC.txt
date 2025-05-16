@@ -847,36 +847,29 @@ PRC_cardgame_turn_start = {
 		set_temp_variable = {PRC_cardgame_tide_bad_weight = 0}
 		set_temp_variable = {PRC_cardgame_tide_worst_weight = 0}
 	}
-	random_list = {
+	random_list = { #这里是决定下一轮市场波动！
 		PRC_cardgame_tide_good_weight = {
 			add_to_variable = { PRC_economic_multi_var = 1}
 			activate_mission = PRC_decision_tide_cooperating_enterprises
-		}
-		PRC_cardgame_tide_good_weight = {
 			add_to_temp_variable = { GER_cards_to_draw = 1 }
 			custom_effect_tooltip = PRC_cardgame_tide_extra_draw
-		}
-		PRC_cardgame_tide_good_weight = {
 			set_temp_variable = { PRC_economic_liquidity_var_temp = -6}
 			PRC_cardgame_update_status = yes
+			set_variable = { market_flow = 1}
 		}
 		PRC_cardgame_tide_bad_weight = {
 			activate_mission = PRC_decision_tide_capital_flight
-		}
-		PRC_cardgame_tide_bad_weight = {
 			subtract_from_temp_variable = { GER_cards_to_draw = 1 }
 			custom_effect_tooltip = PRC_cardgame_tide_reduce_draw
-		}
-		PRC_cardgame_tide_bad_weight = {
 			set_variable = { PRC_cardgame_debt_cost_factor = 2}
 			activate_mission = PRC_decision_tide_cost_uncontrol
-		}
-		PRC_cardgame_tide_bad_weight = {
 			set_variable = { PRC_cardgame_pp_cost_factor = 60}
 			activate_mission = PRC_decision_tide_bad_policy
+			set_variable = { market_flow = 2}
 		}
 		PRC_cardgame_tide_worst_weight = {
 			activate_mission = PRC_decision_tide_black_swan
+			set_variable = { market_flow = 3}
 		}
 	}
 	custom_effect_tooltip = PRC_cardgame_draw_tt

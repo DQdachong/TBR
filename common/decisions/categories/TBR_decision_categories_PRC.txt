@@ -8,11 +8,10 @@ PRC_economic_recovery_cat = {
     }
 
     visible = {
-      #has_country_flag = PRC_financial_crisis_started
-      check_variable = { cardgame_start = 1 }
+      always = yes
     }
 
-    scripted_gui = TBR_PRC_finance_GUI
+    scripted_gui = TBR_ecoCrisis
 }
 
 PRC_oil_recovery_cat = {

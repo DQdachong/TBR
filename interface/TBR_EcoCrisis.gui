@@ -107,7 +107,7 @@ guiTypes = {
 			iconType = {
 				name = "stabiblity_full" 
 				position = { x = 0 y = -697 }
-				spriteType = "stabiblity_full"
+				spriteType = "stability_full"
 				alwaystransparent = yes
 			}
 
@@ -155,8 +155,8 @@ guiTypes = {
 	
 			#######################################进度条################
 			iconType = {
-				name = "TBE_market_mass"
-				spriteType = "TBE_market_mass"
+				name = "TBR_market_mass"
+				spriteType = "TBR_market_mass"
 				position = {
 					x = 185
 					y = 150
@@ -165,8 +165,8 @@ guiTypes = {
 			}
 
 			iconType = {
-				name = "TBE_market_stabiblity"
-				spriteType = "TBE_market_stabiblity"
+				name = "TBR_market_stabiblity"
+				spriteType = "TBR_market_stabiblity"
 				position = {
 					x = 185
 					y = 150

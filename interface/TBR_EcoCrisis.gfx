@@ -118,7 +118,7 @@ spriteTypes = {
 ###########进度条##################
 
 	progressbartype = {#市场混乱
-		name = "TBE_market_mass"
+		name = "TBR_market_mass"
 		textureFile1 = "gfx/interface/finance_gui/02_mass_empty.png"
 		textureFile2 = "gfx/interface/finance_gui/02_mass_full.png"
 		size = {
@@ -130,7 +130,7 @@ spriteTypes = {
 	}
 
 	progressbartype = {#市场稳定
-		name = "TBE_market_stabiblity"
+		name = "TBR_market_stabiblity"
 		textureFile1 = "gfx/interface/finance_gui/02_stability_empty.png"
 		textureFile2 = "gfx/interface/finance_gui/02_stability_full.png"
 		size = {
