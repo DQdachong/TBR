@@ -1,84 +1,155 @@
 spriteTypes = {
 	##背景
 	spriteType = {
-		name = background_out
-		texturefile = "TBR/gfx/interface/finance_gui/background/background_out.png"
-	}
-	spriteType = {
-		name = background
-		texturefile = "TBR/gfx/interface/finance_gui/background/background.png"
-	}
-	spriteType = {
-		name = computer_out
-		texturefile = "TBR/gfx/interface/finance_gui/background/computer_out.png"
-	}
-	spriteType = {
-		name = keyborad
-		texturefile = "TBR/gfx/interface/finance_gui/background/keyborad.png"
-	}
-	spriteType = {
-		name = Table
-		texturefile = "TBR/gfx/interface/finance_gui/background/Table.png"
-	}
-	spriteType = {
-		name = Table-2
-		texturefile = "TBR/gfx/interface/finance_gui/background/Table-2.png"
+		name = blow_out
+		texturefile = "gfx/interface/finance_gui/01_blow_out.png"
 	}
 
-	##市场波动
 	spriteType = {
-		name = screen_void
-		texturefile = "TBR/gfx/interface/finance_gui/float/screen_void.png"
-	}
-	spriteType = {
-		name = screen_up
-		texturefile = "TBR/gfx/interface/finance_gui/float/screen_up.png"
-	}
-	spriteType = {
-		name = screen_down
-		texturefile = "TBR/gfx/interface/finance_gui/float/screen_down.png"
-	}
-	spriteType = {
-		name = screen_very_down
-		texturefile = "TBR/gfx/interface/finance_gui/float/screen_very_down.png"
-	}
-	spriteType = {
-		name = screen_float_out
-		texturefile = "TBR/gfx/interface/finance_gui/float/screen_float_out.png"
+		name = computer1_content
+		texturefile = "gfx/interface/finance_gui/01_computer1_content.png"
 	}
 
-	##市场混乱度、稳定度、危机的进度条
 	spriteType = {
-		name = bass_out
-		texturefile = "TBR/gfx/interface/finance_gui/crisis/bass_out.png"
+		name = computer1_out
+		texturefile = "gfx/interface/finance_gui/01_computer1_out.png"
+	}
+
+	spriteType = {
+		name = keyboard
+		texturefile = "gfx/interface/finance_gui/01_keyboard.png"
+	}
+
+	spriteType = {
+		name = screen_out
+		texturefile = "gfx/interface/finance_gui/01_screen_out.png"
+	}
+
+	spriteType = {
+		name = screen
+		texturefile = "gfx/interface/finance_gui/01_screen.png"
+	}
+
+	spriteType = {
+		name = table1
+		texturefile = "gfx/interface/finance_gui/01_table1.png"
+	}
+
+	spriteType = {
+		name = table2
+		texturefile = "gfx/interface/finance_gui/01_table2.png"
+	}
+######################################################
+	spriteType = {
+		name = blow_down
+		texturefile = "gfx/interface/finance_gui/02_blow_down.png"
 	}
 	spriteType = {
-		name = computer_back
-		texturefile = "TBR/gfx/interface/finance_gui/crisis/computer_back.png"
+		name = blow_up
+		texturefile = "gfx/interface/finance_gui/02_blow_up.png"
 	}
+
 	spriteType = {
-		name = computer_empty
-		texturefile = "TBR/gfx/interface/finance_gui/crisis/computer_empty.png"
+		name = blow_verydown
+		texturefile = "gfx/interface/finance_gui/02_blow_verydown.png"
 	}
+
 	spriteType = {
-		name = computer_full
-		texturefile = "TBR/gfx/interface/finance_gui/crisis/computer_full.png"
-	}
-	spriteType = {
-		name = computer_out
-		texturefile = "TBR/gfx/interface/finance_gui/crisis/computer_out.png"
+		name = blow_void
+		texturefile = "gfx/interface/finance_gui/02_blow_void.png"
 	}
 
 	spriteType = {
 		name = mass_empty
-		texturefile = "TBR/gfx/interface/finance_gui/market_mass/mass_empty.png"
+		texturefile = "gfx/interface/finance_gui/02_mass_empty.png"
 	}
+
 	spriteType = {
 		name = mass_full
-		texturefile = "TBR/gfx/interface/finance_gui/market_mass/mass_full.png"
+		texturefile = "gfx/interface/finance_gui/02_mass_full.png"
 	}
+
 	spriteType = {
 		name = mass_out
-		texturefile = "TBR/gfx/interface/finance_gui/market_mass/mass_out.png"
+		texturefile = "gfx/interface/finance_gui/02_mass_out.png"
+	}
+
+	spriteType = {
+		name = stability_empty
+		texturefile = "gfx/interface/finance_gui/02_stability_empty.png"
+	}
+
+	spriteType = {
+		name = stability_full
+		texturefile = "gfx/interface/finance_gui/02_stability_full.png"
+	}
+
+	spriteType = {
+		name = stability_out
+		texturefile = "gfx/interface/finance_gui/02_stability_out.png"
+	}
+###################################################### 
+
+	spriteType = {
+		name = computer2_back
+		texturefile = "gfx/interface/finance_gui/03_computer2_back.png"
+	}
+
+	spriteType = {
+		name = computer2_out
+		texturefile = "gfx/interface/finance_gui/03_computer2_out.png"
+	}
+
+	spriteType = {
+		name = crisis_empty
+		texturefile = "gfx/interface/finance_gui/03_crisis_empty.png"
+	}
+
+	spriteType = {
+		name = crisis_full
+		texturefile = "gfx/interface/finance_gui/03_crisis_full.png"
+	}
+
+	spriteType = {
+		name = cisis_out
+		texturefile = "gfx/interface/finance_gui/03_crisis_out.png"
+	}
+
+###########进度条##################
+
+	progressbartype = {#市场混乱
+		name = "TBE_market_mass"
+		textureFile1 = "gfx/interface/finance_gui/02_mass_empty.png"
+		textureFile2 = "gfx/interface/finance_gui/02_mass_full.png"
+		size = {
+			x = 155
+			y = 159
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+
+	progressbartype = {#市场稳定
+		name = "TBE_market_stabiblity"
+		textureFile1 = "gfx/interface/finance_gui/02_stability_empty.png"
+		textureFile2 = "gfx/interface/finance_gui/02_stability_full.png"
+		size = {
+			x = 155
+			y = 159
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = no
+	}
+
+	progressbartype = {#危机影响
+		name = "TBR_eco_crisis"
+		textureFile1 = "gfx/interface/finance_gui/03_crisis_empty.png"
+		textureFile2 = "gfx/interface/finance_gui/03_crisis_full.png"
+		size = {
+			x = 155
+			y = 159
+		}
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
 	}
 }

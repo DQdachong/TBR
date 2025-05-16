@@ -1,25 +1,27 @@
 scripted_gui = {
-	TBR_PRC_finance_GUI = {
+	TFR_PRC_military_gui = {
 		context_type = decision_category
-		window_name = "TBR_PRC_finance_GUI"
-		dirty = TBR_PRC_finance_GUI_dirty
-		visible = {
-			tag = PRC
-		}
+		window_name = "TBR_ecoCrisis"
 		properties = {
-			GFX_PRC_finance_chaos_prog = {
-				frame = PRC_economic_liquidity_var
+			TBE_market_mass = {#市场稳定
+				frame = E_var
 			}
-			GFX_PRC_finance_stable_prog = {
-				frame = PRC_economic_stability_var
+			TBE_market_mass = {#市场混乱
+				frame = F_var
 			}
-			GFX_PRC_finance_crisis_prog = {
-				frame = PRC_economic_crisis_var
+			TBE_market_mass = {#危机影响
+				frame = D_var
 			}
 		}
-
 		triggers = {
+			#陆军
+			military_iron_great_wall_visible = {
+				NOT = {
+					has_completed_focus = PRC_iron_great_wall
+				}
+			}
 			
+
 		}
-    }
-}
+	}
+}	
