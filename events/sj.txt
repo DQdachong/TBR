@@ -8,8 +8,8 @@ news_event = {
     picture = GFX_event_china_755
     major = no
     trigger = {
-        date >2020.1.2
-        date <2020.1.4
+        date >2021.3.31
+        date <2021.4.2
     }
     
 	option = {
@@ -17,5 +17,21 @@ news_event = {
         set_country_flag = PRC_manage_financial_crisis_started
         focus_unlock = yes
         mark_focus_tree_layout_dirty = yes
+	}
+}
+
+news_event = {
+    id = china.1010
+    title = china.1010.t
+    desc = china.1010.d
+    picture = GFX_event_china_755
+    major = no
+    trigger = {
+        date >2022.3.9
+        date <2022.3.11
+    }
+    
+	option = {
+        name = china.1010.a
 	}
 }
