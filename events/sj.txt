@@ -8,8 +8,8 @@ news_event = {
     picture = GFX_event_china_755
     major = no
     trigger = {
-        date >2020.1.2
-        date <2020.1.4
+        date >2021.3.31
+        date <2021.4.2
     }
     
 	option = {
@@ -17,5 +17,133 @@ news_event = {
         set_country_flag = PRC_manage_financial_crisis_started
         focus_unlock = yes
         mark_focus_tree_layout_dirty = yes
+	}
+}
+
+news_event = {
+    id = china.10010
+    title = china.10010.t
+    desc = china.10010.d
+    picture = GFX_event_china_10010
+    major = no
+    trigger = {
+        date >2022.3.9
+        date <2022.3.11
+    }
+    
+	option = {
+        name = china.10010.a
+	}
+}
+
+news_event = {
+    id = china.10011
+    title = china.10011.t
+    desc = china.10011.d
+    picture = GFX_event_china_10011
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10011.a
+	}
+}
+
+news_event = {
+    id = china.10012
+    title = china.10012.t
+    desc = china.10012.d
+    picture = GFX_event_china_10013
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10012.a
+	}
+}
+
+news_event = {
+    id = china.10013
+    title = china.10013.t
+    desc = china.10013.d
+    picture = GFX_event_china_10013
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10013.a
+	}
+}
+
+news_event = {
+    id = china.10014
+    title = china.10014.t
+    desc = china.10014.d
+    picture = GFX_event_china_10014
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10014.a
+	}
+}
+
+news_event = {
+    id = china.10015
+    title = china.10015.t
+    desc = china.10015.d
+    picture = GFX_event_china_10015
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10015.a
+	}
+}
+
+news_event = {
+    id = china.10016
+    title = china.10016.t
+    desc = china.10016.d
+    picture = GFX_event_china_10016
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10016.a
+	}
+}
+
+news_event = {
+    id = china.10017
+    title = china.10017.t
+    desc = china.10017.d
+    picture = GFX_event_china_10017
+    major = no
+    trigger = {
+        date >2022.9.30
+        date <2022.10.2
+    }
+    
+	option = {
+        name = china.10017.a
 	}
 }
