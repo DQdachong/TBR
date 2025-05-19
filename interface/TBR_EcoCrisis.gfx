@@ -122,8 +122,8 @@ spriteTypes = {
 		textureFile1 = "gfx/interface/finance_gui/02_mass_empty.png"
 		textureFile2 = "gfx/interface/finance_gui/02_mass_full.png"
 		size = {
-			x = 155
-			y = 159
+			x = 30
+			y = 115
 		}
 		effectFile = "gfx/FX/progress.lua"
 		horizontal = no
@@ -134,8 +134,8 @@ spriteTypes = {
 		textureFile1 = "gfx/interface/finance_gui/02_stability_empty.png"
 		textureFile2 = "gfx/interface/finance_gui/02_stability_full.png"
 		size = {
-			x = 155
-			y = 159
+			x = 30
+			y = 115
 		}
 		effectFile = "gfx/FX/progress.lua"
 		horizontal = no
@@ -146,8 +146,8 @@ spriteTypes = {
 		textureFile1 = "gfx/interface/finance_gui/03_crisis_empty.png"
 		textureFile2 = "gfx/interface/finance_gui/03_crisis_full.png"
 		size = {
-			x = 155
-			y = 159
+			x = 100
+			y = 25
 		}
 		effectFile = "gfx/FX/progress.lua"
 		horizontal = yes

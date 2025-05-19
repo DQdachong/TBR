@@ -2,53 +2,54 @@ guiTypes = {
 		containerWindowType = {
 			name = "TBR_ecoCrisis"
 			clipping = no
-			
-			iconType = {
-				name = "blow_out" 
-				position = { x = 0 y = -697 }
-				spriteType = "blow_out"
-				alwaystransparent = yes
-			}
-			iconType = {
-				name = "computer1_content" 
-				position = { x = 0 y = -697 }
-				spriteType = "computer1_content"
-				alwaystransparent = yes
-			}
-			iconType = {
-				name = "computer1_out" 
-				position = { x = 0 y = -697 }
-				spriteType = "computer1_out"
-				alwaystransparent = yes
-			}
-			iconType = {
-				name = "keyboard" 
-				position = { x = 0 y = -697 }
-				spriteType = "keyboard"
-				alwaystransparent = yes
-			}
 			iconType = {
 				name = "screen_out" 
-				position = { x = 0 y = -697 }
+				position = { x = 0 y = 10 }
 				spriteType = "screen_out"
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "screen" 
-				position = { x = 0 y = -697 }
+				position = { x = 0 y = 10 }
 				spriteType = "screen"
 				alwaystransparent = yes
 			}
+			iconType = {
+				name = "keyboard" 
+				position = { x = 220 y = 220 }
+				spriteType = "keyboard"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "blow_out" 
+				position = { x = 80 y = 20 }
+				spriteType = "blow_out"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "computer1_content" 
+				position = { x = 220 y = 150 }
+				spriteType = "computer1_content"
+				alwaystransparent = yes
+			}
+			iconType = {
+				name = "computer1_out" 
+				position = { x = 220 y = 150 }
+				spriteType = "computer1_out"
+				alwaystransparent = yes
+			}
+			
+			
 			
 			iconType = {
 				name = "table1" 
-				position = { x = 0 y = -697 }
+				position = { x = 0 y = 150 }
 				spriteType = "table1"
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "table2" 
-				position = { x = 0 y = -697 }
+				position = { x = 0 y = 150 }
 				spriteType = "table2"
 				alwaystransparent = yes
 			}
@@ -56,78 +57,78 @@ guiTypes = {
 			#######################################
 			iconType = {
 				name = "blow_down" 
-				position = { x = 0 y = -697 }
+				position = { x = 186 y = 63 }
 				spriteType = "blow_down"
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "blow_up" 
-				position = { x = 0 y = -697 }
+				position = { x = 186 y = 63 }
 				spriteType = "blow_up"
 				alwaystransparent = yes
 			}
 			iconType = {
 				name = "blow_verydown" 
-				position = { x = 0 y = -697 }
+				position = { x = 186 y = 63 }
 				spriteType = "blow_verydown"
 				alwaystransparent = yes
 			}
 	
 			iconType = {
 				name = "blow_void" 
-				position = { x = 0 y = -697 }
+				position = { x = 186 y = 63 }
 				spriteType = "blow_void"
 				alwaystransparent = yes
 			}
-			iconType = {
-				name = "mass_empty" 
-				position = { x = 0 y = -697 }
-				spriteType = "mass_empty"
-				alwaystransparent = yes
-			}
-			iconType = {
-				name = "mass_full" 
-				position = { x = 0 y = -697 }
-				spriteType = "mass_full"
-				alwaystransparent = yes
-			}
+			#iconType = {
+			#	name = "mass_empty" 
+			#	position = { x = 0 y = -697 }
+			#	spriteType = "mass_empty"
+			#	alwaystransparent = yes
+			#}
+			#iconType = {
+			#	name = "mass_full" 
+			#	position = { x = 0 y = -697 }
+			#	spriteType = "mass_full"
+			#	alwaystransparent = yes
+			#}
 			iconType = {
 				name = "mass_out" 
-				position = { x = 0 y = -697 }
+				position = { x = 342 y = 9 }
 				spriteType = "mass_out"
 				alwaystransparent = yes
 			}
-			iconType = {
-				name = "stability_empty" 
-				position = { x = 0 y = -697 }
-				spriteType = "stability_empty"
-				alwaystransparent = yes
-			}
+			#iconType = {
+			#	name = "stability_empty" 
+			#	position = { x = 0 y = -697 }
+			#	spriteType = "stability_empty"
+			#	alwaystransparent = yes
+			#}
 
-			iconType = {
-				name = "stabiblity_full" 
-				position = { x = 0 y = -697 }
-				spriteType = "stability_full"
-				alwaystransparent = yes
-			}
+			#iconType = {
+			#	name = "stabiblity_full" 
+			#	position = { x = 0 y = -697 }
+			#	spriteType = "stability_full"
+			#	alwaystransparent = yes
+			#}
 
 			iconType = {
 				name = "stability_out" 
-				position = { x = 0 y = -697 }
+				position = { x = 254 y = 9 }
 				spriteType = "stability_out"
 				alwaystransparent = yes
 			}
 #############################################################
 			iconType = {
 				name = "computer2_back" 
-				position = { x = 0 y = -697 }
+				position = { x = 310 y = 150 }
 				spriteType = "computer2_back"
 				alwaystransparent = yes
 			}
 
 			iconType = {
 				name = "computer2_out" 
-				position = { x = 0 y = -697 }
+				position = { x = 310 y = 150 }
 				spriteType = "computer2_out"
 				alwaystransparent = yes
 			}
@@ -148,7 +149,7 @@ guiTypes = {
 
 			iconType = {
 				name = "cisis_out" 
-				position = { x = 0 y = -697 }
+				position = { x = 310 y = 150 }
 				spriteType = "cisis_out"
 				alwaystransparent = yes
 			}
@@ -158,8 +159,8 @@ guiTypes = {
 				name = "TBR_market_mass"
 				spriteType = "TBR_market_mass"
 				position = {
-					x = 185
-					y = 150
+					x = 342
+					y = 20
 				}
 				pdx_tooltip = TBE_market_mass_tt
 			}
@@ -168,8 +169,8 @@ guiTypes = {
 				name = "TBR_market_stabiblity"
 				spriteType = "TBR_market_stabiblity"
 				position = {
-					x = 185
-					y = 150
+					x = 254
+					y = 20
 				}
 				pdx_tooltip = TBE_market_stabiblity_tt
 			}
@@ -178,10 +179,12 @@ guiTypes = {
 				name = "TBR_eco_crisis"
 				spriteType = "TBR_eco_crisis"
 				position = {
-					x = 185
-					y = 150
+					x = 310
+					y = 175
 				}
 				pdx_tooltip = TBR_eco_crisis_tt
 			}
+
+			
 		}
 	}
