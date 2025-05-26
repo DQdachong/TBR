@@ -1715,6 +1715,211 @@ spriteTypes = {
 	    }
 	    legacy_lazy_load = no
 	}
+	#二十大
+	SpriteType = {
+	    name = "GFX_focus_PRC_20th_conference"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_20th_conference.png"
+	}
+	SpriteType = {
+	    name = "GFX_focus_PRC_20th_conference_shine"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_20th_conference.png"
+	    effectFile = "gfx/FX/buttonstate.lua"
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_20th_conference.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = -90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_20th_conference.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = 90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	    legacy_lazy_load = no
+	}
+
+	#中日韩外长会议
+	SpriteType = {
+	    name = "GFX_focus_PRC_foreign_meeting"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_foreign_meeting.png"
+	}
+	SpriteType = {
+	    name = "GFX_focus_PRC_foreign_meeting_shine"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_foreign_meeting.png"
+	    effectFile = "gfx/FX/buttonstate.lua"
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_foreign_meeting.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = -90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_foreign_meeting.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = 90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	    legacy_lazy_load = no
+	}
+
+	#美国内战
+	SpriteType = {
+	    name = "GFX_focus_PRC_USA_civilwar"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_USA_civilware.png"
+	}
+	SpriteType = {
+	    name = "GFX_focus_PRC_USA_civilwar_shine"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_USA_civilwar.png"
+	    effectFile = "gfx/FX/buttonstate.lua"
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_USA_civilwar.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = -90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_USA_civilwar.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = 90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	    legacy_lazy_load = no
+	}
+
+	#南海对峙
+	SpriteType = {
+	    name = "GFX_focus_PRC_2th_nanhai_conflict"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_2th_nanhai_conflict.png"
+	}
+	SpriteType = {
+	    name = "GFX_focus_PRC_2th_nanhai_conflict_shine"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_2th_nanhai_conflict.png"
+	    effectFile = "gfx/FX/buttonstate.lua"
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_2th_nanhai_conflict.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = -90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_2th_nanhai_conflict.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = 90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	    legacy_lazy_load = no
+	}
+
+	#联合利剑
+	SpriteType = {
+	    name = "GFX_focus_PRC_united_sword"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_united_sword.png"
+	}
+	SpriteType = {
+	    name = "GFX_focus_PRC_united_sword_shine"
+	    texturefile = "gfx/interface/goals/PRC/focus_PRC_united_sword.png"
+	    effectFile = "gfx/FX/buttonstate.lua"
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_energy_pause.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = -90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	
+	    animation = {
+	        animationmaskfile = "gfx/interface/goals/PRC/focus_PRC_united_sword.png"
+	        animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+	        animationrotation = 90.0
+	        animationlooping = no
+	        animationtime = 0.75
+	        animationdelay = 0
+	        animationblendmode = "add"
+	        animationtype = "scrolling"
+	        animationrotationoffset = { x = 0.0 y = 0.0 }
+	        animationtexturescale = { x = 1.0 y = 1.0 }
+	    }
+	    legacy_lazy_load = no
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	SpriteType = {
 	    name = "GFX_event_china_701"   
 	    texturefile = "gfx/event_pictures/china_701.png"    

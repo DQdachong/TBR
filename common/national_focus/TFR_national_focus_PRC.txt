@@ -572,7 +572,8 @@ focus_tree = {
 	    y = 0
 	    cost = 1
 		allow_branch = {
-			has_country_flag = PRC_manage_financial_crisis_started
+			
+			#has_country_flag = PRC_manage_financial_crisis_started
 		}
 
 	    completion_reward = {
@@ -1107,7 +1108,7 @@ focus_tree = {
 	    cost = 1
 
 		allow_branch = {
-			has_country_flag = PRC_oil_crisis_started
+			#has_country_flag = PRC_oil_crisis_started
 		}
 
 	    completion_reward = {
@@ -1706,6 +1707,129 @@ focus_tree = {
 			PRC_add_influence_cen = yes
 			add_political_power = 75
 			PRC_decrease_corrupt_bureaucracy = yes
+	    }
+	}
+
+	#@二十大
+	focus = {
+	    id = PRC_20th_conference
+	    icon = GFX_focus_PRC_20th_conference
+	    x = 9
+	    y = 1
+	    cost = 1
+	    relative_position_id = PRC_energy_pause
+	    prerequisite = {
+		    focus = PRC_energy_pause
+		}
+		prerequisite = {
+		    focus = PRC_covid_return_to_normalcy
+		}
+		prerequisite = {
+		    focus = PRC_end_financial_crisis
+		}
+		prerequisite = {
+		    focus = PRC_foreign_meeting
+		}
+		prerequisite = {
+		    focus = PRC_2th_nanhai_conflict
+		}
+		prerequisite = {
+		    focus = PRC_USA_civilwar
+		}
+		prerequisite = {
+		    focus = PRC_united_sword
+		}
+
+	    completion_reward = {
+	    	#@威权社会主义+5
+	        add_popularity = {
+				ideology = communist
+				popularity = 0.05
+			}
+			#@建制派+5
+			set_temp_variable = { 
+				var = PRC_influence_cen_var_temp
+				value = 0.06
+			}
+			PRC_add_influence_cen = yes
+			add_political_power = 75
+			PRC_decrease_corrupt_bureaucracy = yes
+	    }
+	}
+
+	#@中日韩外长会议
+	focus = {
+	    id = PRC_foreign_meeting
+	    icon = GFX_focus_PRC_foreign_meeting
+		allow_branch = {
+			
+		}
+	    x = 6
+	    y = 6
+	    cost = 1
+	    completion_reward = {
+			add_political_power = 50
+			
+	    }
+	}
+
+	#@第二次南海对峙
+	focus = {
+	    id = PRC_2th_nanhai_conflict
+	    icon = GFX_focus_PRC_2th_nanhai_conflict
+		allow_branch = {
+			
+		}
+	    x = 8
+	    y = 6
+	    cost = 1
+	    completion_reward = {
+			add_political_power = 50
+			add_named_threat = {
+				threat = 5
+				name = nanhai_conflict 
+			}
+			add_war_support = 0.1
+	    }
+	}
+
+	#@美国内战
+	focus = {
+	    id = PRC_USA_civilwar
+	    icon = GFX_focus_PRC_USA_civilwar
+		allow_branch = {
+			
+		}
+	    x = 15
+	    y = 6
+	    cost = 1
+	    completion_reward = {
+			add_political_power = 50
+			add_named_threat = {
+				threat = 5
+				name = civil_war 
+			}
+			add_stability = -0.1
+			add_war_support = 0.1
+	    }
+	}
+
+	#@联合利剑演习
+	focus = {
+	    id = PRC_united_sword
+	    icon = GFX_focus_PRC_united_sword
+		allow_branch = {
+			
+		}
+	    x = 17
+	    y = 6
+	    cost = 1
+	    completion_reward = {
+			add_political_power = 50
+			add_command_power = 50
+			navy_experience = 50
+			air_experience = 50
+			add_war_support = 0.05
 	    }
 	}
 }
