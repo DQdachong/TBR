@@ -486,7 +486,7 @@ country_event = {
 }
 country_event = {#第十次中日韩外长会议
 	id = china.7883
-	titile = china.7883.t
+	title = china.7883.t
 	desc = china.7883.d
 	picture = GFX_event_china_7883
 	trigger = {#到时间自动触发
@@ -506,7 +506,7 @@ country_event = {#第十次中日韩外长会议
 
 country_event = {#第二次南海对峙开始
 	id = china.7884
-	titile = china.7884.t
+	title = china.7884.t
 	desc = china.7884.d
 	picture = GFX_event_china_7884
 	trigger = {#到时间自动触发
@@ -521,13 +521,13 @@ country_event = {#第二次南海对峙开始
 	}
 }
 
-country_event = {#第二次南海对峙落幕
+country_event = {#第二次南海对峙的后果
 	id = china.7885
-	titile = china.7885.t
+	title = china.7885.t
 	desc = china.7885.d
 	picture = GFX_event_china_7885
 	trigger = {
-		date > 2020.3.26
+		date > 2020.3.28
 	}
 	fire_only_once = yes
 	immediate = {
@@ -544,11 +544,11 @@ country_event = {#第二次南海对峙落幕
 
 country_event = {#美国内战全面爆发
 	id = china.7886
-	titile = china.7886.t
+	title = china.7886.t
 	desc = china.7886.d
 	picture = GFX_event_china_7886
 	trigger = {
-		date > 2020.3.26
+		date > 2022.1.1
 	}
 	fire_only_once = yes
 	immediate = {
@@ -560,5 +560,26 @@ country_event = {#美国内战全面爆发
 
 	option = {
 	    name = china.7886.a
+	}
+}
+
+country_event = {#联合利剑演习
+	id = china.7887
+	title = china.7887.t
+	desc = china.7887.d
+	picture = GFX_event_china_7887
+	trigger = {
+		date > 2022.3.21
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			complete_national_focus = PRC_united_sword
+		}
+		
+	}
+
+	option = {
+	    name = china.7887.a
 	}
 }

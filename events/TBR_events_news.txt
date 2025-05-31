@@ -26,3 +26,54 @@ news_event = {
 		}
 	}
 }
+
+#中日韩外长会议
+news_event = {
+	id = news.702
+	title = news.702.t
+	desc = news.702.d
+	picture = GFX_Korean_Civil_War
+	major = yes
+	trigger = {#到时间自动触发
+		date > 2020.6.10
+	}
+	fire_only_once = yes
+	option = {
+		name = news.702.a
+       
+	}
+}
+
+#南海对峙
+news_event = {
+	id = news.703
+	title = news.703.t
+	desc = news.703.d
+	picture = GFX_Korean_Civil_War
+	major = yes
+	trigger = {#到时间自动触发
+		date > 2020.3.21
+	}
+	fire_only_once = yes
+	option = {
+		name = news.703.a
+       
+	}
+}
+
+#南海对峙落幕
+news_event = {
+	id = news.704
+	title = news.704.t
+	desc = news.704.d
+	picture = GFX_Korean_Civil_War
+	major = yes
+	trigger = {#到时间自动触发
+		date > 2020.3.26
+	}
+	fire_only_once = yes
+	option = {
+		name = news.704.a
+       
+	}
+}

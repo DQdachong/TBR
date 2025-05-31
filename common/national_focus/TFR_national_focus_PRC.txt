@@ -1820,7 +1820,7 @@ focus_tree = {
 	    id = PRC_united_sword
 	    icon = GFX_focus_PRC_united_sword
 		allow_branch = {
-			
+			always = yes
 		}
 	    x = 17
 	    y = 6
