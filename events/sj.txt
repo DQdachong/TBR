@@ -7,11 +7,7 @@ news_event = {
     desc = china.755.d
     picture = GFX_event_china_755
     major = no
-    trigger = {
-        date >2021.3.31
-        date <2021.4.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.755.a
         set_country_flag = PRC_manage_financial_crisis_started
@@ -20,19 +16,14 @@ news_event = {
 	}
 }
 
-news_event = {
-    id = china.10010
-    title = china.10010.t
-    desc = china.10010.d
-    picture = GFX_event_china_10010
-    major = no
-    trigger = {
-        date >2022.3.9
-        date <2022.3.11
-    }
-    
+country_event = {
+	id = china.10010
+	title = china.10010.t
+	desc = china.10010.d
+	picture = GFX_event_china_10010
+	is_triggered_only = yes
 	option = {
-        name = china.10010.a
+		name = china.10010.a
 	}
 }
 
@@ -42,11 +33,7 @@ news_event = {
     desc = china.10011.d
     picture = GFX_event_china_10011
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.10011.a
 	}
@@ -56,13 +43,9 @@ news_event = {
     id = china.10012
     title = china.10012.t
     desc = china.10012.d
-    picture = GFX_event_china_10013
+    picture = GFX_event_china_10012
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.10012.a
 	}
@@ -74,11 +57,7 @@ news_event = {
     desc = china.10013.d
     picture = GFX_event_china_10013
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.10013.a
 	}
@@ -90,11 +69,7 @@ news_event = {
     desc = china.10014.d
     picture = GFX_event_china_10014
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.10014.a
 	}
@@ -106,44 +81,414 @@ news_event = {
     desc = china.10015.d
     picture = GFX_event_china_10015
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
         name = china.10015.a
 	}
 }
 
-news_event = {
-    id = china.10016
-    title = china.10016.t
-    desc = china.10016.d
-    picture = GFX_event_china_10016
-    major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+country_event = {
+	id = china.10016
+	title = china.10016.t
+	desc = china.10016.d
+	picture = GFX_event_china_10016
+	is_triggered_only = yes
 	option = {
-        name = china.10016.a
+		name = china.10016.a
+	}
+}
+
+country_event = {
+	id = china.10017
+	title = china.10017.t
+	desc = china.10017.d
+	picture = GFX_event_china_10017
+	is_triggered_only = yes
+	option = {
+		name = china.10017.a
 	}
 }
 
 news_event = {
-    id = china.10017
-    title = china.10017.t
-    desc = china.10017.d
-    picture = GFX_event_china_10017
+    id = china.10018
+    title = china.10018.t
+    desc = china.10018.d
+    picture = GFX_event_china_10018
     major = no
-    trigger = {
-        date >2022.9.30
-        date <2022.10.2
-    }
-    
+    is_triggered_only = yes
 	option = {
-        name = china.10017.a
+        name = china.10018.a
+	}
+}
+
+news_event = {
+    id = china.10019
+    title = china.10019.t
+    desc = china.10019.d
+    picture = GFX_event_china_10019
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10019.a
+	}
+}
+
+news_event = {
+    id = china.10020
+    title = china.10020.t
+    desc = china.10020.d
+    picture = GFX_event_china_10020
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10020.a
+	}
+}
+
+news_event = {
+    id = china.10021
+    title = china.10021.t
+    desc = china.10021.d
+    picture = GFX_event_china_10021
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10021.a
+	}
+}
+
+news_event = {
+    id = china.10022
+    title = china.10022.t
+    desc = china.10022.d
+    picture = GFX_event_china_10022
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10022.a
+	}
+}
+
+country_event = {
+    id = china.10023
+    title = china.10023.t
+    desc = china.10023.d
+    picture = GFX_event_china_10023
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10023.a
+	}
+}
+
+news_event = {
+    id = china.10024
+    title = china.10024.t
+    desc = china.10024.d
+    picture = GFX_event_china_10024
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10024.a
+	}
+}
+
+news_event = {
+    id = china.10025
+    title = china.10025.t
+    desc = china.10025.d
+    picture = GFX_event_china_10025
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10025.a
+	}
+}
+
+country_event = {
+    id = china.10026
+    title = china.10026.t
+    desc = china.10026.d
+    picture = GFX_event_china_10026
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10026.a
+	}
+}
+
+news_event = {
+    id = china.10027
+    title = china.10027.t
+    desc = china.10027.d
+    picture = GFX_event_china_10027
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10027.a
+	}
+}
+
+country_event = {
+    id = china.10028
+    title = china.10028.t
+    desc = china.10028.d
+    picture = GFX_event_china_10028
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10028.a
+	}
+}
+
+country_event = {
+    id = china.10029
+    title = china.10029.t
+    desc = china.10029.d
+    picture = GFX_event_china_10029
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10029.a
+	}
+}
+
+country_event = {
+    id = china.10030
+    title = china.10030.t
+    desc = china.10030.d
+    picture = GFX_event_china_10030
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10030.a
+	}
+}
+
+news_event = {
+    id = china.10031
+    title = china.10031.t
+    desc = china.10031.d
+    picture = GFX_event_china_10031
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10031.a
+	}
+}
+
+country_event = {
+    id = china.10032
+    title = china.10032.t
+    desc = china.10032.d
+    picture = GFX_event_china_10032
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10032.a
+	}
+}
+
+country_event = {
+    id = china.10033
+    title = china.10033.t
+    desc = china.10033.d
+    picture = GFX_event_china_10033
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10033.a
+	}
+}
+
+country_event = {
+    id = china.10034
+    title = china.10034.t
+    desc = china.10034.d
+    picture = GFX_event_china_10034
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10034.a
+	}
+}
+
+country_event = {
+    id = china.10035
+    title = china.10035.t
+    desc = china.10035.d
+    picture = GFX_event_china_10035
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10035.a
+	}
+}
+
+news_event = {
+    id = china.10036
+    title = china.10036.t
+    desc = china.10036.d
+    picture = GFX_event_china_10036
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10036.a
+	}
+}
+
+news_event = {
+    id = china.10037
+    title = china.10037.t
+    desc = china.10037.d
+    picture = GFX_event_china_10037
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10037.a
+	}
+}
+
+country_event = {
+    id = china.10038
+    title = china.10038.t
+    desc = china.10038.d
+    picture = GFX_event_china_10038
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10038.a
+	}
+}
+
+news_event = {
+    id = china.10039
+    title = china.10039.t
+    desc = china.10039.d
+    picture = GFX_event_china_10039
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10039.a
+	}
+}
+
+country_event = {
+    id = china.10040
+    title = china.10040.t
+    desc = china.10040.d
+    picture = GFX_event_china_10040
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10040.a
+	}
+}
+
+country_event = {
+    id = china.10041
+    title = china.10041.t
+    desc = china.10041.d
+    picture = GFX_event_china_10041
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10041.a
+	}
+}
+
+country_event = {
+    id = china.10042
+    title = china.10042.t
+    desc = china.10042.d
+    picture = GFX_event_china_10042
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10042.a
+	}
+}
+
+news_event = {
+    id = china.10043
+    title = china.10043.t
+    desc = china.10043.d
+    picture = GFX_event_china_10043
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10043.a
+	}
+}
+
+news_event = {
+    id = china.10044
+    title = china.10044.t
+    desc = china.10044.d
+    picture = GFX_event_china_10044
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10044.a
+	}
+}
+
+country_event = {
+    id = china.10045
+    title = china.10045.t
+    desc = china.10045.d
+    picture = GFX_event_china_10045
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10045.a
+	}
+}
+
+news_event = {
+    id = china.10046
+    title = china.10046.t
+    desc = china.10046.d
+    picture = GFX_event_china_10046
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10046.a
+	}
+}
+
+news_event = {
+    id = china.10047
+    title = china.10047.t
+    desc = china.10047.d
+    picture = GFX_event_china_10047
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10047.a
+	}
+}
+
+country_event = {
+    id = china.10048
+    title = china.10048.t
+    desc = china.10048.d
+    picture = GFX_event_china_10048
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10048.a
+	}
+}
+
+country_event = {
+    id = china.10049
+    title = china.10049.t
+    desc = china.10049.d
+    picture = GFX_event_china_10049
+    major = no
+    is_triggered_only = yes
+	option = {
+        name = china.10049.a
 	}
 }
