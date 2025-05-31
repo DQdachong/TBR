@@ -1762,7 +1762,7 @@ focus_tree = {
 	    id = PRC_foreign_meeting
 	    icon = GFX_focus_PRC_foreign_meeting
 		allow_branch = {
-			
+			always = yes
 		}
 	    x = 6
 	    y = 6
@@ -1778,8 +1778,9 @@ focus_tree = {
 	    id = PRC_2th_nanhai_conflict
 	    icon = GFX_focus_PRC_2th_nanhai_conflict
 		allow_branch = {
-			
+			always = yes
 		}
+		
 	    x = 8
 	    y = 6
 	    cost = 1
@@ -1798,7 +1799,7 @@ focus_tree = {
 	    id = PRC_USA_civilwar
 	    icon = GFX_focus_PRC_USA_civilwar
 		allow_branch = {
-			
+			always = yes
 		}
 	    x = 15
 	    y = 6

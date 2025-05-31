@@ -484,3 +484,81 @@ country_event = {
 	    name = china.7882.a
 	}
 }
+country_event = {#第十次中日韩外长会议
+	id = china.7883
+	titile = china.7883.t
+	desc = china.7883.d
+	picture = GFX_event_china_7883
+	trigger = {#到时间自动触发
+		date > 2020.6.10
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			complete_national_focus = PRC_foreign_meeting
+		}
+	}
+
+	option = {
+	    name = china.7883.a
+	}
+}
+
+country_event = {#第二次南海对峙开始
+	id = china.7884
+	titile = china.7884.t
+	desc = china.7884.d
+	picture = GFX_event_china_7884
+	trigger = {#到时间自动触发
+		date > 2020.3.21
+	}
+	fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+	    name = china.7884.a
+	}
+}
+
+country_event = {#第二次南海对峙落幕
+	id = china.7885
+	titile = china.7885.t
+	desc = china.7885.d
+	picture = GFX_event_china_7885
+	trigger = {
+		date > 2020.3.26
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			complete_national_focus = PRC_2th_nanhai_conflict
+		}
+		
+	}
+
+	option = {
+	    name = china.7885.a
+	}
+}
+
+country_event = {#美国内战全面爆发
+	id = china.7886
+	titile = china.7886.t
+	desc = china.7886.d
+	picture = GFX_event_china_7886
+	trigger = {
+		date > 2020.3.26
+	}
+	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			complete_national_focus = PRC_USA_civilwar
+		}
+		
+	}
+
+	option = {
+	    name = china.7886.a
+	}
+}
