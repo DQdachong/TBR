@@ -8,7 +8,7 @@ PRC_economic_recovery_cat = {
     }
 
     visible = {
-      always = yes
+      check_variable = { cardgame_start = 1 }
     }
 
     scripted_gui = TBR_ecoCrisis
