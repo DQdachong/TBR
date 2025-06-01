@@ -577,7 +577,7 @@ focus_tree = {
 		}
 
 	    completion_reward = {
-			PRC_cardgame_init = yes
+			
 			#@触发事件“2020金融危机”
 			country_event = {
 				id = china.730

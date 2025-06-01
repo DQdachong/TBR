@@ -6433,7 +6433,11 @@ news_event = {
                 limit = {
                     tag = PRC
                 }
-                start_oil_crisis = yes
+                PRC_cardgame_init = yes
+				set_variable = {
+					cardgame_start = 1
+				}
+
             }
 			else_if = {
 				limit = {
